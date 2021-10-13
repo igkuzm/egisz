@@ -41,7 +41,7 @@ cJSON *json_from_egisz_ssl_connector_answer(char *method, int argc, char *argv[]
 	}
 
 	//printf("HEADER: %s\n", answer->header);
-	//printf("BODY: %s\n", answer->body);
+	printf("BODY: %s\n", answer->body);
 	
 	cJSON *json = cJSON_Parse(answer->body);
 	//if (json == NULL) { //get answer string
