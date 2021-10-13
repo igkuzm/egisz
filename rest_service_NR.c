@@ -51,7 +51,7 @@ cJSON *json_from_egisz_ssl_connector_answer(char *method, int argc, char *argv[]
 			//json = cJSON_Parse(answer_str);
 		//}
 	//}
-	//egisz_ssl_connector_answer_free(answer);
+	egisz_ssl_connector_answer_free(answer);
 	return json;
 }
 
