@@ -44,13 +44,13 @@ cJSON *json_from_egisz_ssl_connector_answer(char *method, int argc, char *argv[]
 	//printf("BODY: %s\n", answer->body);
 	
 	cJSON *json = cJSON_Parse(answer->body);
-	if (json == NULL) { //get answer string
-		if (answer->len_body > 0) {
-			char answer_str[answer->len_body + 2];
-			sprintf(answer_str, "\"%s\"", answer->body);	
-			json = cJSON_Parse(answer_str);
-		}
-	}
+	//if (json == NULL) { //get answer string
+		//if (answer->len_body > 0) {
+			//char answer_str[answer->len_body + 2];
+			//sprintf(answer_str, "\"%s\"", answer->body);	
+			//json = cJSON_Parse(answer_str);
+		//}
+	//}
 	egisz_ssl_connector_answer_free(answer);
 	return json;
 }
