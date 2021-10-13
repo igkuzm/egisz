@@ -56,12 +56,12 @@ cJSON *json_from_egisz_ssl_connector_answer(char *method, int argc, char *argv[]
 }
 
 ///////////////////
-cJSON *egisz_refs_list(){
+cJSON *egisz_rest_refs_list(){
 	char *method = "GET /rest/refs/list";
 	return json_from_egisz_ssl_connector_answer(method, 0, NULL);
 }
 
-cJSON *egisz_refs_parts(int id){
+cJSON *egisz_rest_refs_parts(int id){
 	char *method = "GET /rest/refs/parts";
 	char _id[128];
 	sprintf(_id, "id=%d", id);
@@ -69,7 +69,7 @@ cJSON *egisz_refs_parts(int id){
 	return json_from_egisz_ssl_connector_answer(method, 1, argv);
 }
 
-cJSON *egisz_refs_part(int id, int part){
+cJSON *egisz_rest_refs_part(int id, int part){
 	char *method = "GET /rest/refs/part";
 	char _id[128];
 	sprintf(_id, "id=%d", id);
@@ -80,7 +80,7 @@ cJSON *egisz_refs_part(int id, int part){
 }
 
 ///////////////////
-cJSON *egisz_org_parts(int orgTypeId){
+cJSON *egisz_rest_org_parts(int orgTypeId){
 	char *method = "GET /rest/org/parts";
 	char _orgTypeId[128];
 	sprintf(_orgTypeId, "orgTypeId=%d", orgTypeId);
@@ -88,7 +88,7 @@ cJSON *egisz_org_parts(int orgTypeId){
 	return json_from_egisz_ssl_connector_answer(method, 1, argv);
 }
 
-cJSON *egisz_org_part(int orgTypeId, int part){
+cJSON *egisz_rest_org_part(int orgTypeId, int part){
 	char *method = "GET /rest/org/part";
 	char _orgTypeId[128];
 	sprintf(_orgTypeId, "orgTypeId=%d", orgTypeId);
@@ -98,7 +98,7 @@ cJSON *egisz_org_part(int orgTypeId, int part){
 	return json_from_egisz_ssl_connector_answer(method, 2, argv);
 }
 
-cJSON *egisz_org_get(char *oid){
+cJSON *egisz_rest_org_get(char *oid){
 	char *method = "GET /rest/org/get";
 	char _oid[256];
 	sprintf(_oid, "oid=%s", oid);
@@ -107,7 +107,7 @@ cJSON *egisz_org_get(char *oid){
 }
 
 ///////////////////
-cJSON *egisz_depart_parts(int departTypeId){
+cJSON *egisz_rest_depart_parts(int departTypeId){
 	char *method = "GET /rest/depart/parts";
 	char _departTypeId[128];
 	sprintf(_departTypeId, "departTypeId=%d", departTypeId);
@@ -115,7 +115,7 @@ cJSON *egisz_depart_parts(int departTypeId){
 	return json_from_egisz_ssl_connector_answer(method, 1, argv);
 }
 
-cJSON *egisz_depart_part(int departTypeId, int part){
+cJSON *egisz_rest_depart_part(int departTypeId, int part){
 	char *method = "GET /rest/depart/part";
 	char _departTypeId[128];
 	sprintf(_departTypeId, "departTypeId=%d", departTypeId);
@@ -124,7 +124,7 @@ cJSON *egisz_depart_part(int departTypeId, int part){
 	char *argv[] = {_departTypeId, _part};	
 	return json_from_egisz_ssl_connector_answer(method, 2, argv);
 }
-cJSON *egisz_depart_get(char *oid){
+cJSON *egisz_rest_depart_get(char *oid){
 	char *method = "GET /rest/depart/get";
 	char _oid[256];
 	sprintf(_oid, "oid=%s", oid);
@@ -136,7 +136,7 @@ cJSON *egisz_depart_get(char *oid){
 
 
 
-cJSON *egisz_mo(char *oid){
+cJSON *egisz_rest_mo(char *oid){
 	char *method = "GET /rest/mo";
 	char _oid[256];
 	sprintf(_oid, "oid=%s", oid);
