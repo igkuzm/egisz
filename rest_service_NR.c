@@ -147,9 +147,9 @@ cJSON *egisz_mo(char *oid){
 
 cJSON *egisz_rest_lic_get(int service){
 	char *method = "GET /rest/lic/get";
-	char _oid[256];
-	sprintf(_oid, "oid=%s", oid);
-	char *argv[] = {_oid};	
+	char _service[256];
+	sprintf(_service, "service=%d", service);
+	char *argv[] = {_service};	
 	return json_from_egisz_ssl_connector_answer(method, 1, argv);
 }
 
