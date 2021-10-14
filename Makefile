@@ -26,4 +26,7 @@ clean:
 run: build/egisz
 	open build/egisz
 
+winrun: build/windows/egisz.exe
+	open build/windows/egisz.exe
+
 .Phony: run clean
