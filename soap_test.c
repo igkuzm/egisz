@@ -6,7 +6,7 @@
  * Last Modified By  : Igor V. Sementsov <ig.kuzm@gmail.com>
  */
 #include "soap_test.h"
-#include <egisz_ssl_connector.h>
+#include "egisz_ssl_connector.h"
 
 #define HOST " https://nsi.rosminzdrav.ru"
 #define PORT 443
