@@ -9,7 +9,7 @@ LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib"
 CFLAGS="-I/opt/homebrew/opt/openssl@3/include"
 
 LDFLAGSWIN=-L"./third-party/openssl-3.0.0-win32-mingw/lib"
-CFLAGSWIN=-I"./third-party/openssl-3.0.0-win32-mingw/include/openssl"
+CFLAGSWIN=-I"./third-party/openssl-3.0.0-win32-mingw/include"
 
 
 all: run
