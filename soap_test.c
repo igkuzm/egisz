@@ -7,7 +7,7 @@
  */
 #include "soap_test.h"
 
-#define HOST "nr.egisz.rosminzdrav.ru"
+#define HOST " https://nsi.rosminzdrav.ru/wsdl/SOAP-server.v2.php?wsdl"
 #define PORT 443
 
 int soap_test(){
