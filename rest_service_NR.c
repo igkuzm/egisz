@@ -2,7 +2,7 @@
  * File              : rest_service_NR.c
  * Author            : Igor V. Sementsov <ig.kuzm@gmail.com>
  * Date              : 12.10.2021
- * Last Modified Date: 13.10.2021
+ * Last Modified Date: 14.10.2021
  * Last Modified By  : Igor V. Sementsov <ig.kuzm@gmail.com>
  */
 /**
@@ -35,7 +35,7 @@
 
 cJSON *json_from_egisz_ssl_connector_answer(char *method, int argc, char *argv[]){
 	EgiszSSLConnectorAnswer *answer = egisz_ssl_connector_answer_new();
-	if (egisz_ssl_connector_socket(HOST, PORT, APIKEY, method, argc, argv, answer, egisz_ssl_connector_answer_callback)){
+	if (egisz_ssl_connector_bio(HOST, PORT, APIKEY, method, argc, argv, answer, egisz_ssl_connector_answer_callback)){
 		fprintf(stderr, "Error in function egisz_ssl_connector\n");
 		return NULL;
 	}
