@@ -74,7 +74,7 @@ int soap_test(){
 	}  
 
 	//generage HTTP REQUEST MESSAGE
-	char *write_buf "PUT ";
+	char *write_buf = "PUT ";
 	//SSL WRITE
 	int retval;
 	retval = SSL_write(ssl, write_buf, strlen(write_buf));
