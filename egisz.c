@@ -2,13 +2,14 @@
  * File              : egisz.c
  * Author            : Igor V. Sementsov <ig.kuzm@gmail.com>
  * Date              : 11.10.2021
- * Last Modified Date: 13.10.2021
+ * Last Modified Date: 14.10.2021
  * Last Modified By  : Igor V. Sementsov <ig.kuzm@gmail.com>
  */
 
 #include "egisz.h"
 #include "cJSON.h"
 #include "rest_service_NR.h"
+#include <stdio.h>
 void print_json(cJSON *json){
 	if (cJSON_IsArray(json)) {
 		printf("JSON is array \n");		
@@ -59,5 +60,7 @@ int main(int argc, char *argv[])
 	//cJSON *json = egisz_rest_lic_get(1);		
 	print_json(json);
 	//printf("ITEM: %s\n", cJSON_Print(json));	
+	getchar();
+
 	return 0;
 }
