@@ -25,7 +25,7 @@ build/windows/egisz.exe: *.c
 	#cd build/windows; ar -x libcrypto.dll.a; ar -x libssl.dll.a; cd ../../;
 	i686-w64-mingw32-gcc $^ -o $@ $(CFLAGSWIN) $(LDFLAGSWIN) -lWs2_32 -lssl -lcrypto 
 	cp -f ./third-party/openssl-3.0.0-win32-mingw/lib/libssl.dll.a build/windows/.
-	cp -f ./third-party/openssl-3.0.0-win32-mingw/lib/libssl.dll.a build/windows/.
+	cp -f ./third-party/openssl-3.0.0-win32-mingw/lib/libcrypto.dll.a build/windows/.
 
 
 clean:
