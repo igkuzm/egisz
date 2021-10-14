@@ -20,8 +20,8 @@ build/egisz: *.c
 
 build/windows/egisz.exe: *.c
 	mkdir -p build/windows
-	i686-w64-mingw32-gcc ./third-party/openssl-3.0.0-win32-mingw/lib/libcrypto.dll/*.o -o build/windows/libcrypto-3.dll
-	i686-w64-mingw32-gcc ./third-party/openssl-3.0.0-win32-mingw/lib/libssl.dll/*.o -o build/windows/libssl-3.dll
+	i686-w64-mingw32-gcc -shared ./third-party/openssl-3.0.0-win32-mingw/lib/libcrypto.dll/*.o -o build/windows/libcrypto-3.dll
+	i686-w64-mingw32-gcc -shared ./third-party/openssl-3.0.0-win32-mingw/lib/libssl.dll/*.o -o build/windows/libssl-3.dll
 	#cd build/windows; ar -x libcrypto.dll.a; ar -x libssl.dll.a; cd ../../;
 	i686-w64-mingw32-gcc $^ -o $@ $(CFLAGSWIN) $(LDFLAGSWIN) -lWs2_32 -lssl -lcrypto 
 	#cp -f ./third-party/openssl-3.0.0-win32-mingw/lib/libssl.dll.a build/windows/libssl-3.dll.a
