@@ -8,7 +8,7 @@
 #include "soap_test.h"
 #include "egisz_ssl_connector.h"
 
-#define HOST "http://tempuri.org/HelloWorld"
+#define HOST "nr.egisz.rosminzdrav.ru"
 #define PORT 443
 
 int soap_test(){
