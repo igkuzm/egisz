@@ -20,6 +20,9 @@ build/egisz: *.c
 
 build/windows/egisz.exe: *.c
 	mkdir -p build/windows
+	cp -f ./third-party/openssl-3.0.0-win32-mingw/lib/libssl.a build/windows/.
+	cp -f ./third-party/openssl-3.0.0-win32-mingw/lib/libcrypto.a build/windows/.
+	cd build/windows; ar -x libcrypto.a; ar -x libssl.a; cd ../../;
 	i686-w64-mingw32-gcc $^ -o $@ $(CFLAGSWIN) $(LDFLAGSWIN) -lssl -lcrypto -lWs2_32
 
 
