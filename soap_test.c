@@ -13,7 +13,9 @@
 
 int soap_test(){
 
-	egisz_ssl_connector_socket(HOST, PORT, "", "GET /wsdl/SOAP-server.v2.php?wsdl", int argc, char **argv, void *data, int (*callback)(char *, int, int *, void *))
+	char *argv[] = {"wsdl"};
+
+	egisz_ssl_connector_socket(HOST, PORT, "", "GET /wsdl/SOAP-server.v2.php", 1, argv, NULL, NULL);
 
 	return 0;
 }
