@@ -20,7 +20,7 @@ build/egisz: *.c
 
 build/windows/egisz.exe: *.c
 	mkdir -p build/windows
-	i686-w64-mingw32-gcc $^ -o $@ $(CFLAGSWIN) $(LDFLAGSWIN) -lssl -lcrypto
+	i686-w64-mingw32-gcc $^ -o $@ $(CFLAGSWIN) $(LDFLAGSWIN) -lssl -lcrypto -lWs2_32
 
 
 clean:
