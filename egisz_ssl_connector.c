@@ -158,11 +158,8 @@ int egisz_ssl_connector_bio(const char *hostname, int port, const char *apikey, 
     //
     //  The bare minimum to make a HTTP request.
     //
-    char* write_buf = "POST / HTTP/1.1\r\n"
-                      "Host: " HOST "\r\n"
-                      "Authorization: Basic " APIKEY "\r\n"
-                      "Connection: close\r\n"
-                      "\r\n";
+	char *write_buf = http_msg_with_args(hostname, http_method, argc, argv);
+
 
     //
     //   Attempts to write len bytes from buf to BIO
