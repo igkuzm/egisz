@@ -30,6 +30,10 @@ run: build/egisz
 	open build/egisz
 
 winrun: build/windows/egisz.exe
-	open build/windows/egisz.exe
+	echo "#!/bin/bash">run
+	echo "/Users/kuzmich/Applications/Wineskin/Wine.app/Contents/MacOS/wineskinlauncher $(PWD)/build/windows/egisz.exe">>run
+	chmod +x run
+	open run
+	
 
 .Phony: run clean
