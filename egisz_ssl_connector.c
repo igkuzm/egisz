@@ -139,7 +139,7 @@ int egisz_ssl_connector_bio(const char *hostname, int port, const char *apikey, 
     //  to while also specifying the port.
     //
 	char host[256];
-	sprintf("%s:%d", hostname, port);
+	sprintf(host, "%s:%d", hostname, port);
     BIO_set_conn_hostname(bio, host);
 
     //
