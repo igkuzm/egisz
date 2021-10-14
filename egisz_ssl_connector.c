@@ -138,7 +138,9 @@ int egisz_ssl_connector_bio(const char *hostname, int port, const char *apikey, 
     //  string that contains the URL to the site that you want to connect
     //  to while also specifying the port.
     //
-    BIO_set_conn_hostname(bio, HOST ":" PORT);
+	char host[256];
+	sprintf("%s:%d", hostname, port);
+    BIO_set_conn_hostname(bio, host);
 
     //
     //   Attempts to connect the supplied BIO
