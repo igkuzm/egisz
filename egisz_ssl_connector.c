@@ -36,6 +36,7 @@
 #include <unistd.h>
 #if defined _WIN32 || defined _WIN64
 #include <winsock2.h>
+#include <winsock.h>
 #include <windows.h>
 #include <ws2tcpip.h>
 #else
