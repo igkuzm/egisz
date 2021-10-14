@@ -7,6 +7,9 @@
  */
 #include "soap_test.h"
 
+#define HOST "nr.egisz.rosminzdrav.ru"
+#define PORT 443
+
 int soap_test(){
 
 	return 0;
