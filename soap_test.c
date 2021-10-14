@@ -8,7 +8,7 @@
 #include "soap_test.h"
 #include "egisz_ssl_connector.h"
 
-#define HOST " https://nsi.rosminzdrav.ru"
+#define HOST "https://nsi.rosminzdrav.ru"
 #define PORT 443
 
 int soap_test(){
