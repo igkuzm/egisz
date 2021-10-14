@@ -9,6 +9,7 @@
 #include "egisz.h"
 #include "cJSON.h"
 #include "rest_service_NR.h"
+#include "soap_test.h"
 #include <stdio.h>
 void print_json(cJSON *json){
 	if (cJSON_IsArray(json)) {
@@ -54,12 +55,17 @@ int main(int argc, char *argv[])
 	//cJSON *json = egisz_refs_parts(15);
 	//cJSON *json = egisz_depart_part(1, 10);
 	//cJSON *json = egisz_org_part(2, 1);
-	cJSON *json = egisz_rest_org_get("1.2.643.5.1.13.13.12.1.42.202");		
+	//cJSON *json = egisz_rest_org_get("1.2.643.5.1.13.13.12.1.42.202");		
 	//cJSON *json = egisz_depart_get("1.2.643.5.1.13.13.12.2.51.4977.0.2787.2107");		
 	//cJSON *json = egisz_mo("1.2.643.5.1.13.13.12.1.42.202");		
 	//cJSON *json = egisz_rest_lic_get(1);		
-	print_json(json);
+	//print_json(json);
 	//printf("ITEM: %s\n", cJSON_Print(json));	
+	
+	soap_test();
+
+
+
 	getchar();
 
 	return 0;
