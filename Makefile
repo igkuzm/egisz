@@ -15,6 +15,11 @@ build/egisz: *.c
 	mkdir -p build
 	gcc $^ -o $@ $(CFLAGS) $(LDFLAGS) -lssl -lcrypto
 
+build/windows/egisz.exe: *.c
+	mkdir -p build/windows
+	i686-w64-mingw32-gcc $^ -o $@ $(CFLAGS) $(LDFLAGS) -lssl -lcrypto
+
+
 clean:
 	rm -fr build
 
