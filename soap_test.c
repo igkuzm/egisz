@@ -50,8 +50,8 @@ int soap_test(){
     struct hostent *host;
     struct sockaddr_in addr;
  
-    if ( (host = gethostbyname(hostname)) == NULL ){
-		fprintf(stderr, "Error. Can't get host ip address with hostname: %s\n", hostname);	
+    if ( (host = gethostbyname(HOST)) == NULL ){
+		fprintf(stderr, "Error. Can't get host ip address with hostname: %s\n", HOST);	
 		return -1;
 	} 
     int sd = socket(PF_INET, SOCK_STREAM, 0); //init socket
@@ -59,33 +59,22 @@ int soap_test(){
 	memset(&addr, 0, sizeof(addr));
 
     addr.sin_family = AF_INET;
-    addr.sin_port = htons(port);
+    addr.sin_port = htons(PORT);
     addr.sin_addr.s_addr = *(long*)(host->h_addr);
     if ( connect(sd, (struct sockaddr*)&addr, sizeof addr)){ //connect socket
-		fprintf(stderr, "Error. Can't connect to socket with address: %s:%d\n", host->h_addr, port);	
+		fprintf(stderr, "Error. Can't connect to socket with address: %s:%d\n", host->h_addr, PORT);	
 		return -1;
 	} 
     
     SSL *ssl = SSL_new(ctx); //create ssl structure
     SSL_set_fd(ssl, sd); //connect SSL to socket 
     if ( SSL_connect(ssl) == -1 ){
-		fprintf(stderr, "Error. Can't connect SSL to socket with address: %s:%d\n", host->h_addr, port);	
+		fprintf(stderr, "Error. Can't connect SSL to socket with address: %s:%d\n", host->h_addr, PORT);	
 		return -1;
 	}  
 
 	//generage HTTP REQUEST MESSAGE
-	char *write_buf = http_msg_with_args(hostname, http_method, argc, argv);
-	if (write_buf == NULL){
-		char argv_string[BUFSIZ];
-		int i;
-		for (i = 0; i < argc; ++i) {
-			strcat(argv_string, argv[i]);	
-			strcat(argv_string, " ");	
-		}
-		fprintf(stderr, "Error. Can't merge http request for host: %s with http method: %s, arguments: %s \n", hostname, http_method, argv_string);	
-		return -1;		
-	}
-
+	char *write_buf "";
 	//SSL WRITE
 	int retval;
 	retval = SSL_write(ssl, write_buf, strlen(write_buf));
