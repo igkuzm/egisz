@@ -42,9 +42,9 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include <netdb.h>
 #endif
 
-#include <netdb.h>
 
 char *http_msg_with_args(const char *hostname, const char *http_method, int argc, char *argv[]){
 	
