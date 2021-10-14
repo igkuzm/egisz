@@ -8,10 +8,12 @@
 #include "soap_test.h"
 #include <egisz_ssl_connector.h>
 
-#define HOST " https://nsi.rosminzdrav.ru/wsdl/SOAP-server.v2.php"
+#define HOST " https://nsi.rosminzdrav.ru"
 #define PORT 443
 
 int soap_test(){
+
+	egisz_ssl_connector_socket(HOST, PORT, "", "GET /wsdl/SOAP-server.v2.php?wsdl", int argc, char **argv, void *data, int (*callback)(char *, int, int *, void *))
 
 	return 0;
 }
