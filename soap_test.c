@@ -73,7 +73,7 @@ int soap_test(){
 	}  
 
 	//generage HTTP REQUEST MESSAGE
-	char *write_buf = "PUT";
+	char *write_buf = "GET /wsdl/SOAP-server.v2.php?wsdl HTTP/1.1\r\n";
 	//SSL WRITE
 	int retval;
 	retval = SSL_write(ssl, write_buf, strlen(write_buf));
