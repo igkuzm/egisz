@@ -67,7 +67,7 @@ int parse_http_string(char *http_string, HTTP_GET *http_get){
 	printf("HOSTNAME_STRING: %s\n", hostname_string);
 	printf("REQUEST_STRING: %s\n", request_string);
 	
-	if (strcmp(protocol_string, "http") == 0) {
+	if (strncmp(protocol_string, "http", 4) == 0) {
 		http_get->protocol = HTTP;
 		http_get->port = 80;
 	}
