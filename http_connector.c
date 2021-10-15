@@ -39,11 +39,12 @@ typedef struct {
 } Http_method;
 
 int parse_http_string(const char *http_string, Http_method *method){
-	char ch; 
+	
 	char protocol_string[256], hostname_string[256], request_string[BUFSIZ];
 	int i = 0, protocol_string_len = 0, hostname_string_len = 0, request_string_len = 0;
+	
 	while (http_string[i] != '\0'){
-		if (ch == ':' && http_string[i] == '/' && http_string[i] == '/') {
+		if (http_string[i] == ':' && http_string[i] == '/' && http_string[i] == '/') {
 			
 		}	
 
