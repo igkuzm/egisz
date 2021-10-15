@@ -139,6 +139,7 @@ int http_connector(const char *http_string, void *data, int (*callback)(char*,in
 
 	//generage HTTP REQUEST MESSAGE
 	char write_buf[2*BUFSIZ];
+	sprintf(write_buf, "GET ");
 	if (write_buf == NULL){
 		char argv_string[BUFSIZ];
 		int i;
