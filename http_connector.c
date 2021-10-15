@@ -46,6 +46,7 @@ int parse_http_string(const char *http_string, HTTP_GET *http_get){
 
 		if (protocol_is_set && !hostname_is_set) {
 			if (http_string[i] == '/' || http_string[i + 1] == '\0') {
+				buf[buf_len] = http_string[i];
 				strncpy(hostname_string, buf, buf_len);				
 				memset(buf, 0, buf_len);
 				buf_len = 0;
