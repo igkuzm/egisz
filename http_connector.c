@@ -40,6 +40,7 @@ typedef struct {
 
 int parse_http_string(const char *http_string, Http_method *method){
 
+	return 0;
 }
 
 int http_connector(const char *http_string, void *data, int (*callback)(char*,int,int*,void*)){
