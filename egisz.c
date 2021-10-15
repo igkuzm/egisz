@@ -89,7 +89,9 @@ int main(int argc, char *argv[])
 	printf("Write HTTP request and press enter\n");
 	char *http_string = readString();
 
-	http_connector(http_string, NULL, NULL);
+	//http_connector(http_string, NULL, NULL);
+	HTTP_GET http_get;
+	parse_http_string(http_string, &http_get);
 
 	free(http_string);
 
