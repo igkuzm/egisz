@@ -29,8 +29,7 @@
 
 typedef enum {
 	HTTP,
-	HTTPS,
-
+	HTTPS
 } Http_protocol;
 
 typedef struct {
