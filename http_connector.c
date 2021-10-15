@@ -39,9 +39,9 @@ typedef struct {
 } Http_method;
 
 int parse_http_string(const char *http_string, Http_method *method){
-	int i = 0;
 	char ch; 
 	char protocol_string[256], hostname_string[256], request_string[BUFSIZ];
+	int i, protocol_string_len, hostname_string_len, request_string_len;
 	while ((ch = http_string[i]) != '\0'){
 
 	}
