@@ -116,6 +116,7 @@ int http_connector(const char *http_string, void *data, int (*callback)(char*,in
 	HTTP_GET http_get;
 	if (parse_http_string(http_string, &http_get)){
 		fprintf(stderr, "Error to parse http_string: %s\n", http_string);	
+		return -1;
 	}
 
 	//init SSL
