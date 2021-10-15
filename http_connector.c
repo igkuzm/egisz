@@ -202,7 +202,7 @@ int http_connector(const char *http_string, void *data, int (*callback)(char*,in
 		if (bytes < 0 ){ //hendle with error
 			_handle_with_ssl_error(ssl, bytes);
 			fprintf(stderr, "Error while SSL_read\n");
-			return retval;			
+			return bytes;			
 		}	
 
 		//Close SSL
@@ -222,11 +222,11 @@ int http_connector(const char *http_string, void *data, int (*callback)(char*,in
 			return retval;			
 		}
 
-		//SSL READ
+		//READ
 		int count = 0;
 		char buf[1024];
 		long bytes;
-		while ((bytes = SSL_read(ssl, buf, sizeof buf)) >0 ) {
+		while ((bytes = read(sd, buf, sizeof buf)) >0 ) {
 			buf[bytes] = 0;
 
 			printf("%s", buf); //print for debug
@@ -241,9 +241,9 @@ int http_connector(const char *http_string, void *data, int (*callback)(char*,in
 			//}
 		}
 		if (bytes < 0 ){ //hendle with error
-			_handle_with_ssl_error(ssl, bytes);
-			fprintf(stderr, "Error while SSL_read\n");
-			return retval;			
+			//_handle_with_ssl_error(ssl, bytes);
+			//fprintf(stderr, "Error while SSL_read\n");
+			return bytes;			
 		}
 	}
 	
