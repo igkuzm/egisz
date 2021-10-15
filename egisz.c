@@ -87,8 +87,11 @@ int main(int argc, char *argv[])
 	//soap_test();
 	
 	printf("Write HTTP request and press enter\n");
+	char *http_string = readString();
 
-	parse_http_string(readString(), NULL);
+	http_connector(http_string, NULL, NULL);
+
+	free(http_string);
 
 
 	printf("Press any key to close application\n");
