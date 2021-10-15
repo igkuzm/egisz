@@ -49,7 +49,7 @@ int parse_http_string(const char *http_string, Http_method *method){
 		}	
 
 		buf[buf_len] = http_string[i];
-		i++;
+		i++; buf_len++;
 	}
 
 	return 0;
