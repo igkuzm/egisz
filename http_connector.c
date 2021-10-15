@@ -164,6 +164,7 @@ int http_connector(char *http_string, void *data, int (*callback)(char*,int,int*
 		fprintf(stderr, "Error. Can't merge http request for host: %s with http request: GET %s HTTP/1.1\n", http_get->hostname, http_get->request);	
 		return -1;		
 	}
+	printf("REQUEST MESSAGE: %s\n", write_buf);
 
 	//SSL WRITE
 	int retval;
