@@ -27,7 +27,7 @@
 #include <netdb.h>
 #endif
 
-int parse_http_string(char *http_string, HTTP_GET *http_get){
+int parse_http_string(const char *http_string, HTTP_GET *http_get){
 	
 	char buf[2*BUFSIZ], protocol_string[256], hostname_string[256], request_string[BUFSIZ];
 	int i = 0, buf_len = 0;
@@ -112,7 +112,7 @@ void _handle_with_ssl_error(SSL *ssl, int retval){
 	}
 }
 
-int http_connector(char *http_string, void *data, int (*callback)(char*,int,int*,void*)){
+int http_connector(const char *http_string, void *data, int (*callback)(char*,int,int*,void*)){
 	//parse HTTP string
 	HTTP_GET *http_get = malloc(sizeof(HTTP_GET));
 	if (parse_http_string(http_string, http_get)){
