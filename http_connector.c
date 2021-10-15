@@ -69,6 +69,7 @@ int parse_http_string(const char *http_string, HTTP_GET *http_get){
 	}
 	else if (strcmp(protocol_string, "https") == 0){
 		http_get->protocol = HTTPS;
+		http_get->port = 80;
 	}
 	else {
 		fprintf(stderr, "Error. Cant parse connection protocol from string: %s\n", http_string);
