@@ -30,7 +30,7 @@
 #endif
 
 
-#define HOST "nr.egisz.rosminzdrav.ru"
+#define HOST "nsi.rosminzdrav.ru"
 #define PORT 443
 
 int soap_test(){
