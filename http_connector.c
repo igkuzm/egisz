@@ -41,7 +41,7 @@ typedef struct {
 int parse_http_string(const char *http_string, Http_method *method){
 	char ch; 
 	char protocol_string[256], hostname_string[256], request_string[BUFSIZ];
-	int i, protocol_string_len, hostname_string_len, request_string_len;
+	int i = 0, protocol_string_len = 0, hostname_string_len = 0, request_string_len = 0;
 	while ((ch = http_string[i]) != '\0'){
 
 	}
