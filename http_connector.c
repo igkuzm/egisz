@@ -64,6 +64,7 @@ int parse_http_string(char *http_string, HTTP_GET *http_get){
 	}
 
 	printf("PROTO_STRING: %s\n", protocol_string);
+	printf("HOSTNAME_STRING: %s\n", hostname_string);
 	
 	if (strcmp(protocol_string, "http") == 0) {
 		http_get->protocol = HTTP;
