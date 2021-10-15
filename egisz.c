@@ -66,6 +66,7 @@ int main(int argc, char *argv[])
 
 
 
+	printf("Press any key to close application\n");
 	getchar();
 
 	return 0;
