@@ -138,7 +138,7 @@ int http_connector(const char *http_string, void *data, int (*callback)(char*,in
 	}  
 
 	//generage HTTP REQUEST MESSAGE
-	char *write_buf = http_msg_with_args(hostname, http_method, argc, argv);
+	char write_buf[2*BUFSIZ];
 	if (write_buf == NULL){
 		char argv_string[BUFSIZ];
 		int i;
