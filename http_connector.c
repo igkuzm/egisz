@@ -86,7 +86,7 @@ int parse_http_string(char *http_string, HTTP_GET *http_get){
 	}
 
 	if (strlen(request_string) > 0) {
-		strncpy(http_get->request, hostname_string, BUFSIZ);
+		strncpy(http_get->request, request_string, BUFSIZ);
 		http_get->request[BUFSIZ - 1] = '\0';		
 	}	
 
