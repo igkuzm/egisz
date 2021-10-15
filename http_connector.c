@@ -28,6 +28,8 @@
 #endif
 
 typedef enum {
+	HTTP;
+	HTTPS;
 
 } Http_protocol;
 
