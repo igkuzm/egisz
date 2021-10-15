@@ -38,7 +38,7 @@ typedef struct {
 	char request[BUFSIZ];
 } Http_method;
 
-int parse_http_string(const char *http_string, ){
+int parse_http_string(const char *http_string, Http_method *method){
 
 }
 
