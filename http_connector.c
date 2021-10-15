@@ -76,14 +76,14 @@ int parse_http_string(char *http_string, HTTP_GET *http_get){
 		return HTTP_CONNECTOR_ERROR_PROTOCOL;
 	}
 
-	if (strlen(hostname_string) > 0) {
+	//if (strlen(hostname_string) > 0) {
 		strncpy(http_get->hostname, hostname_string, 256);
 		http_get->hostname[255] = '\0';
-	}
-	else {
-		fprintf(stderr, "Error. Cant parse hostname from string: %s\n", http_string);
-		return HTTP_CONNECTOR_ERROR_HOSTNAME;	
-	}
+	//}
+	//else {
+	//	fprintf(stderr, "Error. Cant parse hostname from string: %s\n", http_string);
+	//	return HTTP_CONNECTOR_ERROR_HOSTNAME;	
+	//}
 
 	if (strlen(request_string) > 0) {
 		strncpy(http_get->request, hostname_string, BUFSIZ);
