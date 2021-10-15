@@ -112,7 +112,7 @@ void _handle_with_ssl_error(SSL *ssl, int retval){
 
 int http_connector(const char *http_string, void *data, int (*callback)(char*,int,int*,void*)){
 	//parse HTTP string
-	HTTP_GET *http_get = malloc(sizeof(HTTP_GET));
+	HTTP_GET http_get;
 	if (parse_http_string(http_string, http_get)){
 		fprintf(stderr, "Error to parse http_string: %s\n", http_string);	
 		return -1;
