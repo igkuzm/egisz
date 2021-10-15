@@ -71,14 +71,14 @@ int parse_http_string(char *http_string, HTTP_GET *http_get){
 		http_get->protocol = HTTP;
 		http_get->port = 80;
 	}
-	if (strncmp(protocol_string, "https", 5) == 0){
+	else if (strncmp(protocol_string, "https", 5) == 0){
 		http_get->protocol = HTTPS;
 		http_get->port = 443;
 	}
-	//else {
-	//	fprintf(stderr, "Error. Cant parse connection protocol from string: %s\n", http_string);
-	//	return HTTP_CONNECTOR_ERROR_PROTOCOL;
-	//}
+	else {
+		fprintf(stderr, "Error. Cant parse connection protocol from string: %s\n", http_string);
+		return HTTP_CONNECTOR_ERROR_PROTOCOL;
+	}
 
 	//if (strlen(hostname_string) > 0) {
 		strncpy(http_get->hostname, hostname_string, 256);
