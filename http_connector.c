@@ -27,17 +27,6 @@
 #include <netdb.h>
 #endif
 
-typedef enum {
-	HTTP,
-	HTTPS
-} Http_protocol;
-
-typedef struct {
-	Http_protocol protocol;
-	char hostname[256];
-	char request[BUFSIZ];
-} Http_method;
-
 int parse_http_string(const char *http_string, Http_method *method){
 	
 	char buf[2*BUFSIZ], protocol_string[256], hostname_string[256], request_string[BUFSIZ];
