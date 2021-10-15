@@ -123,16 +123,6 @@ int http_connector(const char *http_string, void *data, int (*callback)(char*,in
 	printf("PORT: %d\n", http_get->port);
 	printf("REQUEST: %s\n", http_get->request);
 
-	//init SSL
-	SSL_library_init();
-	OpenSSL_add_all_algorithms();
-	SSL_load_error_strings();
-	const SSL_METHOD *method = SSLv23_client_method();
-	SSL_CTX *ctx = SSL_CTX_new(method);
-	if ( ctx == NULL ){
-		fprintf(stderr, "Error. Can't init SSL_CTX\n");	
-		return -1;
-	} 
  
 	struct hostent *host;
 	struct sockaddr_in addr;
@@ -153,12 +143,25 @@ int http_connector(const char *http_string, void *data, int (*callback)(char*,in
 		return -1;
 	} 
 	
-	SSL *ssl = SSL_new(ctx); //create ssl structure
-	SSL_set_fd(ssl, sd); //connect SSL to socket 
-	if ( SSL_connect(ssl) == -1 ){
-		fprintf(stderr, "Error. Can't connect SSL to socket with address: %s:%d\n", host->h_addr, http_get->port);	
-		return -1;
-	}  
+	//init SSL
+	if (http_get->protocol == HTTPS) {
+		SSL_library_init();
+		OpenSSL_add_all_algorithms();
+		SSL_load_error_strings();
+		const SSL_METHOD *method = SSLv23_client_method();
+		SSL_CTX *ctx = SSL_CTX_new(method);
+		if ( ctx == NULL ){
+			fprintf(stderr, "Error. Can't init SSL_CTX\n");	
+			return -1;
+		} 
+		
+		SSL *ssl = SSL_new(ctx); //create ssl structure
+		SSL_set_fd(ssl, sd); //connect SSL to socket 
+		if ( SSL_connect(ssl) == -1 ){
+			fprintf(stderr, "Error. Can't connect SSL to socket with address: %s:%d\n", host->h_addr, http_get->port);	
+			return -1;
+		}  
+	}
 
 	//generage HTTP REQUEST MESSAGE
 	char write_buf[2*BUFSIZ];
