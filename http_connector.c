@@ -93,6 +93,23 @@ int parse_http_string(const char *http_string, HTTP_GET *http_get){
 	return 0;
 }
 
+void handle_with_ssl_error(SSL *ssl, int retval){
+	switch (SSL_get_error (ssl, retval)){
+		case SSL_ERROR_WANT_READ:
+			fprintf (stderr, "Wait for the socket to be readable, then call this function again.\n");
+			break;
+		case SSL_ERROR_WANT_X509_LOOKUP:
+			break;
+		case SSL_ERROR_WANT_WRITE:
+			fprintf (stderr, "Wait for the socket to be writeable, then call this function again.\n");
+			break;
+		case SSL_ERROR_SSL:
+			break;
+		case SSL_ERROR_SYSCALL:
+			break;
+	}
+}
+
 int http_connector(const char *http_string, void *data, int (*callback)(char*,int,int*,void*)){
 	//parse HTTP string
 	HTTP_GET http_get;
