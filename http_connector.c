@@ -71,7 +71,7 @@ int parse_http_string(const char *http_string, Http_method *method){
 	}
 	else {
 		fprintf(stderr, "Error. Cant parse connection protocol from string: %s\n", http_string);
-		return 1;
+		return HTTP_CONNECTOR_ERROR_PROTOCOL;
 	}
 
 	if (strlen(hostname_string) > 0) {
@@ -80,7 +80,7 @@ int parse_http_string(const char *http_string, Http_method *method){
 	}
 	else {
 		fprintf(stderr, "Error. Cant parse hostname from string: %s\n", http_string);
-		return 2;	
+		return HTTP_CONNECTOR_ERROR_HOSTNAME;	
 	}
 
 	printf("HOSTNAME: %s\n", hostname_string);
