@@ -133,7 +133,7 @@ int http_connector(char *http_string, void *data, int (*callback)(char*,int,int*
 	struct hostent *host;
 	struct sockaddr_in addr;
  
-	if ( (host = gethostbyname(http_get.hostname)) == NULL ){
+	if ( (host = gethostbyname(http_get->hostname)) == NULL ){
 		fprintf(stderr, "Error. Can't get host ip address with hostname: %s\n", http_get->hostname);	
 		return -1;
 	} 
