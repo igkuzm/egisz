@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
 	
 	//soap_test();
 
-	parse_http_string("ftp://wadasdas.asdsad", NULL);
+	parse_http_string("ftp://wadasdas.asdsad.ru/dada/fafafds", NULL);
 
 
 	printf("Press any key to close application\n");
