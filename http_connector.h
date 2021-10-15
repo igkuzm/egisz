@@ -8,8 +8,8 @@
 #include <stdio.h>
 
 typedef enum {
-	HTTP,
-	HTTPS
+	HTTP_CONNECTOR_ERROR_PROTOCOL = 1,
+	HTTP_CONNECTOR_ERROR_HOSTNAME
 } Http_connector_error;
 
 
