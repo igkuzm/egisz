@@ -48,7 +48,7 @@ int parse_http_string(const char *http_string, Http_method *method){
 				memset(buf, 0, buf_len);
 				buf_len = 0;
 				hostname_is_set = true;
-				i++; i++; i++;				
+				i++;				
 			}			
 		}
 
