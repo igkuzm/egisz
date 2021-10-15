@@ -44,7 +44,11 @@ int parse_http_string(const char *http_string, Http_method *method){
 
 		if (protocol_is_set) {
 			if (http_string[i] == '/' || (http_string[i + 1] == '\0' && !hostname_is_set)) {
-			
+				strncpy(hostname_string, buf, buf_len);				
+				memset(buf, 0, buf_len);
+				buf_len = 0;
+				hostname_is_set = true;
+				i++; i++; i++;				
 			}			
 		}
 
@@ -53,6 +57,7 @@ int parse_http_string(const char *http_string, Http_method *method){
 	}
 
 	printf("PROTO: %s\n", protocol_string);
+	printf("HOSTNAME: %s\n", hostname_string);
 
 	return 0;
 }
