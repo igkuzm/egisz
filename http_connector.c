@@ -133,7 +133,7 @@ int http_connector(const char *http_string, void *data, int (*callback)(char*,in
 	SSL *ssl = SSL_new(ctx); //create ssl structure
 	SSL_set_fd(ssl, sd); //connect SSL to socket 
 	if ( SSL_connect(ssl) == -1 ){
-		fprintf(stderr, "Error. Can't connect SSL to socket with address: %s:%d\n", host->h_addr, port);	
+		fprintf(stderr, "Error. Can't connect SSL to socket with address: %s:%d\n", host->h_addr, http_get.port);	
 		return -1;
 	}  
 
