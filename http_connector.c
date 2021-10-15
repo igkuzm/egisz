@@ -169,8 +169,6 @@ int http_connector(char *http_string, void *data, int (*callback)(char*,int,int*
 	int retval;
 	retval = SSL_write(ssl, write_buf, strlen(write_buf));
 
-	free(write_buf); //no need any more
-
 	if (retval <= 0 ){ //handle with error
 		_handle_with_ssl_error(ssl, retval);
 		fprintf(stderr, "Error while SSL_write\n");
