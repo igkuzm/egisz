@@ -217,8 +217,6 @@ int http_connector(const char *http_string, void *data, int (*callback)(char*,in
 		retval = write(sd, write_buf, strlen(write_buf));
 
 		if (retval <= 0 ){ //handle with error
-			//_handle_with_ssl_error(ssl, retval);
-			//fprintf(stderr, "Error while SSL_write\n");
 			return retval;			
 		}
 
@@ -241,8 +239,6 @@ int http_connector(const char *http_string, void *data, int (*callback)(char*,in
 			//}
 		}
 		if (bytes < 0 ){ //hendle with error
-			//_handle_with_ssl_error(ssl, bytes);
-			//fprintf(stderr, "Error while SSL_read\n");
 			return bytes;			
 		}
 	}
