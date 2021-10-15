@@ -143,6 +143,15 @@ int http_connector(const char *http_string, void *data, int (*callback)(char*,in
 		return -1;
 	} 
 	
+	//generage HTTP REQUEST MESSAGE
+	char write_buf[2*BUFSIZ];
+	sprintf(write_buf, "GET");
+	if (snprintf(write_buf, BUFSIZ, "%s /%s HTTP/1.1\r\nHost: %s\r\nConnection: close\r\n\r\n", write_buf, http_get->request, http_get->hostname) == -1){
+		fprintf(stderr, "Error. Can't merge http request for host: %s with http request: GET %s HTTP/1.1\n", http_get->hostname, http_get->request);	
+		return -1;		
+	}
+	printf("REQUEST MESSAGE: %s\n", write_buf);
+	
 	//init SSL
 	if (http_get->protocol == HTTPS) {
 		SSL_library_init();
@@ -161,55 +170,51 @@ int http_connector(const char *http_string, void *data, int (*callback)(char*,in
 			fprintf(stderr, "Error. Can't connect SSL to socket with address: %s:%d\n", host->h_addr, http_get->port);	
 			return -1;
 		}  
-	}
-
-	//generage HTTP REQUEST MESSAGE
-	char write_buf[2*BUFSIZ];
-	sprintf(write_buf, "GET");
-	if (snprintf(write_buf, BUFSIZ, "%s /%s HTTP/1.1\r\nHost: %s\r\nConnection: close\r\n\r\n", write_buf, http_get->request, http_get->hostname) == -1){
-		fprintf(stderr, "Error. Can't merge http request for host: %s with http request: GET %s HTTP/1.1\n", http_get->hostname, http_get->request);	
-		return -1;		
-	}
-	printf("REQUEST MESSAGE: %s\n", write_buf);
-	
-	//SSL WRITE
-	int retval;
-	retval = SSL_write(ssl, write_buf, strlen(write_buf));
-
-	if (retval <= 0 ){ //handle with error
-		_handle_with_ssl_error(ssl, retval);
-		fprintf(stderr, "Error while SSL_write\n");
-		return retval;			
-	}
-
-	//SSL READ
-	int count = 0;
-	char buf[1024];
-	long bytes;
-	while ((bytes = SSL_read(ssl, buf, sizeof buf)) >0 ) {
-		buf[bytes] = 0;
 		
-		printf("%s", buf); //print for debug
-		
-		//if (callback) {
+		//SSL WRITE
+		int retval;
+		retval = SSL_write(ssl, write_buf, strlen(write_buf));
+
+		if (retval <= 0 ){ //handle with error
+			_handle_with_ssl_error(ssl, retval);
+			fprintf(stderr, "Error while SSL_write\n");
+			return retval;			
+		}
+
+		//SSL READ
+		int count = 0;
+		char buf[1024];
+		long bytes;
+		while ((bytes = SSL_read(ssl, buf, sizeof buf)) >0 ) {
+			buf[bytes] = 0;
+
+			printf("%s", buf); //print for debug
+
+			//if (callback) {
 			//int c = callback(buf, bytes, &count, data); //run callback
 			//if (c != 0) { //stop function if callback returned non zero
-				//fprintf(stderr, "Stop SSL_read - callback returned: %d\n", c);
-				//break;
+			//fprintf(stderr, "Stop SSL_read - callback returned: %d\n", c);
+			//break;
 			//}
 			//count++; //we need count to know how many times callback was called
-		//}
-	}
-	if (bytes < 0 ){ //hendle with error
-		_handle_with_ssl_error(ssl, bytes);
-		fprintf(stderr, "Error while SSL_read\n");
-		return retval;			
-	}	
+			//}
+		}
+		if (bytes < 0 ){ //hendle with error
+			_handle_with_ssl_error(ssl, bytes);
+			fprintf(stderr, "Error while SSL_read\n");
+			return retval;			
+		}	
 
-	//Close SSL
-	SSL_free(ssl);   
-	close(sd);      
-	SSL_CTX_free(ctx);   
+		//Close SSL
+		SSL_free(ssl);   
+		close(sd);      
+		SSL_CTX_free(ctx);   
+	}
+	
+	else { //NO SSL
+	
+	}
+	
 
 
 	return 0;
