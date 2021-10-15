@@ -11,6 +11,7 @@
 //#include "rest_service_NR.h"
 #include "http_connector.h"
 #include <stdio.h>
+#include <stdlib.h>
 void print_json(cJSON *json){
 	if (cJSON_IsArray(json)) {
 		printf("JSON is array \n");		
@@ -49,6 +50,27 @@ void print_json(cJSON *json){
 	}
 }
 
+char *readString(){
+	int i = 0;
+	char *a = (char *) calloc(BUFSIZ, sizeof(char));
+	if (!a) {
+		fprintf(stderr, "ERROR. Cannot allocate memory\n");		
+		return NULL;
+	}										
+	
+	while (1) {
+		scanf("%c", &a[i]);
+		if (a[i] == '\n') {
+			break;
+		}
+		else {
+			i++;
+		}
+	}
+	a[i] = '\0';
+	return a;
+}
+
 int main(int argc, char *argv[])
 {
 	//cJSON *json = egisz_refs_list();
@@ -63,8 +85,10 @@ int main(int argc, char *argv[])
 	//printf("ITEM: %s\n", cJSON_Print(json));	
 	
 	//soap_test();
+	
+	printf("Write HTTP request and press enter\n");
 
-	parse_http_string("ftp://wadasdas.asdsad.ru/dada/fafafds", NULL);
+	parse_http_string(readString(), NULL);
 
 
 	printf("Press any key to close application\n");
