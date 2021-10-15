@@ -27,9 +27,14 @@
 #include <netdb.h>
 #endif
 
-typedef struct {
+typedef enum {
 
-} http_method;
+} Http_protocol;
+
+typedef struct {
+	int protocol;
+
+} Http_method;
 
 
 int parse_http_string(const char *http_string, ){
