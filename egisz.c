@@ -9,7 +9,7 @@
 #include "egisz.h"
 #include "cJSON.h"
 #include "rest_service_NR.h"
-#include "soap_test.h"
+#include "http_connector.h"
 #include <stdio.h>
 void print_json(cJSON *json){
 	if (cJSON_IsArray(json)) {
