@@ -27,7 +27,7 @@
 #include <netdb.h>
 #endif
 
-int parse_http_string(const char *http_string, Http_method *method){
+int parse_http_string(const char *http_string, HTTP_GET *http_get){
 	
 	char buf[2*BUFSIZ], protocol_string[256], hostname_string[256], request_string[BUFSIZ];
 	int i = 0, buf_len = 0;
@@ -64,10 +64,10 @@ int parse_http_string(const char *http_string, Http_method *method){
 	}
 	
 	if (strcmp(protocol_string, "http") == 0) {
-		method->protocol = HTTP;
+		http_get->protocol = HTTP;
 	}
 	else if (strcmp(protocol_string, "https") == 0){
-		method->protocol = HTTPS;
+		http_get->protocol = HTTPS;
 	}
 	else {
 		fprintf(stderr, "Error. Cant parse connection protocol from string: %s\n", http_string);
@@ -75,8 +75,8 @@ int parse_http_string(const char *http_string, Http_method *method){
 	}
 
 	if (strlen(hostname_string) > 0) {
-		strncpy(method->hostname, hostname_string, 256);
-		method->hostname[255] = '\0';
+		strncpy(http_get->hostname, hostname_string, 256);
+		http_get->hostname[255] = '\0';
 	}
 	else {
 		fprintf(stderr, "Error. Cant parse hostname from string: %s\n", http_string);
@@ -84,8 +84,8 @@ int parse_http_string(const char *http_string, Http_method *method){
 	}
 
 	if (strlen(request_string) > 0) {
-		strncpy(method->request, hostname_string, BUFSIZ);
-		method->request[BUFSIZ - 1] = '\0';		
+		strncpy(http_get->request, hostname_string, BUFSIZ);
+		http_get->request[BUFSIZ - 1] = '\0';		
 	}	
 
 	return 0;
