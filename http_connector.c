@@ -31,7 +31,7 @@ int parse_http_string(const char *http_string, Http_method *method){
 	
 	char buf[2*BUFSIZ], protocol_string[256], hostname_string[256], request_string[BUFSIZ];
 	int i = 0, buf_len = 0;
-	bool protocol_is_set = false;
+	bool protocol_is_set = false, hostname_is_set = false;
 	
 	while (http_string[i] != '\0'){
 		if (http_string[i] == ':' && http_string[i + 1] == '/' && http_string[i + 2] == '/') {
