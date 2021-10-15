@@ -38,8 +38,13 @@ int parse_http_string(const char *http_string, Http_method *method){
 			strncpy(protocol_string, buf, buf_len);
 			memset(buf, 0, buf_len);
 			buf_len = 0;
+			protocol_is_set = true;
 			i++; i++; i++;
 		}	
+
+		if (protocol_is_set) {
+			
+		}
 
 		buf[buf_len] = http_string[i];
 		i++; buf_len++;
