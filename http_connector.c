@@ -56,6 +56,7 @@ int parse_http_string(char *http_string, HTTP_GET *http_get){
 		if (hostname_is_set) {
 			if (http_string[i + 1] == '\0') {
 				buf[buf_len] = http_string[i];
+				i++; buf_len++;
 				strncpy(request_string, buf, buf_len);				
 			}			
 		}		
