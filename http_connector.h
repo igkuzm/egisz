@@ -10,6 +10,12 @@
 typedef enum {
 	HTTP,
 	HTTPS
+} Http_connector_error;
+
+
+typedef enum {
+	HTTP,
+	HTTPS
 } Http_protocol;
 
 typedef struct {
