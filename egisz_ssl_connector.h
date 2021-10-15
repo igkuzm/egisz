@@ -2,12 +2,11 @@
  * File              : egisz_ssl_connector.h
  * Author            : Igor V. Sementsov <ig.kuzm@gmail.com>
  * Date              : 12.10.2021
- * Last Modified Date: 14.10.2021
+ * Last Modified Date: 15.10.2021
  * Last Modified By  : Igor V. Sementsov <ig.kuzm@gmail.com>
  */
 #include <stdio.h>
 
-int egisz_ssl_connector_bio(const char *hostname, int port, const char *apikey, const char *http_method, int argc, char *argv[], void *data, int (*callback)(char*,int,int*,void*));
 //connector for egisz returns 0 on success, or error int
 int egisz_ssl_connector_socket(
 		const char *host, //host name (without http:// or https://) 
