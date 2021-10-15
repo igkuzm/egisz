@@ -65,6 +65,7 @@ int parse_http_string(const char *http_string, HTTP_GET *http_get){
 	
 	if (strcmp(protocol_string, "http") == 0) {
 		http_get->protocol = HTTP;
+		http_get->port = 80;
 	}
 	else if (strcmp(protocol_string, "https") == 0){
 		http_get->protocol = HTTPS;
