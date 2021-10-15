@@ -132,8 +132,8 @@ int http_connector(const char *http_string, void *data, int (*callback)(char*,in
 	struct hostent *host;
 	struct sockaddr_in addr;
  
-	if ( (host = gethostbyname(http_get->hostname)) == NULL ){
-		fprintf(stderr, "Error. Can't get host ip address with hostname: %s\n", http_get->hostname);	
+	if ( (host = gethostbyname(http_get.hostname)) == NULL ){
+		fprintf(stderr, "Error. Can't get host ip address with hostname: %s\n", http_get.hostname);	
 		return -1;
 	} 
 	int sd = socket(PF_INET, SOCK_STREAM, 0); //init socket
@@ -141,25 +141,25 @@ int http_connector(const char *http_string, void *data, int (*callback)(char*,in
 	memset(&addr, 0, sizeof(addr));
 
 	addr.sin_family = AF_INET;
-	addr.sin_port = htons(http_get->port);
+	addr.sin_port = htons(http_get.port);
 	addr.sin_addr.s_addr = *(long*)(host->h_addr);
 	if ( connect(sd, (struct sockaddr*)&addr, sizeof addr)){ //connect socket
-		fprintf(stderr, "Error. Can't connect to socket with address: %s:%d\n", host->h_addr, http_get->port);	
+		fprintf(stderr, "Error. Can't connect to socket with address: %s:%d\n", host->h_addr, http_get.port);	
 		return -1;
 	} 
 	
 	SSL *ssl = SSL_new(ctx); //create ssl structure
 	SSL_set_fd(ssl, sd); //connect SSL to socket 
 	if ( SSL_connect(ssl) == -1 ){
-		fprintf(stderr, "Error. Can't connect SSL to socket with address: %s:%d\n", host->h_addr, http_get->port);	
+		fprintf(stderr, "Error. Can't connect SSL to socket with address: %s:%d\n", host->h_addr, http_get.port);	
 		return -1;
 	}  
 
 	//generage HTTP REQUEST MESSAGE
 	char write_buf[2*BUFSIZ];
 	sprintf(write_buf, "GET");
-	if (snprintf(write_buf, BUFSIZ, "%s %s HTTP/1.1\r\n", write_buf, http_get->request) == -1){
-		fprintf(stderr, "Error. Can't merge http request for host: %s with http request: GET %s HTTP/1.1\n", http_get->hostname, http_get->request);	
+	if (snprintf(write_buf, BUFSIZ, "%s %s HTTP/1.1\r\n", write_buf, http_get.request) == -1){
+		fprintf(stderr, "Error. Can't merge http request for host: %s with http request: GET %s HTTP/1.1\n", http_get.hostname, http_get.request);	
 		return -1;		
 	}
 
