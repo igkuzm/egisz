@@ -64,6 +64,7 @@ int main(int argc, char *argv[])
 	
 	//soap_test();
 
+	parse_http_string("http://wadasdas.asdsad", NULL);
 
 
 	printf("Press any key to close application\n");
