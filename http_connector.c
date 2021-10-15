@@ -33,7 +33,7 @@ typedef enum {
 } Http_protocol;
 
 typedef struct {
-	int protocol;
+	Http_protocol protocol;
 
 } Http_method;
 
