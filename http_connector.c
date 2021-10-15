@@ -43,7 +43,9 @@ int parse_http_string(const char *http_string, Http_method *method){
 		}	
 
 		if (protocol_is_set) {
+			if (http_string[i] == '/' || http_string[i + 1] == '\0') {
 			
+			}			
 		}
 
 		buf[buf_len] = http_string[i];
