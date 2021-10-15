@@ -94,7 +94,9 @@ int parse_http_string(const char *http_string, HTTP_GET *http_get){
 int http_connector(const char *http_string, void *data, int (*callback)(char*,int,int*,void*)){
 	//parse HTTP string
 	HTTP_GET http_get;
-	parse_http_string(http_string, &http_get);
+	if (parse_http_string(http_string, &http_get)){
+		fprintf(stderr, "Error to parse http_string: %s\n", http_string);	
+	}
 
 	//init SSL
 	SSL_library_init();
