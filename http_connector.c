@@ -83,9 +83,6 @@ int parse_http_string(const char *http_string, Http_method *method){
 		return HTTP_CONNECTOR_ERROR_HOSTNAME;	
 	}
 
-	printf("HOSTNAME: %s\n", hostname_string);
-	printf("REQUEST: %s\n", request_string);
-
 	return 0;
 }
 
