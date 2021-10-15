@@ -125,6 +125,7 @@ int http_connector(char *http_string, void *data, int (*callback)(char*,int,int*
 		//return -1;
 	//}
 	printf("HOSTNAME: %s\n", http_get->hostname);
+	printf("PORT: %d\n", http_get->port);
 
 	//init SSL
 	SSL_library_init();
