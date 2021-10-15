@@ -28,7 +28,7 @@
 #endif
 
 
-int http_connector(const char *hostname, int port, const char *apikey, const char *http_method, int argc, char *argv[], void *data, int (*callback)(char*,int,int*,void*)){
+int http_connector(const char *http_string, void *data, int (*callback)(char*,int,int*,void*)){
 
 	//init SSL
     SSL_library_init();
