@@ -204,6 +204,8 @@ int http_connector(const char *http_string, void *data, int (*callback)(char*,in
 	SSL_free(ssl);   
 	close(sd);      
 	SSL_CTX_free(ctx);   
+
+	free(http_get);
 	
 
 	return 0;
