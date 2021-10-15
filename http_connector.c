@@ -55,6 +55,8 @@ int parse_http_string(const char *http_string, Http_method *method){
 		i++; buf_len++;
 	}
 
+	printf("PROTO: %s\n", protocol_string);
+
 	return 0;
 }
 
