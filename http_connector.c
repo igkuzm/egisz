@@ -27,8 +27,7 @@
 #include <netdb.h>
 #endif
 
-int parse_http_string(const char *http_string, HTTP_GET *_http_get){
-	HTTP_GET http_get = *_http_get;
+int parse_http_string(const char *http_string, HTTP_GET *http_get){
 	
 	char buf[2*BUFSIZ], protocol_string[256], hostname_string[256], request_string[BUFSIZ];
 	int i = 0, buf_len = 0;
@@ -65,12 +64,12 @@ int parse_http_string(const char *http_string, HTTP_GET *_http_get){
 	}
 	
 	if (strcmp(protocol_string, "http") == 0) {
-		http_get.protocol = HTTP;
-		http_get.port = 80;
+		http_get->protocol = HTTP;
+		http_get->port = 80;
 	}
 	else if (strcmp(protocol_string, "https") == 0){
-		http_get.protocol = HTTPS;
-		http_get.port = 443;
+		http_get->protocol = HTTPS;
+		http_get->port = 443;
 	}
 	else {
 		fprintf(stderr, "Error. Cant parse connection protocol from string: %s\n", http_string);
@@ -78,8 +77,8 @@ int parse_http_string(const char *http_string, HTTP_GET *_http_get){
 	}
 
 	if (strlen(hostname_string) > 0) {
-		strncpy(http_get.hostname, hostname_string, 256);
-		http_get.hostname[255] = '\0';
+		strncpy(http_get->hostname, hostname_string, 256);
+		http_get->hostname[255] = '\0';
 	}
 	else {
 		fprintf(stderr, "Error. Cant parse hostname from string: %s\n", http_string);
@@ -87,8 +86,8 @@ int parse_http_string(const char *http_string, HTTP_GET *_http_get){
 	}
 
 	if (strlen(request_string) > 0) {
-		strncpy(http_get.request, hostname_string, BUFSIZ);
-		http_get.request[BUFSIZ - 1] = '\0';		
+		strncpy(http_get->request, hostname_string, BUFSIZ);
+		http_get->request[BUFSIZ - 1] = '\0';		
 	}	
 
 	return 0;
@@ -133,8 +132,8 @@ int http_connector(const char *http_string, void *data, int (*callback)(char*,in
 	struct hostent *host;
 	struct sockaddr_in addr;
  
-	if ( (host = gethostbyname(http_get.hostname)) == NULL ){
-		fprintf(stderr, "Error. Can't get host ip address with hostname: %s\n", http_get.hostname);	
+	if ( (host = gethostbyname(http_get->hostname)) == NULL ){
+		fprintf(stderr, "Error. Can't get host ip address with hostname: %s\n", http_get->hostname);	
 		return -1;
 	} 
 	int sd = socket(PF_INET, SOCK_STREAM, 0); //init socket
@@ -142,25 +141,25 @@ int http_connector(const char *http_string, void *data, int (*callback)(char*,in
 	memset(&addr, 0, sizeof(addr));
 
 	addr.sin_family = AF_INET;
-	addr.sin_port = htons(http_get.port);
+	addr.sin_port = htons(http_get->port);
 	addr.sin_addr.s_addr = *(long*)(host->h_addr);
 	if ( connect(sd, (struct sockaddr*)&addr, sizeof addr)){ //connect socket
-		fprintf(stderr, "Error. Can't connect to socket with address: %s:%d\n", host->h_addr, http_get.port);	
+		fprintf(stderr, "Error. Can't connect to socket with address: %s:%d\n", host->h_addr, http_get->port);	
 		return -1;
 	} 
 	
 	SSL *ssl = SSL_new(ctx); //create ssl structure
 	SSL_set_fd(ssl, sd); //connect SSL to socket 
 	if ( SSL_connect(ssl) == -1 ){
-		fprintf(stderr, "Error. Can't connect SSL to socket with address: %s:%d\n", host->h_addr, http_get.port);	
+		fprintf(stderr, "Error. Can't connect SSL to socket with address: %s:%d\n", host->h_addr, http_get->port);	
 		return -1;
 	}  
 
 	//generage HTTP REQUEST MESSAGE
 	char write_buf[2*BUFSIZ];
 	sprintf(write_buf, "GET");
-	if (snprintf(write_buf, BUFSIZ, "%s %s HTTP/1.1\r\n", write_buf, http_get.request) == -1){
-		fprintf(stderr, "Error. Can't merge http request for host: %s with http request: GET %s HTTP/1.1\n", http_get.hostname, http_get.request);	
+	if (snprintf(write_buf, BUFSIZ, "%s %s HTTP/1.1\r\n", write_buf, http_get->request) == -1){
+		fprintf(stderr, "Error. Can't merge http request for host: %s with http request: GET %s HTTP/1.1\n", http_get->hostname, http_get->request);	
 		return -1;		
 	}
 
