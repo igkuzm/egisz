@@ -126,7 +126,7 @@ int http_connector(const char *http_string, void *data, int (*callback)(char*,in
 	addr.sin_port = htons(http_get.port);
 	addr.sin_addr.s_addr = *(long*)(host->h_addr);
 	if ( connect(sd, (struct sockaddr*)&addr, sizeof addr)){ //connect socket
-		fprintf(stderr, "Error. Can't connect to socket with address: %s:%d\n", host->h_addr, port);	
+		fprintf(stderr, "Error. Can't connect to socket with address: %s:%d\n", host->h_addr, http_get.port);	
 		return -1;
 	} 
 	
