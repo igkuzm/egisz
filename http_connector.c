@@ -110,7 +110,7 @@ void _handle_with_ssl_error(SSL *ssl, int retval){
 	}
 }
 
-int http_connector(const char *http_string, void *data, int (*callback)(char*,int,int*,void*)){
+int http_connector(char *http_string, void *data, int (*callback)(char*,int,int*,void*)){
 	//parse HTTP string
 	HTTP_GET http_get;
 	parse_http_string(http_string, &http_get);
