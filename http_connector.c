@@ -140,14 +140,8 @@ int http_connector(const char *http_string, void *data, int (*callback)(char*,in
 	//generage HTTP REQUEST MESSAGE
 	char write_buf[2*BUFSIZ];
 	sprintf(write_buf, "GET");
-	if (snprintf(write_buf, BUFSIZ, "%s %s", write_buf, http_get.request) == NULL){
-		char argv_string[BUFSIZ];
-		int i;
-		for (i = 0; i < argc; ++i) {
-			strcat(argv_string, argv[i]);	
-			strcat(argv_string, " ");	
-		}
-		fprintf(stderr, "Error. Can't merge http request for host: %s with http method: %s, arguments: %s \n", hostname, http_method, argv_string);	
+	if (snprintf(write_buf, BUFSIZ, "%s %s", write_buf, http_get.request) == -1){
+		fprintf(stderr, "Error. Can't merge http request for host: %s with http request: GET %s\n", http_get.hostname, http_get.request);	
 		return -1;		
 	}
 
