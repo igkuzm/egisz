@@ -91,7 +91,7 @@ int main(int argc, char *argv[])
 
 	//http_connector(http_string, NULL, NULL);
 	HTTP_GET http_get;
-	parse_http_string(http_string, &http_get);
+	parse_http_string("http://mail.ru/", &http_get);
 
 	printf("PROTO: %d\n", http_get.protocol);
 
