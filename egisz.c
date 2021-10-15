@@ -2,7 +2,7 @@
  * File              : egisz.c
  * Author            : Igor V. Sementsov <ig.kuzm@gmail.com>
  * Date              : 11.10.2021
- * Last Modified Date: 14.10.2021
+ * Last Modified Date: 15.10.2021
  * Last Modified By  : Igor V. Sementsov <ig.kuzm@gmail.com>
  */
 
@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
 	//print_json(json);
 	//printf("ITEM: %s\n", cJSON_Print(json));	
 	
-	soap_test();
+	//soap_test();
 
 
 
