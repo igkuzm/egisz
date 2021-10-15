@@ -8,7 +8,6 @@
 #include "soap_test.h"
 #include "egisz_ssl_connector.h"
 
-#include "egisz_ssl_connector.h"
 #include <openssl/ssl.h>
 #include <openssl/err.h>
 #include <openssl/bio.h>
