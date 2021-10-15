@@ -34,9 +34,9 @@ typedef enum {
 
 typedef struct {
 	Http_protocol protocol;
-
+	char hostname[256];
+	char request[BUFSIZ];
 } Http_method;
-
 
 int parse_http_string(const char *http_string, ){
 
