@@ -63,10 +63,6 @@ int parse_http_string(char *http_string, HTTP_GET *http_get){
 		i++; buf_len++;
 	}
 
-	printf("PROTO_STRING: %s\n", protocol_string);
-	printf("HOSTNAME_STRING: %s\n", hostname_string);
-	printf("REQUEST_STRING: %s\n", request_string);
-	
 	if (strncmp(protocol_string, "http", 4) == 0) {
 		http_get->protocol = HTTP;
 		http_get->port = 80;
@@ -93,8 +89,6 @@ int parse_http_string(char *http_string, HTTP_GET *http_get){
 		strncpy(http_get->request, hostname_string, BUFSIZ);
 		http_get->request[BUFSIZ - 1] = '\0';		
 	}	
-
-	printf("HOSTNAME: %s\n", http_get->hostname);
 
 	return 0;
 }
