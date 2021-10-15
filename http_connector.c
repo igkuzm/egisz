@@ -62,6 +62,16 @@ int parse_http_string(const char *http_string, Http_method *method){
 		buf[buf_len] = http_string[i];
 		i++; buf_len++;
 	}
+	
+	if (strcmp(protocol_string, "http") == 0) {
+		method->protocol = HTTP;
+	}
+	else if (strcmp(protocol_string, "https") == 0){
+		method->protocol = HTTPS;
+	}
+	else {
+		fprintf(stderr, "Error. Cant parse connection protocol from string: %s\n", http_string);
+	}
 
 	printf("PROTO: %s\n", protocol_string);
 	printf("HOSTNAME: %s\n", hostname_string);
