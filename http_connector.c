@@ -27,6 +27,14 @@
 #include <netdb.h>
 #endif
 
+typedef struct {
+
+} http_method;
+
+
+int parse_http_string(const char *http_string, ){
+
+}
 
 int http_connector(const char *http_string, void *data, int (*callback)(char*,int,int*,void*)){
 
