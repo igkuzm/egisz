@@ -93,6 +93,8 @@ int main(int argc, char *argv[])
 	HTTP_GET http_get;
 	parse_http_string(http_string, &http_get);
 
+	printf("PROTO: %d\n", http_get.protocol);
+
 	free(http_string);
 
 
