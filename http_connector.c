@@ -27,7 +27,8 @@
 #include <netdb.h>
 #endif
 
-int parse_http_string(const char *http_string, HTTP_GET *http_get){
+int parse_http_string(const char *http_string, HTTP_GET *_http_get){
+	HTTP_GET http_get = *_http_get;
 	
 	char buf[2*BUFSIZ], protocol_string[256], hostname_string[256], request_string[BUFSIZ];
 	int i = 0, buf_len = 0;
@@ -64,12 +65,12 @@ int parse_http_string(const char *http_string, HTTP_GET *http_get){
 	}
 	
 	if (strcmp(protocol_string, "http") == 0) {
-		http_get->protocol = HTTP;
-		http_get->port = 80;
+		http_get.protocol = HTTP;
+		http_get.port = 80;
 	}
 	else if (strcmp(protocol_string, "https") == 0){
-		http_get->protocol = HTTPS;
-		http_get->port = 443;
+		http_get.protocol = HTTPS;
+		http_get.port = 443;
 	}
 	else {
 		fprintf(stderr, "Error. Cant parse connection protocol from string: %s\n", http_string);
@@ -77,8 +78,8 @@ int parse_http_string(const char *http_string, HTTP_GET *http_get){
 	}
 
 	if (strlen(hostname_string) > 0) {
-		strncpy(http_get->hostname, hostname_string, 256);
-		http_get->hostname[255] = '\0';
+		strncpy(http_get.hostname, hostname_string, 256);
+		http_get.hostname[255] = '\0';
 	}
 	else {
 		fprintf(stderr, "Error. Cant parse hostname from string: %s\n", http_string);
@@ -86,8 +87,8 @@ int parse_http_string(const char *http_string, HTTP_GET *http_get){
 	}
 
 	if (strlen(request_string) > 0) {
-		strncpy(http_get->request, hostname_string, BUFSIZ);
-		http_get->request[BUFSIZ - 1] = '\0';		
+		strncpy(http_get.request, hostname_string, BUFSIZ);
+		http_get.request[BUFSIZ - 1] = '\0';		
 	}	
 
 	return 0;
