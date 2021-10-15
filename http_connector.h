@@ -24,4 +24,4 @@ typedef struct {
 	char request[BUFSIZ];
 } HTTP_GET;
 
-int parse_http_string(const char *http_string, Http_method *method);
+int parse_http_string(const char *http_string, HTTP_GET *http_get);
