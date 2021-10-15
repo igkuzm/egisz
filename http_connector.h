@@ -22,6 +22,6 @@ typedef struct {
 	Http_protocol protocol;
 	char hostname[256];
 	char request[BUFSIZ];
-} Http_method;
+} HTTP_GET;
 
 int parse_http_string(const char *http_string, Http_method *method);
