@@ -93,7 +93,7 @@ int parse_http_string(const char *http_string, HTTP_GET *http_get){
 	return 0;
 }
 
-void handle_with_ssl_error(SSL *ssl, int retval){
+void _handle_with_ssl_error(SSL *ssl, int retval){
 	switch (SSL_get_error (ssl, retval)){
 		case SSL_ERROR_WANT_READ:
 			fprintf (stderr, "Wait for the socket to be readable, then call this function again.\n");
@@ -169,7 +169,7 @@ int http_connector(const char *http_string, void *data, int (*callback)(char*,in
 	free(write_buf); //no need any more
 
 	if (retval <= 0 ){ //handle with error
-		handle_with_ssl_error(ssl, retval);
+		_handle_with_ssl_error(ssl, retval);
 		fprintf(stderr, "Error while SSL_write\n");
 		return retval;			
 	}
@@ -193,7 +193,7 @@ int http_connector(const char *http_string, void *data, int (*callback)(char*,in
 		//}
 	}
 	if (bytes < 0 ){ //hendle with error
-		handle_with_ssl_error(ssl, bytes);
+		_handle_with_ssl_error(ssl, bytes);
 		fprintf(stderr, "Error while SSL_read\n");
 		return retval;			
 	}	
