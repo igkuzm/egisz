@@ -181,16 +181,16 @@ int http_connector(const char *http_string, void *data, int (*callback)(char*,in
 	while ((bytes = SSL_read(ssl, buf, sizeof buf)) >0 ) {
 		buf[bytes] = 0;
 		
-		//printf("%s", buf); //print for debug
+		printf("%s", buf); //print for debug
 		
-		if (callback) {
-			int c = callback(buf, bytes, &count, data); //run callback
-			if (c != 0) { //stop function if callback returned non zero
-				fprintf(stderr, "Stop SSL_read - callback returned: %d\n", c);
-				break;
-			}
-			count++; //we need count to know how many times callback was called
-		}
+		//if (callback) {
+			//int c = callback(buf, bytes, &count, data); //run callback
+			//if (c != 0) { //stop function if callback returned non zero
+				//fprintf(stderr, "Stop SSL_read - callback returned: %d\n", c);
+				//break;
+			//}
+			//count++; //we need count to know how many times callback was called
+		//}
 	}
 	if (bytes < 0 ){ //hendle with error
 		handle_with_ssl_error(ssl, bytes);
