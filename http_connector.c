@@ -124,6 +124,7 @@ int http_connector(char *http_string, void *data, int (*callback)(char*,int,int*
 		//fprintf(stderr, "Error to parse http_string: %s\n", http_string);	
 		//return -1;
 	//}
+	printf("HOSTNAME: %s\n", http_get->hostname);
 
 	//init SSL
 	SSL_library_init();
