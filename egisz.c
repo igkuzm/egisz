@@ -95,6 +95,8 @@ int main(int argc, char *argv[])
 
 	printf("PROTO: %d\n", http_get.protocol);
 
+	http_connector(http_string, NULL, NULL);
+
 	free(http_string);
 
 
