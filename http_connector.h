@@ -21,6 +21,7 @@ typedef enum {
 typedef struct {
 	Http_protocol protocol;
 	char hostname[256];
+	int port;
 	char request[BUFSIZ];
 } HTTP_GET;
 
