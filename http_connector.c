@@ -83,6 +83,11 @@ int parse_http_string(const char *http_string, Http_method *method){
 		return HTTP_CONNECTOR_ERROR_HOSTNAME;	
 	}
 
+	if (strlen(request_string) > 0) {
+		strncpy(method->request, hostname_string, BUFSIZ);
+		method->request[BUFSIZ - 1] = '\0';		
+	}	
+
 	return 0;
 }
 
