@@ -39,6 +39,10 @@ typedef struct {
 } Http_method;
 
 int parse_http_string(const char *http_string, Http_method *method){
+	int i;
+	for (i = 0; i < strlen(http_string); ++i) {
+		
+	}
 
 	return 0;
 }
