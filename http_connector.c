@@ -71,6 +71,7 @@ int parse_http_string(const char *http_string, Http_method *method){
 	}
 	else {
 		fprintf(stderr, "Error. Cant parse connection protocol from string: %s\n", http_string);
+		return 1;
 	}
 
 	printf("PROTO: %s\n", protocol_string);
