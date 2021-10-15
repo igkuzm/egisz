@@ -8,7 +8,7 @@
 
 #include "egisz.h"
 #include "cJSON.h"
-#include "rest_service_NR.h"
+//#include "rest_service_NR.h"
 #include "http_connector.h"
 #include <stdio.h>
 void print_json(cJSON *json){
