@@ -45,7 +45,10 @@ int parse_http_string(const char *http_string, Http_method *method){
 	
 	while (http_string[i] != '\0'){
 		if (http_string[i] == ':' && http_string[i + 1] == '/' && http_string[i + 2] == '/') {
-			
+			strncpy(protocol_string, buf, buf_len);
+			memset(buf, 0, buf_len);
+			buf_len = 0;
+			i++; i++;
 		}	
 
 		buf[buf_len] = http_string[i];
