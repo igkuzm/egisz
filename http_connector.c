@@ -27,7 +27,7 @@
 #include <netdb.h>
 #endif
 
-int parse_http_string(const char *http_string, HTTP_GET *http_get){
+int parse_http_string(char *http_string, HTTP_GET *http_get){
 	
 	char buf[2*BUFSIZ], protocol_string[256], hostname_string[256], request_string[BUFSIZ];
 	int i = 0, buf_len = 0;
