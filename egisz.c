@@ -90,10 +90,10 @@ int main(int argc, char *argv[])
 	char *http_string = readString();
 
 	//http_connector(http_string, NULL, NULL);
-	HTTP_GET http_get;
-	parse_http_string("http://mail.ru/", &http_get);
+	//HTTP_GET http_get;
+	//parse_http_string("http://mail.ru/", &http_get);
 
-	printf("PROTO: %d\n", http_get.protocol);
+	//printf("PROTO: %d\n", http_get.protocol);
 
 	http_connector(http_string, NULL, NULL);
 
