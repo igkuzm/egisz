@@ -51,6 +51,11 @@ int parse_http_string(const char *http_string, Http_method *method){
 				i++;				
 			}			
 		}
+		if (hostname_is_set) {
+			if (http_string[i + 1] == '\0') {
+				strncpy(request_string, buf, buf_len);				
+			}			
+		}		
 
 		buf[buf_len] = http_string[i];
 		i++; buf_len++;
@@ -58,6 +63,7 @@ int parse_http_string(const char *http_string, Http_method *method){
 
 	printf("PROTO: %s\n", protocol_string);
 	printf("HOSTNAME: %s\n", hostname_string);
+	printf("REQUEST: %s\n", request_string);
 
 	return 0;
 }
