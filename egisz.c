@@ -107,7 +107,7 @@ char *msg = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
 	strcpy(request->httpMethod, "POST");
 	
 	char len_str[128];
-	sprintf(len_str, "%ld", sizeof(msg));
+	sprintf(len_str, "%ld", strlen(msg));
 	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Content_Length, len_str);
 	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Content_Type, "text/xml;charset=UTF-8");
 	
