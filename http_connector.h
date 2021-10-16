@@ -31,14 +31,15 @@ typedef struct {
 	char *httpBody;
 	HTTPHeaderItem *headerItems;
 	int *headerItemsCount;
+	void *returnData;
 } URLRequest;
 
 URLRequest *url_request_new();
 URLRequest *url_request_new_with_string(char *url_string);
 void url_request_free(URLRequest *urlRequest);
 
-void url_request_add_header_item(URLRequest *urlRequest, const char *key, const char *value);
 void url_request_set_http_method(URLRequest *urlRequest, const char *method);
+void url_request_add_header_item(URLRequest *urlRequest, const char *key, const char *value);
 
 
 int URL_connection(const char *http_string, HttpMethod *method, char *header, void *data, int (*callback)(char*,int,int*,void*));
