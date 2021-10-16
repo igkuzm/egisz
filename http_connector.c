@@ -55,6 +55,7 @@ URLRequest *url_request_new(){
 	
 	headerItemList->prev = headerItemList->next = NULL;
 	request->headerItemList = headerItemList;
+	request->http_method = "GET";
 
 	return request;
 }
