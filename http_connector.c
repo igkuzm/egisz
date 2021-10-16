@@ -240,8 +240,6 @@ int url_connection_send_request(URLRequest *request, void *data, int (*callback)
 		perror("Error in function socket_for_url_request()");
 		return -1;
 	}
-	
-
 	printf("REQUEST MESSAGE: %s\n", write_buf);
 	
 	//init SSL
