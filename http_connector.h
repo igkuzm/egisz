@@ -49,7 +49,7 @@ typedef struct {
 } URLRequest;
 
 URLRequest *url_request_new();
-URLRequest *url_request_new_with_string(char *url_string);
+URLRequest *url_request_new_with_string(const char *url_string);
 void url_request_free(URLRequest *urlRequest);
 
 void url_request_set_http_method(URLRequest *urlRequest, const char *method);
