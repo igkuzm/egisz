@@ -208,11 +208,16 @@ char *message_for_url_request(URLRequest *request){
 		}	
 	}
 	
-	ret = sprintf(write_buf, "%s%s\r\n", write_buf);
+	ret = sprintf(write_buf, "%s\r\n", write_buf);
 	if (ret == -1) {
 		fprintf(stderr, "Error. Can't merge http request: %s\n", write_buf);	
 		return NULL;
 	}		
+
+	if (request->httpBody) {
+		ret = sprintf(write_buf, "%s%s\r\n", write_buf, request->httpBody);
+		
+	}
 
 	return write_buf;
 }
