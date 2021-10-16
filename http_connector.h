@@ -21,6 +21,7 @@ typedef enum {
 	HTTP_HEADER_ITEM_KEY_Content_Length,
 	HTTP_HEADER_ITEM_KEY_Content_Type,
 	HTTP_HEADER_ITEM_KEY_Authorization,
+	HTTP_HEADER_ITEM_KEY_SoapAction,
 	HTTP_HEADER_ITEM_KEY_Connection,
 	HTTP_HEADER_ITEM_KEY_Host,
 	HTTP_HEADER_ITEM_KEY_Proxy_Authenticate,
