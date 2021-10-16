@@ -59,7 +59,7 @@ void url_request_set_http_method(URLRequest *request, const char *method);
 void url_request_add_header_item(URLRequest *request, HTTP_HEADER_ITEM_KEY key, const char *value);
 
 void url_request_set_http_body_from_string(URLRequest *request, const char *contentType);
-void url_request_set_http_body_from_file(URLRequest *request, const char *filename);
+void url_request_set_http_body_from_file(URLRequest *request, const char *contentType, const char *filename);
 
 
 int url_connection_send_request(URLRequest *request, void *data, int (*callback)(char*,int,int*,void*));
