@@ -18,8 +18,8 @@ typedef enum {
 } URL_CONNECTION_PROTOCOL;
 
 typedef enum {
-	GET,
-	POST
+	URL_CONNECTION_GET,
+	URL_CONNECTION_POST
 } URL_CONNECTION_METHOD;
 
 typedef struct{
