@@ -176,7 +176,7 @@ int socket_for_url_request(URLRequest *request){
 }
 
 char *message_for_url_request(URLRequest *request){
-	char *message = [2*BUFSIZ];
+	char *message = malloc(BUFSIZ * sizeof(char));
 
 	return message;
 }
