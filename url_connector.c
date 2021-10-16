@@ -239,7 +239,7 @@ char *message_for_url_request(URLRequest *request){
 		return NULL;
 	}
 	
-	ret = sprintf(write_buf, "%s %s HTTP/1.1\r\n", write_buf, request->requestString);
+	ret = sprintf(write_buf, "%s /%s HTTP/1.1\r\n", write_buf, request->requestString);
 	if (ret == -1) {
 		fprintf(stderr, "Error. Can't merge http request: %s\n", request->requestString);	
 		return NULL;
