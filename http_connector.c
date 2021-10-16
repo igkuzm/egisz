@@ -154,7 +154,18 @@ void url_request_set_http_method(URLRequest *request, const char *method){
 }
 
 void url_request_add_header_item(URLRequest *request, HTTP_HEADER_ITEM_KEY key, const char *value){
+	HTTPHeaderItem *newItem;
+	bool should_create_new_item = false;
 	HTTPHeaderItemList *headerItemList = request->headerItemList;
+
+	//find if theis already item with key
+	while (headerItemList->prev != NULL) {
+		HTTPHeaderItem *item = headerItemList->headerItem;
+		if (item->key == key) {
+			
+		}
+		headerItemList = headerItemList->prev;
+	}	
 	
 	HTTPHeaderItemList *newHeaderItemList = malloc(sizeof(HTTPHeaderItemList));
 	newHeaderItemList->prev = headerItemList;
