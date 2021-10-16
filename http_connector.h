@@ -17,4 +17,4 @@ typedef enum {
 	POST
 } HttpMethod;
 
-int http_connector(const char *http_string, HttpMethod *method, void *data, int (*callback)(char*,int,int*,void*));
+int http_connector(const char *http_string, HttpMethod *method, char *httpHeader, void *data, int (*callback)(char*,int,int*,void*));
