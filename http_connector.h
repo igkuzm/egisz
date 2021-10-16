@@ -23,8 +23,8 @@ typedef enum {
 } URL_CONNECTION_METHOD;
 
 typedef struct{
-	char value[256];
-	char key[256];
+	const char value[256];
+	const char key[256];
 } HTTPHeaderItem;
 
 typedef struct {
@@ -41,6 +41,7 @@ typedef struct {
 URLRequest *url_request_new();
 URLRequest *url_request_new_with_string(char *url_string);
 void url_request_free(URLRequest *urlRequest);
+void url_request_add_header_item(URLRequest *urlRequest, const char *key, const char *value);
 
 
 
