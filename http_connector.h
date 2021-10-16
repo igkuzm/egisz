@@ -7,6 +7,8 @@
  */
 #include <stdio.h>
 
+struct HTTPHeaderItemList;
+
 typedef enum {
 	HTTP_CONNECTOR_ERROR_PROTOCOL = 1,
 	HTTP_CONNECTOR_ERROR_HOSTNAME
