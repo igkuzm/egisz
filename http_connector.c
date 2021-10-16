@@ -175,6 +175,10 @@ int socket_for_url_request(URLRequest *request){
 	return sd;
 }
 
+char *message_for_url_request(URLRequest *request){
+
+}
+
 int url_connection_send_request(URLRequest *request, void *data, int (*callback)(char*,int,int*,void*)){
 	//int socket
 	int sd = socket_for_url_request(request);
