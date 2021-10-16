@@ -17,17 +17,5 @@ typedef enum {
 	POST
 } Http_method;
 
-typedef enum {
-	HTTP,
-	HTTPS
-} Http_protocol;
-
-typedef struct {
-	Http_protocol protocol;
-	char hostname[256];
-	int port;
-	char request[BUFSIZ];
-} HTTP_GET;
 
 int http_connector(const char *http_string, void *data, int (*callback)(char*,int,int*,void*));
-int parse_http_string(const char *http_string, HTTP_GET *http_get);
