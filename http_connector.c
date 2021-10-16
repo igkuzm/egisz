@@ -156,25 +156,27 @@ int http_connector(const char *http_string, void *data, int (*callback)(char*,in
 		//fprintf(stderr, "Error. Can't merge http request for host: %s with http request: POST %s HTTP/1.1\n", http_get->hostname, http_get->request);	
 		//return -1;		
 	//}
-	snprintf(write_buf, BUFSIZ, "%s /%s HTTP/1.1\r\nHost: %s\r\n"
+	
+	char *soap_msg = "<?xml version="1.0" encoding="UTF-8"?>\r\n"
+		"<SOAP-ENV:Envelope\r\n"
+		"xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n"
+		"xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\"\r\n"
+		"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n"
+		"xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\r\n"
+		"xmlns:ns1=\"urn:service\">\r\n"
+		"<SOAP-ENV:Body>\r\n"
+		"<ns1:getServerTime>\r\n"
+		"</ns1:getServerTime>\r\n"
+		"</SOAP-ENV:Body>\r\n"
+		"</SOAP-ENV:Envelope>\r\n"
+	
+		snprintf(write_buf, BUFSIZ, "%s /%s HTTP/1.1\r\nHost: %s\r\n"
 								"Content-Type: application/x-www-form-urlencoded\r\n"
 								"Content-Length: 14\r\n"
 								"\r\n"
-								"getRefbookList\r\n"
-								"\r\n", write_buf, http_get->request, http_get->hostname);
+								"%s\r\n"
+								"\r\n", write_buf, http_get->request, http_get->hostname, soap_msg);
 
-char *soap_msg = "<?xml version="1.0" encoding="UTF-8"?>\r\n"
-"<SOAP-ENV:Envelope\r\n"
-"xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n"
-"xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\"\r\n"
-"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n"
-"xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\r\n"
-"xmlns:ns1=\"urn:service\">\r\n"
-"<SOAP-ENV:Body>\r\n"
-"<ns1:getServerTime>\r\n"
-"</ns1:getServerTime>\r\n"
-"</SOAP-ENV:Body>\r\n"
-"</SOAP-ENV:Envelope>\r\n"
 	
 	
 
