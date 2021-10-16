@@ -18,6 +18,12 @@ typedef enum {
 } URL_CONNECTION_PROTOCOL;
 
 typedef enum {
+	HTTP_METHOD_GET,
+	HTTP_METHOD_PUT,
+	HTTP_METHOD_POST,
+} HTTP_METHOD;
+
+typedef enum {
 	HTTP_HEADER_ITEM_KEY_Content_Length,
 	HTTP_HEADER_ITEM_KEY_Content_Type,
 	HTTP_HEADER_ITEM_KEY_Authorization,
