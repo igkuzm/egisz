@@ -157,7 +157,7 @@ int http_connector(const char *http_string, void *data, int (*callback)(char*,in
 		//return -1;		
 	//}
 	
-	char *soap_msg = "<?xml version="1.0" encoding="UTF-8"?>\r\n"
+	char soap_msg[] = "<?xml version="1.0" encoding="UTF-8"?>\r\n"
 		"<SOAP-ENV:Envelope\r\n"
 		"xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n"
 		"xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\"\r\n"
