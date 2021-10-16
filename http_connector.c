@@ -42,6 +42,7 @@ const char *HTTPHeaderItemKey(HTTP_HEADER_ITEM_KEY key)
 }
 
 
+
 int parse_http_string(const char *http_string, HTTP_GET *http_get){
 	
 	char buf[2*BUFSIZ], protocol_string[256], hostname_string[256], request_string[BUFSIZ];
@@ -112,6 +113,10 @@ int parse_http_string(const char *http_string, HTTP_GET *http_get){
 	}	
 
 	return 0;
+}
+
+URLRequest *url_request_new(){
+
 }
 
 void _handle_with_ssl_error(SSL *ssl, int retval){
