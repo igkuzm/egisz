@@ -12,6 +12,7 @@
 #include "url_connector.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 void print_json(cJSON *json){
 	if (cJSON_IsArray(json)) {
 		printf("JSON is array \n");		
