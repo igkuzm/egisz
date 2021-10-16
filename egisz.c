@@ -89,7 +89,8 @@ int main(int argc, char *argv[])
 	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_SOAPAction, "");
 	
 
-char *msg = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+char *msg = 
+"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
 "<SOAP-ENV:Envelope"
 "    xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\""
 "    xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\""
