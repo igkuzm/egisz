@@ -27,6 +27,7 @@ typedef struct {
 	char hostname[256];
 	int port;
 	char request[BUFSIZ];
+	char *httpBody;
 } URLRequest;
 
 
