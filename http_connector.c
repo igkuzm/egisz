@@ -31,10 +31,12 @@ const char* HTTPHeaderItemKey(HTTP_HEADER_ITEM_KEY key)
 {
     switch (key)
     {
-        case Linux:   return "Linux";
-        case Apple:   return "Apple";
-        case Windows: return "Windows";
-        default:      return "[Unknown OS_type]";
+		case HTTP_HEADER_ITEM_KEY_Content_Length: return "Content-Length";
+		case HTTP_HEADER_ITEM_KEY_Connection return "Connection";
+		case HTTP_HEADER_ITEM_KEY_Host return "Host";
+		case HTTP_HEADER_ITEM_KEY_Proxy_Authenticate return "Proxy-Authenticate";
+		case HTTP_HEADER_ITEM_KEY_Proxy_Authorization return "Proxy-Authorization";
+		case HTTP_HEADER_ITEM_KEY_WWW_Authenticate return "WWW-Authenticate";
     }
 }
 
