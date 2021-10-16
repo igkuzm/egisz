@@ -336,7 +336,6 @@ int url_connection_send_request_ssl(int sd, char *write_buf, void *data, int (*c
 
 	//Close SSL
 	SSL_free(ssl);   
-	close(sd);      
 	SSL_CTX_free(ctx);   
 
 	return 0;
@@ -404,6 +403,7 @@ int url_connection_send_request(URLRequest *request, void *data, int (*callback)
 	}	
 	
 	free(write_buf);
+	close(sd);      
 
 	return 0;
 }
