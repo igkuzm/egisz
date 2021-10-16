@@ -10,7 +10,7 @@
 typedef enum {
 	HTTP_CONNECTOR_ERROR_PROTOCOL = 1,
 	HTTP_CONNECTOR_ERROR_HOSTNAME
-} URL_connection_error;
+} URLConnectionError;
 
 typedef enum {
 	HTTP,
