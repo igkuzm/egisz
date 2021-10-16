@@ -55,7 +55,7 @@ URLRequest *url_request_new(){
 	
 	headerItemList->prev = headerItemList->next = NULL;
 	request->headerItemList = headerItemList;
-	request->http_method = "GET";
+	request->httpMethod = "GET";
 
 	return request;
 }
@@ -182,8 +182,8 @@ char *message_for_url_request(URLRequest *request){
 		fprintf(stderr, "Cannot allocate memory for message_for_url_request\n");
 		return NULL;
 	}	
-	sprintf(write_buf, "%s", request->http_method);
-	sprintf(write_buf, "%s %s", write_buf, request->requestString)
+	sprintf(write_buf, "%s", request->httpMethod);
+	sprintf(write_buf, "%s %s", write_buf, request->requestString);
 
 	return write_buf;
 }
