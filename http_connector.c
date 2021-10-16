@@ -43,7 +43,8 @@ const char *HTTPHeaderItemKey(HTTP_HEADER_ITEM_KEY key)
 
 URLRequest *url_request_new(){
 	URLRequest *request = malloc(sizeof(URLRequest));
-	HTTPHeaderItem *headerItems = malloc(sizeof(HTTPHeaderItem));
+	HTTPHeaderItemList *headerItems = malloc(sizeof(HTTPHeaderItemList));
+	headerItems->prev = headerItems->next = NULL;
 	request->headerItems = headerItems;
 
 	return request;
