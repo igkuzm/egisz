@@ -251,30 +251,8 @@ int url_connection_send_request_ssl(int sd, URLRequest *request, void *data, int
 	SSL_CTX *ctx;
 	SSL *ssl = ssl_init_for_socket(sd, &ctx);	
 
-
-} 
-
-int url_connection_send_request(URLRequest *request, void *data, int (*callback)(char*,int,int*,void*)){
-	//int socket
-	int sd = socket_for_url_request(request);
-	if (sd == -1) {
-		perror("Error in function socket_for_url_request()");
-		return -1;
-	}
-	 
-	
-	//generage HTTP REQUEST MESSAGE
-	char *write_buf = message_for_url_request(request);	
-	if (write_buf == NULL) {
-		perror("Error in function socket_for_url_request()");
-		return -1;
-	}
-	printf("REQUEST MESSAGE: %s\n", write_buf);
-	
-
 	//SSL WRITE
-	int retval;
-	retval = SSL_write(ssl, write_buf, strlen(write_buf));
+	int retval = SSL_write(ssl, write_buf, strlen(write_buf));
 
 	if (retval <= 0 ){ //handle with error
 		_handle_with_ssl_error(ssl, retval);
@@ -310,6 +288,26 @@ int url_connection_send_request(URLRequest *request, void *data, int (*callback)
 		close(sd);      
 		SSL_CTX_free(ctx);   
 	}
+} 
+
+int url_connection_send_request(URLRequest *request, void *data, int (*callback)(char*,int,int*,void*)){
+	//int socket
+	int sd = socket_for_url_request(request);
+	if (sd == -1) {
+		perror("Error in function socket_for_url_request()");
+		return -1;
+	}
+	 
+	
+	//generage HTTP REQUEST MESSAGE
+	char *write_buf = message_for_url_request(request);	
+	if (write_buf == NULL) {
+		perror("Error in function socket_for_url_request()");
+		return -1;
+	}
+	printf("REQUEST MESSAGE: %s\n", write_buf);
+	
+
 	
 	else { //NO SSL
 		//WRITE
