@@ -193,7 +193,7 @@ void url_request_free(URLRequest *request){
 	free(request);
 }
 
-void url_request_set_http_body_from_string(URLRequest *request, const char *contentType){
+void url_request_set_http_body_from_string(URLRequest *request, const char *contentType, const char *bodyString){
 	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Content_Type, contentType);
 
 
