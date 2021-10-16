@@ -43,6 +43,37 @@ const char *HTTPHeaderItemKey(HTTP_HEADER_ITEM_KEY key)
     }
 }
 
+void url_request_add_header_item(URLRequest *request, HTTP_HEADER_ITEM_KEY key, const char *value){
+	HTTPHeaderItem *item;
+	bool should_create_new_item = true;
+	HTTPHeaderItemList *headerItemList = request->headerItemList;
+
+	//find if theis already item with key
+	while (headerItemList->prev != NULL) {
+		HTTPHeaderItem *_item = headerItemList->headerItem;
+		if (_item->key == key) {
+			item = _item;
+			should_create_new_item = false;
+		}
+		headerItemList = headerItemList->prev;
+	}	
+
+	if (should_create_new_item) {
+		item = malloc(sizeof(HTTPHeaderItem));
+		HTTPHeaderItemList *headerItemList = request->headerItemList;
+		
+		HTTPHeaderItemList *newHeaderItemList = malloc(sizeof(HTTPHeaderItemList));
+		newHeaderItemList->prev = headerItemList;
+		newHeaderItemList->next = NULL;
+		newHeaderItemList->headerItem = item;
+
+		request->headerItemList = newHeaderItemList;
+	}
+	
+	item->key = key;
+	strcpy(item->value, value);
+}
+
 URLRequest *url_request_new(){
 	URLRequest *request = malloc(sizeof(URLRequest));
 	if (request == NULL) {
@@ -153,36 +184,6 @@ void url_request_set_http_method(URLRequest *request, const char *method){
 	strcpy(request->httpMethod, method);
 }
 
-void url_request_add_header_item(URLRequest *request, HTTP_HEADER_ITEM_KEY key, const char *value){
-	HTTPHeaderItem *item;
-	bool should_create_new_item = true;
-	HTTPHeaderItemList *headerItemList = request->headerItemList;
-
-	//find if theis already item with key
-	while (headerItemList->prev != NULL) {
-		HTTPHeaderItem *_item = headerItemList->headerItem;
-		if (_item->key == key) {
-			item = _item;
-			should_create_new_item = false;
-		}
-		headerItemList = headerItemList->prev;
-	}	
-
-	if (should_create_new_item) {
-		item = malloc(sizeof(HTTPHeaderItem));
-		HTTPHeaderItemList *headerItemList = request->headerItemList;
-		
-		HTTPHeaderItemList *newHeaderItemList = malloc(sizeof(HTTPHeaderItemList));
-		newHeaderItemList->prev = headerItemList;
-		newHeaderItemList->next = NULL;
-		newHeaderItemList->headerItem = item;
-
-		request->headerItemList = newHeaderItemList;
-	}
-	
-	item->key = key;
-	strcpy(item->value, value);
-}
 
 
 void _handle_with_ssl_error(SSL *ssl, int retval){
