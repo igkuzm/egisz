@@ -182,9 +182,10 @@ char *message_for_url_request(URLRequest *request){
 		fprintf(stderr, "Cannot allocate memory for message_for_url_request\n");
 		return NULL;
 	}	
-	sprintf(write_buf, request->http_method);
+	sprintf(write_buf, "%s", request->http_method);
+	sprintf(write_buf, "%s %s", write_buf, request->requestString)
 
-	return message;
+	return write_buf;
 }
 
 int url_connection_send_request(URLRequest *request, void *data, int (*callback)(char*,int,int*,void*)){
