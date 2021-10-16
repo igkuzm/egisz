@@ -17,17 +17,18 @@ typedef enum {
 	HTTPS
 } URLConnectionProtocol;
 
-typedef struct {
-	HttpProtocol protocol;
-	char hostname[256];
-	int port;
-	char request[BUFSIZ];
-} HTTP_GET;
-
-
 typedef enum {
 	GET,
 	POST
-} HttpMethod;
+} URLConnectionMethod;
+
+typedef struct {
+	URLConnectionProtocol protocol;
+	char hostname[256];
+	int port;
+	char request[BUFSIZ];
+} URLConnection;
+
+
 
 int URL_connection(const char *http_string, HttpMethod *method, char *header, void *data, int (*callback)(char*,int,int*,void*));
