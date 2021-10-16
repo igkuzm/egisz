@@ -249,7 +249,7 @@ SSL *ssl_init_for_socket(int sd, SSL_CTX **_ctx){
 
 int url_connection_send_request_ssl(int sd, URLRequest *request, void *data, int (*callback)(char*,int,int*,void*)){
 	SSL_CTX *ctx;
-	SSL = ssl_init_for_socket(sd, &ctx);	
+	SSL *ssl = ssl_init_for_socket(sd, &ctx);	
 
 
 } 
