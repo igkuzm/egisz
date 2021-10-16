@@ -113,21 +113,21 @@ URLRequest *url_request_new_with_string(const char *url_string){
 		request->port = 443;
 	}
 	if (!request->port){
-		fprintf(stderr, "Error. Cant parse connection protocol from string: %s\n", http_string);
-		return HTTP_CONNECTOR_ERROR_PROTOCOL;
+		fprintf(stderr, "Error. Cant parse connection protocol from string: %s\n", url_string);
+		return NULL;
 	}
 
 	if (strlen(hostname_string) > 0) {
-		strncpy(http_get->hostname, hostname_string, 256);
-		http_get->hostname[255] = '\0';
+		strncpy(request->hostname, hostname_string, 256);
+		request->hostname[255] = '\0';
 	}
 	else {
-		fprintf(stderr, "Error. Cant parse hostname from string: %s\n", http_string);
-		return HTTP_CONNECTOR_ERROR_HOSTNAME;	
+		fprintf(stderr, "Error. Cant parse hostname from string: %s\n", url_string);
+		return NULL;	
 	}
 
 	if (strlen(request_string) > 0) {
-		strncpy(http_get->request, request_string, BUFSIZ);
+		strncpy(request->request, request_string, BUFSIZ);
 		http_get->request[BUFSIZ - 1] = '\0';		
 	}	
 
