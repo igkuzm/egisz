@@ -99,7 +99,7 @@ URLRequest *url_request_new(){
 	
 	headerItemList->prev = headerItemList->next = NULL;
 	request->headerItemList = headerItemList;
-	strcpy(request->httpMethod, "GET");
+	request->method = HTTP_METHOD_GET;
 
 
 	return request;
