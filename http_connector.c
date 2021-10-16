@@ -43,6 +43,10 @@ const char *HTTPHeaderItemKey(HTTP_HEADER_ITEM_KEY key)
 
 URLRequest *url_request_new(){
 	URLRequest *request = malloc(sizeof(URLRequest));
+	if (request == NULL) {
+		fprintf(stderr, "Cannot allocate memory for URLRequest\n");
+		return NULL;
+	}
 	HTTPHeaderItemList *headerItems = malloc(sizeof(HTTPHeaderItemList));
 	headerItems->prev = headerItems->next = NULL;
 	request->headerItems = headerItems;
