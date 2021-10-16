@@ -216,7 +216,10 @@ char *message_for_url_request(URLRequest *request){
 
 	if (request->httpBody) {
 		ret = sprintf(write_buf, "%s%s\r\n", write_buf, request->httpBody);
-		
+		if (ret == -1) {
+			fprintf(stderr, "Error. Can't merge http request with http body\n");	
+			return NULL;
+		}		
 	}
 
 	return write_buf;
