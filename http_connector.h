@@ -17,11 +17,6 @@ typedef enum {
 	URL_CONNECTION_PROTOCOL_HTTPS,
 } URL_CONNECTION_PROTOCOL;
 
-typedef enum {
-	URL_CONNECTION_GET,
-	URL_CONNECTION_POST
-} URL_CONNECTION_METHOD;
-
 typedef struct{
 	const char value[256];
 	const char key[256];
@@ -29,7 +24,7 @@ typedef struct{
 
 typedef struct {
 	URL_CONNECTION_PROTOCOL protocol;
-	URL_CONNECTION_PROTOCOL method;
+	char http_method[128];
 	char hostname[256];
 	int port;
 	char request[BUFSIZ];
@@ -41,8 +36,9 @@ typedef struct {
 URLRequest *url_request_new();
 URLRequest *url_request_new_with_string(char *url_string);
 void url_request_free(URLRequest *urlRequest);
-void url_request_add_header_item(URLRequest *urlRequest, const char *key, const char *value);
 
+void url_request_add_header_item(URLRequest *urlRequest, const char *key, const char *value);
+void url_request_set_http_method(URLRequest *urlRequest, const char *method);
 
 
 int URL_connection(const char *http_string, HttpMethod *method, char *header, void *data, int (*callback)(char*,int,int*,void*));
