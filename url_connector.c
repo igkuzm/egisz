@@ -40,6 +40,7 @@ const char *HTTPHeaderItemKey(HTTP_HEADER_ITEM_KEY key)
 		case HTTP_HEADER_ITEM_KEY_Proxy_Authenticate: return "Proxy-Authenticate";
 		case HTTP_HEADER_ITEM_KEY_Proxy_Authorization: return "Proxy-Authorization";
 		case HTTP_HEADER_ITEM_KEY_WWW_Authenticate: return "WWW-Authenticate";
+		case HTTP_HEADER_ITEM_KEY_Accept: return "Accept";
     }
 }
 
