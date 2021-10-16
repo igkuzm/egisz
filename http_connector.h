@@ -13,8 +13,8 @@ typedef enum {
 } URL_CONNECTION_ERROR;
 
 typedef enum {
-	URLConnectionProtocolHTTP,
-	URLConnectionProtocolHTTPS
+	URL_CONNECTION_PROTOCOL_HTTP,
+	URL_CONNECTION_PROTOCOL_HTTPS,
 } URL_CONNECTION_PROTOCOL;
 
 typedef enum {
