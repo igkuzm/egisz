@@ -225,7 +225,7 @@ char *message_for_url_request(URLRequest *request){
 	return write_buf;
 }
 
-SSL *ssl_init_for_socket(int sd){
+SSL *ssl_init_for_socket(int sd, SSL_CTX *_ctx){
 	//init SSL
 	SSL_library_init();
 	OpenSSL_add_all_algorithms();
@@ -243,7 +243,6 @@ SSL *ssl_init_for_socket(int sd){
 		fprintf(stderr, "Error. Can't connect SSL to socket\n");	
 		return NULL;
 	}  
-	
 
 	return ssl;
 }
