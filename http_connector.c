@@ -32,6 +32,7 @@ const char* HTTPHeaderItemKey(HTTP_HEADER_ITEM_KEY key)
     switch (key)
     {
 		case HTTP_HEADER_ITEM_KEY_Content_Length: return "Content-Length";
+		case HTTP_HEADER_ITEM_KEY_Authorization return "Authorization";
 		case HTTP_HEADER_ITEM_KEY_Connection return "Connection";
 		case HTTP_HEADER_ITEM_KEY_Host return "Host";
 		case HTTP_HEADER_ITEM_KEY_Proxy_Authenticate return "Proxy-Authenticate";
