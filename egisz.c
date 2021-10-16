@@ -101,7 +101,7 @@ char *msg = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
 "</SOAP-ENV:Envelope>";
 
 	request->httpBody = msg;
-	request->httpMethod = "POST";
+	strcpy(request->httpMethod, "POST");
 	
 	url_connection_send_request(request,  NULL, NULL);
 
