@@ -86,6 +86,20 @@ int main(int argc, char *argv[])
 	
 	URLRequest *request = url_request_new_with_string("https://nsi.rosminzdrav.ru/wsdl/SOAP-server.v2.php");
 
+char *msg = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+"<SOAP-ENV:Envelope"
+"    xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\""
+"    xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\""
+"    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\""
+"    xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\""
+"    xmlns:ns1=\"urn:service\">"
+" <SOAP-ENV:Body>"
+"  <ns1:getRefbookList>"
+"   <userKey1></userKey1>"
+"  </ns1:getRefbookList>"
+" </SOAP-ENV:Body>"
+"</SOAP-ENV:Envelope>";
+
 	
 	url_connection_send_request(request,  NULL, NULL);
 
