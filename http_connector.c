@@ -267,8 +267,6 @@ int url_connection_send_request_ssl(int sd, char *write_buf, URLRequest *request
 	while ((bytes = SSL_read(ssl, buf, sizeof buf)) >0 ) {
 		buf[bytes] = 0;
 
-		printf("%s", buf); //print for debug
-
 		if (callback) {
 			int c = callback(buf, bytes, &count, data); //run callback
 			if (c != 0) { //stop function if callback returned non zero
@@ -276,6 +274,9 @@ int url_connection_send_request_ssl(int sd, char *write_buf, URLRequest *request
 				break;
 			}
 			count++; //we need count to know how many times callback was called
+		}
+		else {
+			printf("%s", buf); //print for debug
 		}
 	}
 	if (bytes < 0 ){ //hendle with error
