@@ -345,6 +345,7 @@ int url_connection_send_request(URLRequest *request, void *data, int (*callback)
 	}
 	printf("REQUEST MESSAGE: %s\n", write_buf);
 	
+	//RUN request
 	if (request->protocol == URL_CONNECTION_PROTOCOL_HTTP) {
 		url_connection_send_request_no_ssl(sd, write_buf, data, callback);
 	}
