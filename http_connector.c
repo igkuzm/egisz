@@ -225,7 +225,7 @@ char *message_for_url_request(URLRequest *request){
 	return write_buf;
 }
 
-SSL *ssl_init(){
+SSL *ssl_init_for_socket(int sd){
 	//init SSL
 	SSL_library_init();
 	OpenSSL_add_all_algorithms();
