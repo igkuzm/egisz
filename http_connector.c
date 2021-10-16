@@ -234,14 +234,14 @@ SSL *ssl_init(){
 	SSL_CTX *ctx = SSL_CTX_new(method);
 	if ( ctx == NULL ){
 		fprintf(stderr, "Error. Can't init SSL_CTX\n");	
-		return -1;
+		return NULL;
 	} 
 	
 	SSL *ssl = SSL_new(ctx); //create ssl structure
 	SSL_set_fd(ssl, sd); //connect SSL to socket 
 	if ( SSL_connect(ssl) == -1 ){
 		fprintf(stderr, "Error. Can't connect SSL to socket with address: %s:%d\n", host->h_addr, http_get->port);	
-		return -1;
+		return NULL;
 	}  
 	
 	//SSL WRITE
