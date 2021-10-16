@@ -169,14 +169,14 @@ void url_request_add_header_item(URLRequest *request, HTTP_HEADER_ITEM_KEY key, 
 	}	
 
 	if (should_create_new_item) {
+		newItem = malloc(sizeof(HTTPHeaderItem));
 		HTTPHeaderItemList *headerItemList = request->headerItemList;
 		
 		HTTPHeaderItemList *newHeaderItemList = malloc(sizeof(HTTPHeaderItemList));
 		newHeaderItemList->prev = headerItemList;
 		newHeaderItemList->next = NULL;
-
-		newItem = malloc(sizeof(HTTPHeaderItem));
 		newHeaderItemList->item = newItem;
+
 		request->headerItemList = newHeaderItemList;
 	}
 	
