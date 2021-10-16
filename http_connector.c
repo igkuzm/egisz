@@ -153,7 +153,7 @@ void url_request_set_http_method(URLRequest *request, const char *method){
 	strcpy(request->httpMethod, method);
 }
 
-void url_request_add_header_item(URLRequest *request, HTTP_HEADER_ITEM_KEY key, const char *value){
+void url_request_add_header_item(URLRequest *request, HTTP_HEADER_ITEM_KEY key, char *value){
 	HTTPHeaderItemList *headerItemList = request->headerItemList;
 	
 	HTTPHeaderItemList *newHeaderItemList = malloc(sizeof(HTTPHeaderItemList));
