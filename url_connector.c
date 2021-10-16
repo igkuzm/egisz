@@ -193,6 +193,12 @@ void url_request_free(URLRequest *request){
 	free(request);
 }
 
+void url_request_set_http_body_from_string(URLRequest *request, const char *contentType){
+	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Content_Type, contentType);
+
+
+}
+
 void _handle_with_ssl_error(SSL *ssl, int retval){
 	switch (SSL_get_error (ssl, retval)){
 		case SSL_ERROR_WANT_READ:
