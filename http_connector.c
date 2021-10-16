@@ -51,7 +51,7 @@ URLRequest *url_request_new(){
 }
 
 
-int parse_http_string(const char *http_string, HTTP_GET *http_get){
+url_request_new_with_string(const char *url_string){
 	
 	char buf[2*BUFSIZ], protocol_string[256], hostname_string[256], request_string[BUFSIZ];
 	memset(protocol_string, 0, 256);
