@@ -17,5 +17,10 @@ typedef enum {
 	POST
 } Http_method;
 
+typedef enum {
+	GET,
+	POST
+} Http_connect_type;
+
 
 int http_connector(const char *http_string, void *data, int (*callback)(char*,int,int*,void*));
