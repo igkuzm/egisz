@@ -144,6 +144,7 @@ void url_request_free(URLRequest *request){
 		HTTPHeaderItem *item = headerItemList->headerItem;
 		free(item);
 		headerItemList = headerItemList->prev;
+		free(headerItemList->next);
 	}
 }
 
