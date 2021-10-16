@@ -51,7 +51,7 @@ URLRequest *url_request_new(){
 }
 
 
-url_request_new_with_string(const char *url_string){
+URLRequest *url_request_new_with_string(const char *url_string){
 
 	URLRequest *request = url_request_new();
 	
