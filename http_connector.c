@@ -179,8 +179,9 @@ void url_request_add_header_item(URLRequest *request, HTTP_HEADER_ITEM_KEY key, 
 		newHeaderItemList->item = newItem;
 		request->headerItemList = newHeaderItemList;
 	}
-		newItem->key = key;
-		strcpy(newItem->value, value);
+	
+	newItem->key = key;
+	strcpy(newItem->value, value);
 
 }
 
