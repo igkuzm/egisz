@@ -152,7 +152,7 @@ int http_connector(const char *http_string, void *data, int (*callback)(char*,in
 	//}
 	
 	sprintf(write_buf, "POST");
-	if (snprintf(write_buf, BUFSIZ, "%s /%s HTTP/1.1\r\nHost: %s\r\nContent-Type: application/x-www-form-urlencoded\r\nContent-Length: 13\r\n\r\ngetRefbookList\r\n\r\n", write_buf, http_get->request, http_get->hostname) == -1){
+	if (snprintf(write_buf, BUFSIZ, "%s /%s HTTP/1.1\r\nHost: %s\r\nContent-Type: application/x-www-form-urlencoded\r\nContent-Length: 14\r\n\r\ngetRefbookList\r\n\r\n", write_buf, http_get->request, http_get->hostname) == -1){
 		fprintf(stderr, "Error. Can't merge http request for host: %s with http request: POST %s HTTP/1.1\n", http_get->hostname, http_get->request);	
 		return -1;		
 	}
