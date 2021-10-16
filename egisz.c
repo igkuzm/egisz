@@ -89,7 +89,6 @@ int main(int argc, char *argv[])
 	printf("PORT: %d\n", request->port);
 	printf("PROTOCOL: %d\n", request->protocol);
 
-	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Host, "mail.ru");
 	
 	url_connection_send_request(request,  NULL, NULL);
 
