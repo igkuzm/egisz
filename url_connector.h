@@ -2,7 +2,7 @@
  * File              : url_connector.h
  * Author            : Igor V. Sementsov <ig.kuzm@gmail.com>
  * Date              : 15.10.2021
- * Last Modified Date: 16.10.2021
+ * Last Modified Date: 17.10.2021
  * Last Modified By  : Igor V. Sementsov <ig.kuzm@gmail.com>
  */
 #include <stdio.h>
@@ -58,6 +58,7 @@ void url_request_free(URLRequest *request);
 void url_request_set_http_method(URLRequest *request, const char *method);
 void url_request_add_header_item(URLRequest *request, HTTP_HEADER_ITEM_KEY key, const char *value);
 
+void url_request_set_http_body_from_string(URLRequest *request, const char *content_type);
 void url_request_set_http_body_from_file(URLRequest *request, const char *filename);
 
 
