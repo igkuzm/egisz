@@ -10,11 +10,24 @@
 typedef enum {
 	HTTP_CONNECTOR_ERROR_PROTOCOL = 1,
 	HTTP_CONNECTOR_ERROR_HOSTNAME
-} Http_connector_error;
+} URL_connection_error;
+
+typedef enum {
+	HTTP,
+	HTTPS
+} HttpProtocol;
+
+typedef struct {
+	HttpProtocol protocol;
+	char hostname[256];
+	int port;
+	char request[BUFSIZ];
+} HTTP_GET;
+
 
 typedef enum {
 	GET,
 	POST
 } HttpMethod;
 
-int http_connector(const char *http_string, HttpMethod *method, char *header, void *data, int (*callback)(char*,int,int*,void*));
+int URL_connection(const char *http_string, HttpMethod *method, char *header, void *data, int (*callback)(char*,int,int*,void*));
