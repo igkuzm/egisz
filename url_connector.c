@@ -197,7 +197,7 @@ void url_request_set_http_method(URLRequest *request, HTTP_METHOD method){
 	request->method = method;
 }
 
-void url_request_set_http_body_from_string(URLRequest *request, const char *contentType, const char *bodyString){
+void url_request_set_http_body_from_string(URLRequest *request, const char *contentType, char *bodyString){
 	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Content_Type, contentType);
 	
 	char size_str[128];
