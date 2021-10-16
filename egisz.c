@@ -86,6 +86,8 @@ int main(int argc, char *argv[])
 	
 	URLRequest *request = url_request_new_with_string("https://mail.ru/");
 
+	url_connection_send_request(request,  NULL, NULL);
+
 
 	printf("Press any key to close application\n");
 	getchar();
