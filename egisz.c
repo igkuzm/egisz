@@ -87,7 +87,7 @@ int main(int argc, char *argv[])
 	URLRequest *request = url_request_new_with_string("https://mail.ru/");
 	printf("HOST: %s\n", request->hostname);
 	printf("PORT: %d\n", request->port);
-	printf("PROTOCEL: %d\n", request->protocol);
+	printf("PROTOCOL: %d\n", request->protocol);
 
 	url_connection_send_request(request,  NULL, NULL);
 
