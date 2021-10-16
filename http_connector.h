@@ -34,8 +34,8 @@ typedef struct{
 
 struct HTTPHeaderItemList{
 	HTTPHeaderItem *headerItem;
-	HTTPHeaderItemList *next;
-	HTTPHeaderItemList *prev;
+	struct HTTPHeaderItemList *next;
+	struct HTTPHeaderItemList *prev;
 };
 
 typedef struct {
