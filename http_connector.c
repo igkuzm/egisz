@@ -347,9 +347,10 @@ int url_connection_send_request(URLRequest *request, void *data, int (*callback)
 	printf("REQUEST MESSAGE: %s\n", write_buf);
 	
 
-	
-	
 
+	
+	
+	free(write_buf);
 
 	return 0;
 }
