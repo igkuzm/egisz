@@ -10,17 +10,17 @@
 typedef enum {
 	HTTP_CONNECTOR_ERROR_PROTOCOL = 1,
 	HTTP_CONNECTOR_ERROR_HOSTNAME
-} URLConnectionError;
+} URL_CONNECTION_ERROR;
 
 typedef enum {
 	URLConnectionProtocolHTTP,
 	URLConnectionProtocolHTTPS
-} URLConnectionProtocol;
+} URL_CONNECTION_PROTOCOL;
 
 typedef enum {
 	GET,
 	POST
-} URLConnectionMethod;
+} URL_CONNECTION_METHOD;
 
 typedef struct{
 	char value[256];
@@ -28,7 +28,8 @@ typedef struct{
 } HTTPHeaderItem;
 
 typedef struct {
-	URLConnectionProtocol protocol;
+	URL_CONNECTION_PROTOCOL protocol;
+	URL_CONNECTION_PROTOCOL method;
 	char hostname[256];
 	int port;
 	char request[BUFSIZ];
