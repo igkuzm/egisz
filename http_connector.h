@@ -32,7 +32,7 @@ typedef struct{
 	const char value[256];
 } HTTPHeaderItem;
 
-typedef struct HTTPHeaderItemList{
+struct HTTPHeaderItemList{
 	HTTPHeaderItem *headerItem;
 	HTTPHeaderItemList *prev;
 	HTTPHeaderItemList *next;
