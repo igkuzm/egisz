@@ -15,7 +15,7 @@ typedef enum {
 typedef enum {
 	HTTP,
 	HTTPS
-} HttpProtocol;
+} URLConnectionProtocol;
 
 typedef struct {
 	HttpProtocol protocol;
