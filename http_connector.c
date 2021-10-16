@@ -171,6 +171,7 @@ int http_connector(const char *http_string, void *data, int (*callback)(char*,in
 		"xmlns:ns1=\"urn:service\">\r\n"
 		"<SOAP-ENV:Body>\r\n"
 		"<ns1:getRefbookList>\r\n"
+		"<userKey1></userKey1>\r\n"
 		"</ns1:getRefbookList>\r\n"
 		"</SOAP-ENV:Body>\r\n"
 		"</SOAP-ENV:Envelope>\r\n";
