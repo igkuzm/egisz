@@ -44,7 +44,7 @@ typedef struct {
 	const char httpMethod[128];
 	const char hostname[256];
 	int port;
-	char requestString[BUFSIZ];
+	const char requestString[BUFSIZ];
 	char *httpBody;
 	HTTPHeaderItemList *headerItemList;
 } URLRequest;
