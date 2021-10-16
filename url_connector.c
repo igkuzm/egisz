@@ -90,6 +90,8 @@ URLRequest *url_request_new(){
 	request->headerItemList = headerItemList;
 	strcpy(request->httpMethod, "GET");
 
+	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Content_Type, "");
+
 	return request;
 }
 
