@@ -137,6 +137,10 @@ URLRequest *url_request_new_with_string(const char *url_string){
 	return request;
 }
 
+void url_request_free(URLRequest *urlRequest){
+
+
+}
 
 void _handle_with_ssl_error(SSL *ssl, int retval){
 	switch (SSL_get_error (ssl, retval)){
@@ -206,6 +210,7 @@ char *message_for_url_request(URLRequest *request){
 			fprintf(stderr, "Error. Can't merge http request with header item: %s: %s\n", HTTPHeaderItemKey(item->key), item->value);	
 			return NULL;
 		}	
+		headerItemList = headerItemList->prev;
 	}
 	
 	ret = sprintf(write_buf, "%s\r\n", write_buf);
