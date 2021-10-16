@@ -164,7 +164,7 @@ void url_request_add_header_item(URLRequest *request, HTTP_HEADER_ITEM_KEY key, 
 	item->key = key;
 	strcpy(item->value, value);
 	
-
+	request->headerItemList = newHeaderItemList;
 }
 
 
