@@ -72,9 +72,9 @@ URLRequest *url_request_new_with_string(const char *url_string){
 	int i = 0, buf_len = 0;
 	bool protocol_is_set = false, hostname_is_set = false;
 	
-	while (http_string[i] != '\0'){
+	while (url_string[i] != '\0'){
 		if (!protocol_is_set) {		
-			if (http_string[i] == ':' && http_string[i + 1] == '/' && http_string[i + 2] == '/') {
+			if (url_string[i] == ':' && url_string[i + 1] == '/' && url_string[i + 2] == '/') {
 				strncpy(protocol_string, buf, buf_len);
 				memset(buf, 0, buf_len);
 				buf_len = 0;
@@ -84,7 +84,7 @@ URLRequest *url_request_new_with_string(const char *url_string){
 		}
 
 		if (protocol_is_set && !hostname_is_set) {
-			if (http_string[i] == '/') {
+			if (url_string[i] == '/') {
 				strncpy(hostname_string, buf, buf_len);				
 				memset(buf, 0, buf_len);
 				buf_len = 0;
@@ -93,14 +93,14 @@ URLRequest *url_request_new_with_string(const char *url_string){
 			}			
 		}
 		if (hostname_is_set) {
-			if (http_string[i + 1] == '\0') {
-				buf[buf_len] = http_string[i];
+			if (url_string[i + 1] == '\0') {
+				buf[buf_len] = url_string[i];
 				i++; buf_len++;
 				strncpy(request_string, buf, buf_len);				
 			}			
 		}		
 
-		buf[buf_len] = http_string[i];
+		buf[buf_len] = url_string[i];
 		i++; buf_len++;
 	}
 
