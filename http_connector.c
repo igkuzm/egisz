@@ -30,7 +30,7 @@
 typedef enum {
 	HTTP,
 	HTTPS
-} Http_protocol;
+} HttpProtocol;
 
 typedef struct {
 	Http_protocol protocol;
