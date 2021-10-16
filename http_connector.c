@@ -199,6 +199,7 @@ char *message_for_url_request(URLRequest *request){
 	HTTPHeaderItemList *headerItemList = request->headerItemList;
 	while (headerItemList->prev != NULL) {
 		HTTPHeaderItem *item = headerItemList->headerItem;
+		ret = sprintf(write_buf, "%s%s: %s\r\n", write_buf, HTTPHeaderItemKey(item->key), item->value);
 	}
 
 	return write_buf;
