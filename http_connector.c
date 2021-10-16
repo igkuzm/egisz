@@ -27,7 +27,7 @@
 #include <netdb.h>
 #endif
 
-const char* HTTPHeaderItemKey(HTTP_HEADER_ITEM_KEY key)
+const char *HTTPHeaderItemKey(HTTP_HEADER_ITEM_KEY key)
 {
     switch (key)
     {
