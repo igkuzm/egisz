@@ -25,10 +25,10 @@ typedef enum {
 	Proxy-Authenticate,
 	Proxy-Authorization,
 	WWW-Authenticate
-} HTTPHeaderItemKey;
+} HTTP_HEADER_ITEM_KEY;
 
 typedef struct{
-	HTTPHeaderItemKey key;
+	HTTP_HEADER_ITEM_KEY key;
 	const char value[256];
 } HTTPHeaderItem;
 
