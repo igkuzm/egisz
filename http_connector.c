@@ -47,9 +47,14 @@ URLRequest *url_request_new(){
 		fprintf(stderr, "Cannot allocate memory for URLRequest\n");
 		return NULL;
 	}
-	HTTPHeaderItemList *headerItems = malloc(sizeof(HTTPHeaderItemList));
-	headerItems->prev = headerItems->next = NULL;
-	request->headerItems = headerItems;
+	HTTPHeaderItemList *headerItemList = malloc(sizeof(HTTPHeaderItemList));
+	if (headerItemList == NULL) {
+		fprintf(stderr, "Cannot allocate memory for HTTPHeaderItemList\n");
+		return NULL;
+	}
+	
+	headerItemList->prev = headerItemList->next = NULL;
+	request->headerItemList = headerItemList;
 
 	return request;
 }
