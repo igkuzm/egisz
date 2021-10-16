@@ -84,7 +84,7 @@ int main(int argc, char *argv[])
 	//print_json(json);
 	//printf("ITEM: %s\n", cJSON_Print(json));	
 	
-	URLRequest *request = url_request_new_with_string("https://mail.ru/index.html");
+	URLRequest *request = url_request_new_with_string("https://nsi.rosminzdrav.ru/wsdl/SOAP-server.v2.php");
 
 	
 	url_connection_send_request(request,  NULL, NULL);
