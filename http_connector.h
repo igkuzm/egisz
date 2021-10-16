@@ -24,7 +24,7 @@ typedef enum {
 	HTTP_HEADER_ITEM_KEY_Host,
 	HTTP_HEADER_ITEM_KEY_Proxy_Authenticate,
 	HTTP_HEADER_ITEM_KEY_Proxy_Authorization,
-	HTTP_HEADER_ITEM_KEY_WWW-Authenticate
+	HTTP_HEADER_ITEM_KEY_WWW_Authenticate
 } HTTP_HEADER_ITEM_KEY;
 
 typedef struct{
