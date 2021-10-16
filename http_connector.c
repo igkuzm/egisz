@@ -33,7 +33,7 @@ typedef enum {
 } HttpProtocol;
 
 typedef struct {
-	Http_protocol protocol;
+	HttpProtocol protocol;
 	char hostname[256];
 	int port;
 	char request[BUFSIZ];
