@@ -61,7 +61,6 @@ URLRequest *url_request_new();
 URLRequest *url_request_new_with_string(const char *url_string);
 void url_request_free(URLRequest *request);
 
-void url_request_set_http_method(URLRequest *request, const char *method);
 void url_request_add_header_item(URLRequest *request, HTTP_HEADER_ITEM_KEY key, const char *value);
 
 void url_request_set_http_body_from_string(URLRequest *request, const char *contentType, const char *bodyString);
