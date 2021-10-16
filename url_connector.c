@@ -241,7 +241,7 @@ char *message_for_url_request(URLRequest *request){
 	}	
 	int ret;
 	
-	ret = sprintf(write_buf, "%s", request->httpMethod);
+	ret = sprintf(write_buf, "%s", HTTPMethod(request->method));
 	if (ret == -1) {
 		fprintf(stderr, "Error. Can't merge http request with http method: %s\n", request->httpMethod);	
 		return NULL;
