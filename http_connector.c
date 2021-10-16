@@ -152,14 +152,12 @@ void _handle_with_ssl_error(SSL *ssl, int retval){
 	}
 }
 
-int url_connection_send_request(URLRequest *request, void *data, int (*callback)(char*,int,int*,void*)){
-	
- 
+int socket_for_url_request(URLRequest *request){
 	struct hostent *host;
 	struct sockaddr_in addr;
  
-	if ( (host = gethostbyname(http_get->hostname)) == NULL ){
-		fprintf(stderr, "Error. Can't get host ip address with hostname: %s\n", http_get->hostname);	
+	if ( (host = gethostbyname(request->hostname)) == NULL ){
+		fprintf(stderr, "Error. Can't get host ip address with hostname: %s\n", request->hostname);	
 		return -1;
 	} 
 	int sd = socket(PF_INET, SOCK_STREAM, 0); //init socket
@@ -167,12 +165,18 @@ int url_connection_send_request(URLRequest *request, void *data, int (*callback)
 	memset(&addr, 0, sizeof(addr));
 
 	addr.sin_family = AF_INET;
-	addr.sin_port = htons(http_get->port);
+	addr.sin_port = htons(request->port);
 	addr.sin_addr.s_addr = *(long*)(host->h_addr);
 	if ( connect(sd, (struct sockaddr*)&addr, sizeof addr)){ //connect socket
-		fprintf(stderr, "Error. Can't connect to socket with address: %s:%d\n", host->h_addr, http_get->port);	
+		fprintf(stderr, "Error. Can't connect to socket with address: %s:%d\n", host->h_addr, request->port);	
 		return -1;
 	} 
+
+	return sd;
+}
+
+int url_connection_send_request(URLRequest *request, void *data, int (*callback)(char*,int,int*,void*)){
+	 
 	
 	//generage HTTP REQUEST MESSAGE
 	char write_buf[2*BUFSIZ];
