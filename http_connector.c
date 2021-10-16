@@ -183,7 +183,7 @@ char *message_for_url_request(URLRequest *request){
 		return NULL;
 	}	
 	sprintf(write_buf, "%s", request->httpMethod);
-	sprintf(write_buf, "%s %s", write_buf, request->requestString);
+	sprintf(write_buf, "%s %s HTTP/1.1\r\n", write_buf, request->requestString);
 
 	return write_buf;
 }
