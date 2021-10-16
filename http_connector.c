@@ -176,7 +176,9 @@ int socket_for_url_request(URLRequest *request){
 }
 
 char *message_for_url_request(URLRequest *request){
+	char *message = [2*BUFSIZ];
 
+	return message;
 }
 
 int url_connection_send_request(URLRequest *request, void *data, int (*callback)(char*,int,int*,void*)){
