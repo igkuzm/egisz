@@ -41,10 +41,10 @@ typedef struct httpHeaderItemList{
 
 typedef struct {
 	URL_CONNECTION_PROTOCOL protocol;
-	const char httpMethod[128];
-	const char hostname[256];
+	char httpMethod[128];
+	char hostname[256];
 	int port;
-	const char requestString[BUFSIZ];
+	char requestString[BUFSIZ];
 	char *httpBody;
 	HTTPHeaderItemList *headerItemList;
 } URLRequest;
