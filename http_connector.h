@@ -38,6 +38,10 @@ typedef struct {
 	int *headerItemsCount;
 } URLRequest;
 
+URLRequest *url_request_new();
+URLRequest *url_request_new_with_string(char *url_string);
+void url_request_free(URLRequest *urlRequest);
+
 
 
 int URL_connection(const char *http_string, HttpMethod *method, char *header, void *data, int (*callback)(char*,int,int*,void*));
