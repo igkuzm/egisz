@@ -141,11 +141,6 @@ void url_request_free(URLRequest *request){
 	HTTPHeaderItemList *headerItemList = request->headerItemList;
 	while (headerItemList->prev != NULL) {
 		HTTPHeaderItem *item = headerItemList->headerItem;
-		ret = sprintf(write_buf, "%s%s: %s\r\n", write_buf, HTTPHeaderItemKey(item->key), item->value);
-		if (ret == -1) {
-			fprintf(stderr, "Error. Can't merge http request with header item: %s: %s\n", HTTPHeaderItemKey(item->key), item->value);	
-			return NULL;
-		}	
 		headerItemList = headerItemList->prev;
 	}
 }
