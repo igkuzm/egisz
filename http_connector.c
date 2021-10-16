@@ -147,6 +147,8 @@ void url_request_free(URLRequest *request){
 		free(headerItemList->next);
 	}
 	free(headerItemList);
+
+	free(request);
 }
 
 void _handle_with_ssl_error(SSL *ssl, int retval){
