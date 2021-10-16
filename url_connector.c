@@ -275,8 +275,8 @@ char *message_for_url_request(URLRequest *request){
 	}
 	
 	char length_str[128];
-	sprintf(length_str, "%d", sizeof(write_buf));
-	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Content_Length, "text/html; charset=utf-8");
+	sprintf(length_str, "%ld", sizeof(write_buf));
+	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Content_Length, length_str);
 
 	return write_buf;
 }
