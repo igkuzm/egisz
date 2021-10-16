@@ -2,7 +2,7 @@
  * File              : egisz.c
  * Author            : Igor V. Sementsov <ig.kuzm@gmail.com>
  * Date              : 11.10.2021
- * Last Modified Date: 16.10.2021
+ * Last Modified Date: 17.10.2021
  * Last Modified By  : Igor V. Sementsov <ig.kuzm@gmail.com>
  */
 
@@ -87,6 +87,7 @@ int main(int argc, char *argv[])
 	
 	URLRequest *request = url_request_new_with_string("https://nsi.rosminzdrav.ru/wsdl/SOAP-server.v2.php");
 	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_SOAPAction, "");
+	
 
 char *msg = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
 "<SOAP-ENV:Envelope"
@@ -104,6 +105,10 @@ char *msg = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
 
 	request->httpBody = msg;
 	strcpy(request->httpMethod, "POST");
+	
+	char len_str[128];
+	sprintf(len_str, "%ld", sizeof(msg));
+	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Content_Length, len_str);
 	
 	url_connection_send_request(request,  NULL, NULL);
 
