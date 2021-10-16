@@ -28,7 +28,7 @@ typedef enum {
 } HTTPHeaderItemKey;
 
 typedef struct{
-	const char key[256];
+	HTTPHeaderItemKey key;
 	const char value[256];
 } HTTPHeaderItem;
 
