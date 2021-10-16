@@ -159,6 +159,10 @@ void url_request_add_header_item(URLRequest *request, const char *key, const cha
 	HTTPHeaderItemList *newHeaderItemList = malloc(sizeof(HTTPHeaderItemList));
 	newHeaderItemList->prev = headerItemList;
 	newHeaderItemList->next = NULL;
+
+	HTTPHeaderItem *item = malloc(sizeof(HTTPHeaderItem));
+	item->key = key;
+	strcpy(item->value, value);
 	
 
 }
