@@ -225,6 +225,38 @@ char *message_for_url_request(URLRequest *request){
 	return write_buf;
 }
 
+SSL *ssl_init(){
+	//init SSL
+	SSL_library_init();
+	OpenSSL_add_all_algorithms();
+	SSL_load_error_strings();
+	const SSL_METHOD *method = SSLv23_client_method();
+	SSL_CTX *ctx = SSL_CTX_new(method);
+	if ( ctx == NULL ){
+		fprintf(stderr, "Error. Can't init SSL_CTX\n");	
+		return -1;
+	} 
+	
+	SSL *ssl = SSL_new(ctx); //create ssl structure
+	SSL_set_fd(ssl, sd); //connect SSL to socket 
+	if ( SSL_connect(ssl) == -1 ){
+		fprintf(stderr, "Error. Can't connect SSL to socket with address: %s:%d\n", host->h_addr, http_get->port);	
+		return -1;
+	}  
+	
+	//SSL WRITE
+	int retval;
+	retval = SSL_write(ssl, write_buf, strlen(write_buf));
+
+	if (retval <= 0 ){ //handle with error
+		_handle_with_ssl_error(ssl, retval);
+		fprintf(stderr, "Error while SSL_write\n");
+		return retval;			
+	}
+
+	return ssl;
+}
+
 int url_connection_send_request(URLRequest *request, void *data, int (*callback)(char*,int,int*,void*)){
 	//int socket
 	int sd = socket_for_url_request(request);
@@ -242,34 +274,6 @@ int url_connection_send_request(URLRequest *request, void *data, int (*callback)
 	}
 	printf("REQUEST MESSAGE: %s\n", write_buf);
 	
-	//init SSL
-	if (http_get->protocol == HTTPS) {
-		SSL_library_init();
-		OpenSSL_add_all_algorithms();
-		SSL_load_error_strings();
-		const SSL_METHOD *method = SSLv23_client_method();
-		SSL_CTX *ctx = SSL_CTX_new(method);
-		if ( ctx == NULL ){
-			fprintf(stderr, "Error. Can't init SSL_CTX\n");	
-			return -1;
-		} 
-		
-		SSL *ssl = SSL_new(ctx); //create ssl structure
-		SSL_set_fd(ssl, sd); //connect SSL to socket 
-		if ( SSL_connect(ssl) == -1 ){
-			fprintf(stderr, "Error. Can't connect SSL to socket with address: %s:%d\n", host->h_addr, http_get->port);	
-			return -1;
-		}  
-		
-		//SSL WRITE
-		int retval;
-		retval = SSL_write(ssl, write_buf, strlen(write_buf));
-
-		if (retval <= 0 ){ //handle with error
-			_handle_with_ssl_error(ssl, retval);
-			fprintf(stderr, "Error while SSL_write\n");
-			return retval;			
-		}
 
 		//SSL READ
 		int count = 0;
