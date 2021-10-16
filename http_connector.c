@@ -240,7 +240,7 @@ SSL *ssl_init_for_socket(int sd){
 	SSL *ssl = SSL_new(ctx); //create ssl structure
 	SSL_set_fd(ssl, sd); //connect SSL to socket 
 	if ( SSL_connect(ssl) == -1 ){
-		fprintf(stderr, "Error. Can't connect SSL to socket with address: %s:%d\n", host->h_addr, http_get->port);	
+		fprintf(stderr, "Error. Can't connect SSL to socket\n");	
 		return NULL;
 	}  
 	
