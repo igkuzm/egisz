@@ -22,6 +22,12 @@ typedef enum {
 	POST
 } URLConnectionMethod;
 
+typedef struct{
+	char value[256];
+	char key[256];
+
+} HTTPHeaderItem;
+
 typedef struct {
 	URLConnectionProtocol protocol;
 	char hostname[256];
