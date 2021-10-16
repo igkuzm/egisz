@@ -183,13 +183,17 @@ char *message_for_url_request(URLRequest *request){
 		return NULL;
 	}	
 	int ret;
+	
 	ret = sprintf(write_buf, "%s", request->httpMethod);
 	if (ret == -1) {
 		fprintf(stderr, "Error. Can't merge http request with http method: %s\n", request->httpMethod);	
+		return NULL;
 	}
+	
 	ret = sprintf(write_buf, "%s %s HTTP/1.1\r\n", write_buf, request->requestString);
 	if (ret == -1) {
 		fprintf(stderr, "Error. Can't merge http request: %s\n", request->requestString);	
+		return NULL;
 	}	
 
 	return write_buf;
