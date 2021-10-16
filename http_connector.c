@@ -149,6 +149,11 @@ void url_request_free(URLRequest *request){
 	free(request);
 }
 
+void url_request_set_http_method(URLRequest *request, const char *method){
+	strcpy(, const char *__src)
+
+}
+
 void _handle_with_ssl_error(SSL *ssl, int retval){
 	switch (SSL_get_error (ssl, retval)){
 		case SSL_ERROR_WANT_READ:
