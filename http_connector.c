@@ -196,6 +196,11 @@ char *message_for_url_request(URLRequest *request){
 		return NULL;
 	}	
 
+	HTTPHeaderItemList *headerItemList = request->headerItemList;
+	while (headerItemList->next != NULL) {
+		HTTPHeaderItem *item = headerItemList->headerItem;
+	}
+
 	return write_buf;
 }
 
