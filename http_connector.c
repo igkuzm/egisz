@@ -295,6 +295,36 @@ int url_connection_send_request_ssl(int sd, char *write_buf, void *data, int (*c
 
 int url_connection_send_request_no_ssl(int sd, char *write_buf, void *data, int (*callback)(char*,int,int*,void*)){
 	
+	//WRITE
+	int retval = write(sd, write_buf, strlen(write_buf));
+
+	if (retval <= 0 ){ //handle with error
+		return retval;			
+	}
+
+	//READ
+	int count = 0;
+	char buf[1024];
+	long bytes;
+	while ((bytes = read(sd, buf, sizeof buf)) >0 ) {
+		buf[bytes] = 0;
+
+		printf("%s", buf); //print for debug
+
+		//if (callback) {
+		//int c = callback(buf, bytes, &count, data); //run callback
+		//if (c != 0) { //stop function if callback returned non zero
+		//fprintf(stderr, "Stop SSL_read - callback returned: %d\n", c);
+		//break;
+		//}
+		//count++; //we need count to know how many times callback was called
+		//}
+	}
+	if (bytes < 0 ){ //hendle with error
+		return bytes;			
+	}
+
+	
 	return 0;
 }
 
@@ -317,37 +347,6 @@ int url_connection_send_request(URLRequest *request, void *data, int (*callback)
 	
 
 	
-	else { //NO SSL
-		//WRITE
-		int retval;
-		retval = write(sd, write_buf, strlen(write_buf));
-
-		if (retval <= 0 ){ //handle with error
-			return retval;			
-		}
-
-		//READ
-		int count = 0;
-		char buf[1024];
-		long bytes;
-		while ((bytes = read(sd, buf, sizeof buf)) >0 ) {
-			buf[bytes] = 0;
-
-			printf("%s", buf); //print for debug
-
-			//if (callback) {
-			//int c = callback(buf, bytes, &count, data); //run callback
-			//if (c != 0) { //stop function if callback returned non zero
-			//fprintf(stderr, "Stop SSL_read - callback returned: %d\n", c);
-			//break;
-			//}
-			//count++; //we need count to know how many times callback was called
-			//}
-		}
-		if (bytes < 0 ){ //hendle with error
-			return bytes;			
-		}
-	}
 	
 
 
