@@ -34,6 +34,7 @@ const char *HTTPHeaderItemKey(HTTP_HEADER_ITEM_KEY key)
 		case HTTP_HEADER_ITEM_KEY_Content_Length: return "Content-Length";
 		case HTTP_HEADER_ITEM_KEY_Content_Type: return "Content-Type";
 		case HTTP_HEADER_ITEM_KEY_Authorization: return "Authorization";
+		case HTTP_HEADER_ITEM_KEY_SOAPAction: return "SOAPAction";
 		case HTTP_HEADER_ITEM_KEY_Connection: return "Connection";
 		case HTTP_HEADER_ITEM_KEY_Host: return "Host";
 		case HTTP_HEADER_ITEM_KEY_Proxy_Authenticate: return "Proxy-Authenticate";
