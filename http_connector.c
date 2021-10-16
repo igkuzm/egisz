@@ -337,7 +337,6 @@ int url_connection_send_request(URLRequest *request, void *data, int (*callback)
 		return -1;
 	}
 	 
-	
 	//generage HTTP REQUEST MESSAGE
 	char *write_buf = message_for_url_request(request);	
 	if (write_buf == NULL) {
@@ -346,7 +345,6 @@ int url_connection_send_request(URLRequest *request, void *data, int (*callback)
 	}
 	printf("REQUEST MESSAGE: %s\n", write_buf);
 	
-	
 	if (request->protocol == URL_CONNECTION_PROTOCOL_HTTP) {
 		url_connection_send_request_no_ssl(sd, write_buf, data, callback);
 	}
@@ -354,8 +352,6 @@ int url_connection_send_request(URLRequest *request, void *data, int (*callback)
 	if (request->protocol == URL_CONNECTION_PROTOCOL_HTTP) {
 		url_connection_send_request_ssl(sd, write_buf, data, callback);
 	}	
-
-	
 	
 	free(write_buf);
 
