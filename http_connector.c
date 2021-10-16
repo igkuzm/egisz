@@ -153,6 +153,14 @@ void url_request_set_http_method(URLRequest *request, const char *method){
 	strcpy(request->httpMethod, method);
 }
 
+void url_request_add_header_item(URLRequest *request, const char *key, const char *value){
+	HTTPHeaderItemList *headerItemList = request->headerItemList;
+	HTTPHeaderItemList *newHeaderItemList = malloc(sizeof(HTTPHeaderItemList));
+	
+
+}
+
+
 void _handle_with_ssl_error(SSL *ssl, int retval){
 	switch (SSL_get_error (ssl, retval)){
 		case SSL_ERROR_WANT_READ:
