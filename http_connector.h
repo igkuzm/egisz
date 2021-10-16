@@ -54,10 +54,10 @@ URLRequest *url_request_new();
 URLRequest *url_request_new_with_string(const char *url_string);
 void url_request_free(URLRequest *request);
 
-void url_request_set_http_method(URLRequest *urlRequest, const char *method);
-void url_request_add_header_item(URLRequest *urlRequest, const char *key, const char *value);
+void url_request_set_http_method(URLRequest *request, const char *method);
+void url_request_add_header_item(URLRequest *request, const char *key, const char *value);
 
-void url_request_set_http_body_from_file(URLRequest *urlRequest, const char *filename);
+void url_request_set_http_body_from_file(URLRequest *request, const char *filename);
 
 
 int url_connection_send_request(URLRequest *request, void *data, int (*callback)(char*,int,int*,void*));
