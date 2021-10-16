@@ -259,35 +259,35 @@ int url_connection_send_request_ssl(int sd, char *write_buf, URLRequest *request
 		fprintf(stderr, "Error while SSL_write\n");
 		return retval;			
 	}
-		//SSL READ
-		int count = 0;
-		char buf[1024];
-		long bytes;
-		while ((bytes = SSL_read(ssl, buf, sizeof buf)) >0 ) {
-			buf[bytes] = 0;
+	
+	//SSL READ
+	int count = 0;
+	char buf[1024];
+	long bytes;
+	while ((bytes = SSL_read(ssl, buf, sizeof buf)) >0 ) {
+		buf[bytes] = 0;
 
-			printf("%s", buf); //print for debug
+		printf("%s", buf); //print for debug
 
-			//if (callback) {
-			//int c = callback(buf, bytes, &count, data); //run callback
-			//if (c != 0) { //stop function if callback returned non zero
-			//fprintf(stderr, "Stop SSL_read - callback returned: %d\n", c);
-			//break;
-			//}
-			//count++; //we need count to know how many times callback was called
-			//}
-		}
-		if (bytes < 0 ){ //hendle with error
-			_handle_with_ssl_error(ssl, bytes);
-			fprintf(stderr, "Error while SSL_read\n");
-			return bytes;			
-		}	
-
-		//Close SSL
-		SSL_free(ssl);   
-		close(sd);      
-		SSL_CTX_free(ctx);   
+		//if (callback) {
+		//int c = callback(buf, bytes, &count, data); //run callback
+		//if (c != 0) { //stop function if callback returned non zero
+		//fprintf(stderr, "Stop SSL_read - callback returned: %d\n", c);
+		//break;
+		//}
+		//count++; //we need count to know how many times callback was called
+		//}
 	}
+	if (bytes < 0 ){ //hendle with error
+		_handle_with_ssl_error(ssl, bytes);
+		fprintf(stderr, "Error while SSL_read\n");
+		return bytes;			
+	}	
+
+	//Close SSL
+	SSL_free(ssl);   
+	close(sd);      
+	SSL_CTX_free(ctx);   
 } 
 
 int url_connection_send_request(URLRequest *request, void *data, int (*callback)(char*,int,int*,void*)){
