@@ -225,7 +225,7 @@ char *message_for_url_request(URLRequest *request){
 	return write_buf;
 }
 
-SSL *ssl_init_for_socket(int sd, SSL_CTX *_ctx){
+SSL *ssl_init_for_socket(int sd, SSL_CTX **_ctx){
 	//init SSL
 	SSL_library_init();
 	OpenSSL_add_all_algorithms();
@@ -246,6 +246,13 @@ SSL *ssl_init_for_socket(int sd, SSL_CTX *_ctx){
 
 	return ssl;
 }
+
+int url_connection_send_request_ssl(int sd, URLRequest *request, void *data, int (*callback)(char*,int,int*,void*)){
+	SSL_CTX *ctx;
+	SSL = ssl_init_for_socket(sd, &ctx);	
+
+
+} 
 
 int url_connection_send_request(URLRequest *request, void *data, int (*callback)(char*,int,int*,void*)){
 	//int socket
