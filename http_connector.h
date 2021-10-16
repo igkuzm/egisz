@@ -51,4 +51,4 @@ void url_request_set_http_method(URLRequest *urlRequest, const char *method);
 void url_request_add_header_item(URLRequest *urlRequest, const char *key, const char *value);
 
 
-int URL_connection(const char *http_string, HttpMethod *method, char *header, void *data, int (*callback)(char*,int,int*,void*));
+int url_connection_send_request(const char *http_string, HttpMethod *method, char *header, void *data, int (*callback)(char*,int,int*,void*));
