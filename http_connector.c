@@ -150,8 +150,7 @@ void url_request_free(URLRequest *request){
 }
 
 void url_request_set_http_method(URLRequest *request, const char *method){
-	strcpy(, const char *__src)
-
+	strcpy(request->httpMethod, method);
 }
 
 void _handle_with_ssl_error(SSL *ssl, int retval){
