@@ -195,7 +195,10 @@ void url_request_free(URLRequest *request){
 
 void url_request_set_http_body_from_string(URLRequest *request, const char *contentType, const char *bodyString){
 	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Content_Type, contentType);
-
+	
+	char *size_str[128];
+	sprintf(size_str, "%ld", strlen(bodyString));
+	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Content_Length, size_str);
 
 }
 
