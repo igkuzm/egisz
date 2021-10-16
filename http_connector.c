@@ -293,6 +293,11 @@ int url_connection_send_request_ssl(int sd, char *write_buf, void *data, int (*c
 	return 0;
 } 
 
+int url_connection_send_request_no_ssl(int sd, char *write_buf, void *data, int (*callback)(char*,int,int*,void*)){
+	
+	return 0;
+}
+
 int url_connection_send_request(URLRequest *request, void *data, int (*callback)(char*,int,int*,void*)){
 	//int socket
 	int sd = socket_for_url_request(request);
