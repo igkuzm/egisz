@@ -177,12 +177,11 @@ void url_request_add_header_item(URLRequest *request, HTTP_HEADER_ITEM_KEY key, 
 
 		newItem = malloc(sizeof(HTTPHeaderItem));
 		newHeaderItemList->item = newItem;
+		request->headerItemList = newHeaderItemList;
 	}
 		newItem->key = key;
 		strcpy(newItem->value, value);
 
-		request->headerItemList = newHeaderItemList;
-	
 }
 
 
