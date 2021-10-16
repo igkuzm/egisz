@@ -32,11 +32,11 @@ typedef struct{
 	const char value[256];
 } HTTPHeaderItem;
 
-typedef struct httpHeaderItemList{
+typedef struct HTTPHeaderItemList{
 	HTTPHeaderItem *headerItem;
-	httpHeaderItemList *prev;
-	httpHeaderItemList *next;
-} HTTPHeaderItemList;
+	HTTPHeaderItemList *prev;
+	HTTPHeaderItemList *next;
+};
 
 typedef struct {
 	URL_CONNECTION_PROTOCOL protocol;
