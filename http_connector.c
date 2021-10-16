@@ -105,14 +105,14 @@ URLRequest *url_request_new_with_string(const char *url_string){
 	}
 
 	if (strncmp(protocol_string, "http", 4) == 0) {
-		http_get->protocol = HTTP;
-		http_get->port = 80;
+		request->protocol = URL_CONNECTION_PROTOCOL_HTTP;
+		request->port = 80;
 	}
 	if (strncmp(protocol_string, "https", 5) == 0){
-		http_get->protocol = HTTPS;
-		http_get->port = 443;
+		request->protocol = URL_CONNECTION_PROTOCOL_HTTPS;
+		request->port = 443;
 	}
-	if (!http_get->port){
+	if (!request->port){
 		fprintf(stderr, "Error. Cant parse connection protocol from string: %s\n", http_string);
 		return HTTP_CONNECTOR_ERROR_PROTOCOL;
 	}
