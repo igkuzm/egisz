@@ -49,7 +49,7 @@ typedef struct httpHeaderItemList{
 
 typedef struct {
 	URL_CONNECTION_PROTOCOL protocol;
-	HTTP_METHOD httpMethod;
+	HTTP_METHOD method;
 	char hostname[256];
 	int port;
 	char requestString[BUFSIZ];
