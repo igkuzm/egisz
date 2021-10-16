@@ -41,7 +41,6 @@ typedef struct {
 	char *httpBody;
 	HTTPHeaderItem *headerItems;
 	int *headerItemsCount;
-	void *returnData;
 } URLRequest;
 
 URLRequest *url_request_new();
