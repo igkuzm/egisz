@@ -25,7 +25,6 @@ typedef enum {
 typedef struct{
 	char value[256];
 	char key[256];
-
 } HTTPHeaderItem;
 
 typedef struct {
