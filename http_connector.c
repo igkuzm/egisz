@@ -52,6 +52,8 @@ URLRequest *url_request_new(){
 
 
 url_request_new_with_string(const char *url_string){
+
+	URLRequest *request = url_request_new();
 	
 	char buf[2*BUFSIZ], protocol_string[256], hostname_string[256], request_string[BUFSIZ];
 	memset(protocol_string, 0, 256);
