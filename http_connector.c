@@ -172,10 +172,10 @@ int http_connector(const char *http_string, void *data, int (*callback)(char*,in
 	
 		snprintf(write_buf, BUFSIZ, "%s /%s HTTP/1.1\r\nHost: %s\r\n"
 								"Content-Type: application/x-www-form-urlencoded\r\n"
-								"Content-Length: 14\r\n"
+								"Content-Length: %d\r\n"
 								"\r\n"
 								"%s\r\n"
-								"\r\n", write_buf, http_get->request, http_get->hostname, soap_msg);
+								"\r\n", write_buf, http_get->request, http_get->hostname, sizeof(soap_msg), soap_msg);
 
 	
 	
