@@ -144,7 +144,7 @@ int http_connector(const char *http_string, void *data, int (*callback)(char*,in
 	} 
 	
 	//generage HTTP REQUEST MESSAGE
-	//char write_buf[2*BUFSIZ];
+	char write_buf[2*BUFSIZ];
 	//sprintf(write_buf, "GET");
 	//if (snprintf(write_buf, BUFSIZ, "%s /%s HTTP/1.1\r\nHost: %s\r\nConnection: close\r\n\r\n", write_buf, http_get->request, http_get->hostname) == -1){
 		//fprintf(stderr, "Error. Can't merge http request for host: %s with http request: GET %s HTTP/1.1\n", http_get->hostname, http_get->request);	
