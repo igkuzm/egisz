@@ -235,43 +235,11 @@ int url_connection_send_request(URLRequest *request, void *data, int (*callback)
 	 
 	
 	//generage HTTP REQUEST MESSAGE
-	char write_buf[2*BUFSIZ];
-	//sprintf(write_buf, "GET");
-	sprintf(write_buf, "POST");
-	//if (snprintf(write_buf, BUFSIZ, "%s /%s HTTP/1.1\r\nHost: %s\r\nConnection: close\r\n\r\n", write_buf, http_get->request, http_get->hostname) == -1){
-		//fprintf(stderr, "Error. Can't merge http request for host: %s with http request: GET %s HTTP/1.1\n", http_get->hostname, http_get->request);	
-		//return -1;		
-	//}
-	
-	//sprintf(write_buf, "POST");
-	//if (snprintf(write_buf, BUFSIZ, "%s /%s HTTP/1.1\r\nHost: %s\r\nContent-Type: application/x-www-form-urlencoded\r\nContent-Length: 14\r\n\r\ngetRefbookList\r\n\r\n", write_buf, http_get->request, http_get->hostname) == -1){
-		//fprintf(stderr, "Error. Can't merge http request for host: %s with http request: POST %s HTTP/1.1\n", http_get->hostname, http_get->request);	
-		//return -1;		
-	//}
-	
-	char soap_msg[] = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n"
-		"<SOAP-ENV:Envelope\r\n"
-		"xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n"
-		"xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\"\r\n"
-		"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n"
-		"xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\r\n"
-		"xmlns:ns1=\"urn:service\">\r\n"
-		"<SOAP-ENV:Body>\r\n"
-		"<ns1:getRefbookList>\r\n"
-		"<userKey></userKey>\r\n"
-		"</ns1:getRefbookList>\r\n"
-		"</SOAP-ENV:Body>\r\n"
-		"</SOAP-ENV:Envelope>\r\n";
-	
-		snprintf(write_buf, BUFSIZ, "%s /%s HTTP/1.1\r\nHost: %s\r\n"
-								"Content-Type: text/xml;charset=UTF-8\r\n"
-								"SOAPAction: \r\n"
-								"Content-Length: %ld\r\n"
-								"\r\n"
-								"%s\r\n"
-								"\r\n", write_buf, http_get->request, http_get->hostname, sizeof(soap_msg), soap_msg);
-
-	
+	char *write_buf = message_for_url_request(request);	
+	if (write_buf == NULL) {
+		perror("Error in function socket_for_url_request()");
+		return -1;
+	}
 	
 
 	printf("REQUEST MESSAGE: %s\n", write_buf);
