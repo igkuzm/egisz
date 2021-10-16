@@ -273,6 +273,10 @@ char *message_for_url_request(URLRequest *request){
 			return NULL;
 		}		
 	}
+	
+	char length_str[128];
+	sprintf(length_str, "%d", sizeof(write_buf));
+	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Content_Length, "text/html; charset=utf-8");
 
 	return write_buf;
 }
