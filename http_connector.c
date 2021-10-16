@@ -170,8 +170,8 @@ int http_connector(const char *http_string, void *data, int (*callback)(char*,in
 		"xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\r\n"
 		"xmlns:ns1=\"urn:service\">\r\n"
 		"<SOAP-ENV:Body>\r\n"
-		"<ns1:getServerTime>\r\n"
-		"</ns1:getServerTime>\r\n"
+		"<ns1:getRefbookList>\r\n"
+		"</ns1:getRefbookList>\r\n"
 		"</SOAP-ENV:Body>\r\n"
 		"</SOAP-ENV:Envelope>\r\n";
 	
