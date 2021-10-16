@@ -18,12 +18,12 @@ typedef enum {
 } URL_CONNECTION_PROTOCOL;
 
 typedef enum {
-	HTTP_HEADER_ITEM_KEY_Content-Length,
+	HTTP_HEADER_ITEM_KEY_Content_Length,
 	HTTP_HEADER_ITEM_KEY_Authorization,
 	HTTP_HEADER_ITEM_KEY_Connection,
 	HTTP_HEADER_ITEM_KEY_Host,
-	HTTP_HEADER_ITEM_KEY_Proxy-Authenticate,
-	HTTP_HEADER_ITEM_KEY_Proxy-Authorization,
+	HTTP_HEADER_ITEM_KEY_Proxy_Authenticate,
+	HTTP_HEADER_ITEM_KEY_Proxy_Authorization,
 	HTTP_HEADER_ITEM_KEY_WWW-Authenticate
 } HTTP_HEADER_ITEM_KEY;
 
