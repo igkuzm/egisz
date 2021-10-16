@@ -197,7 +197,7 @@ char *message_for_url_request(URLRequest *request){
 	}	
 
 	HTTPHeaderItemList *headerItemList = request->headerItemList;
-	while (headerItemList->next != NULL) {
+	while (headerItemList->prev != NULL) {
 		HTTPHeaderItem *item = headerItemList->headerItem;
 	}
 
