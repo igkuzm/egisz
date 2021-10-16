@@ -122,7 +122,7 @@ url_request_new_with_string(const char *url_string){
 		http_get->request[BUFSIZ - 1] = '\0';		
 	}	
 
-	return 0;
+	return request;
 }
 
 
