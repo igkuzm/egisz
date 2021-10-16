@@ -30,6 +30,10 @@
 int parse_http_string(const char *http_string, HTTP_GET *http_get){
 	
 	char buf[2*BUFSIZ], protocol_string[256], hostname_string[256], request_string[BUFSIZ];
+	memset(protocol_string, 0, 256);
+	memset(hostname_string, 0, 256);
+	memset(request_string, 0, BUFSIZ);
+
 	int i = 0, buf_len = 0;
 	bool protocol_is_set = false, hostname_is_set = false;
 	
