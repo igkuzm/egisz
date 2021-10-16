@@ -244,15 +244,6 @@ SSL *ssl_init(){
 		return NULL;
 	}  
 	
-	//SSL WRITE
-	int retval;
-	retval = SSL_write(ssl, write_buf, strlen(write_buf));
-
-	if (retval <= 0 ){ //handle with error
-		_handle_with_ssl_error(ssl, retval);
-		fprintf(stderr, "Error while SSL_write\n");
-		return retval;			
-	}
 
 	return ssl;
 }
@@ -275,6 +266,15 @@ int url_connection_send_request(URLRequest *request, void *data, int (*callback)
 	printf("REQUEST MESSAGE: %s\n", write_buf);
 	
 
+	//SSL WRITE
+	int retval;
+	retval = SSL_write(ssl, write_buf, strlen(write_buf));
+
+	if (retval <= 0 ){ //handle with error
+		_handle_with_ssl_error(ssl, retval);
+		fprintf(stderr, "Error while SSL_write\n");
+		return retval;			
+	}
 		//SSL READ
 		int count = 0;
 		char buf[1024];
