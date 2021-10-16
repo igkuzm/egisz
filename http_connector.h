@@ -13,8 +13,8 @@ typedef enum {
 } URLConnectionError;
 
 typedef enum {
-	HTTP,
-	HTTPS
+	URLConnectionProtocolHTTP,
+	URLConnectionProtocolHTTPS
 } URLConnectionProtocol;
 
 typedef enum {
@@ -27,7 +27,7 @@ typedef struct {
 	char hostname[256];
 	int port;
 	char request[BUFSIZ];
-} URLConnection;
+} URLRequest;
 
 
 
