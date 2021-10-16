@@ -303,7 +303,6 @@ int url_connection_send_request_ssl(int sd, char *write_buf, void *data, int (*c
 	SSL *ssl = ssl_init_for_socket(sd, &ctx);	
 
 	//SSL WRITE
-	printf("WHRITE SSL\n");
 	int retval = SSL_write(ssl, write_buf, strlen(write_buf));
 
 	if (retval <= 0 ){ //handle with error
