@@ -43,7 +43,7 @@ typedef struct {
 	char http_method[128];
 	char hostname[256];
 	int port;
-	char request[BUFSIZ];
+	char requestString[BUFSIZ];
 	char *httpBody;
 	HTTPHeaderItemList *headerItemList;
 } URLRequest;
