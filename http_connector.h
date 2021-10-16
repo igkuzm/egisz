@@ -18,18 +18,18 @@ typedef enum {
 } URL_CONNECTION_PROTOCOL;
 
 typedef enum {
-Content-Length
-Authorization
-Connection
-Host
-Proxy-Authenticate
-Proxy-Authorization
-WWW-Authenticate
-} name;
+	Content-Length,
+	Authorization,
+	Connection,
+	Host,
+	Proxy-Authenticate,
+	Proxy-Authorization,
+	WWW-Authenticate
+} HTTPHeaderItemKey;
 
 typedef struct{
-	const char value[256];
 	const char key[256];
+	const char value[256];
 } HTTPHeaderItem;
 
 typedef struct {
