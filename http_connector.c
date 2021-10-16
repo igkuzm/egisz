@@ -27,17 +27,17 @@
 #include <netdb.h>
 #endif
 
-typedef enum {
-	HTTP,
-	HTTPS
-} HttpProtocol;
+const char* HTTPHeaderItemKey(HTTP_HEADER_ITEM_KEY key)
+{
+    switch (key)
+    {
+        case Linux:   return "Linux";
+        case Apple:   return "Apple";
+        case Windows: return "Windows";
+        default:      return "[Unknown OS_type]";
+    }
+}
 
-typedef struct {
-	HttpProtocol protocol;
-	char hostname[256];
-	int port;
-	char request[BUFSIZ];
-} HTTP_GET;
 
 int parse_http_string(const char *http_string, HTTP_GET *http_get){
 	
