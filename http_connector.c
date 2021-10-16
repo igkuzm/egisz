@@ -247,7 +247,7 @@ SSL *ssl_init_for_socket(int sd, SSL_CTX **_ctx){
 	return ssl;
 }
 
-int url_connection_handle_responce(int count, void *data, int (*callback)(char*,int,int*,void*)){
+int url_connection_handle_responce(char *buf, int count, void *data, int (*callback)(char*,int,int*,void*)){
 	if (callback) {
 		int c = callback(buf, bytes, &count, data); //run callback
 		if (c != 0) { //stop function if callback returned non zero
