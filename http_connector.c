@@ -176,6 +176,12 @@ int socket_for_url_request(URLRequest *request){
 }
 
 int url_connection_send_request(URLRequest *request, void *data, int (*callback)(char*,int,int*,void*)){
+	//int socket
+	int sd = socket_for_url_request(request);
+	if (sd == -1) {
+		perror("Error in function socket_for_url_request()");
+		return -1;
+	}
 	 
 	
 	//generage HTTP REQUEST MESSAGE
