@@ -176,7 +176,7 @@ int http_connector(const char *http_string, void *data, int (*callback)(char*,in
 	
 		snprintf(write_buf, BUFSIZ, "%s /%s HTTP/1.1\r\nHost: %s\r\n"
 								"Content-Type: text/xml;charset=UTF-8\r\n"
-								"SOAPAction: Get\r\n"
+								"SOAPAction: getServerTime\r\n"
 								"Content-Length: %ld\r\n"
 								"\r\n"
 								"%s\r\n"
