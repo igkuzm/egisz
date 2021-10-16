@@ -41,6 +41,10 @@ const char *HTTPHeaderItemKey(HTTP_HEADER_ITEM_KEY key)
     }
 }
 
+URLRequest *url_request_new(){
+	URLRequest *request = malloc(sizeof(URLRequest));
+
+}
 
 
 int parse_http_string(const char *http_string, HTTP_GET *http_get){
@@ -115,9 +119,6 @@ int parse_http_string(const char *http_string, HTTP_GET *http_get){
 	return 0;
 }
 
-URLRequest *url_request_new(){
-
-}
 
 void _handle_with_ssl_error(SSL *ssl, int retval){
 	switch (SSL_get_error (ssl, retval)){
