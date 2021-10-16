@@ -200,6 +200,7 @@ void url_request_set_http_body_from_string(URLRequest *request, const char *cont
 	sprintf(size_str, "%ld", strlen(bodyString));
 	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Content_Length, size_str);
 
+	request->httpBody = bodyString;
 }
 
 void _handle_with_ssl_error(SSL *ssl, int retval){
