@@ -127,8 +127,8 @@ URLRequest *url_request_new_with_string(const char *url_string){
 	}
 
 	if (strlen(request_string) > 0) {
-		strncpy(request->request, request_string, BUFSIZ);
-		http_get->request[BUFSIZ - 1] = '\0';		
+		strncpy(request->requestString, request_string, BUFSIZ);
+		request->requestString[BUFSIZ - 1] = '\0';		
 	}	
 
 	return request;
