@@ -201,7 +201,7 @@ char *message_for_url_request(URLRequest *request){
 		HTTPHeaderItem *item = headerItemList->headerItem;
 		ret = sprintf(write_buf, "%s%s: %s\r\n", write_buf, HTTPHeaderItemKey(item->key), item->value);
 		if (ret == -1) {
-			fprintf(stderr, "Error. Can't merge http request: %s\n", request->requestString);	
+			fprintf(stderr, "Error. Can't merge http request with header item: %s: %s\n", HTTPHeaderItemKey(item->key), item->value);	
 			return NULL;
 		}	
 	}
