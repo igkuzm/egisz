@@ -45,8 +45,7 @@ typedef struct {
 	int port;
 	char request[BUFSIZ];
 	char *httpBody;
-	HTTPHeaderItem *headerItems;
-	int *headerItemsCount;
+	HTTPHeaderItemList *headerItems;
 } URLRequest;
 
 URLRequest *url_request_new();
