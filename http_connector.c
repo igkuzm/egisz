@@ -160,9 +160,9 @@ void url_request_add_header_item(URLRequest *request, HTTP_HEADER_ITEM_KEY key, 
 
 	//find if theis already item with key
 	while (headerItemList->prev != NULL) {
-		HTTPHeaderItem *item = headerItemList->headerItem;
-		if (item->key == key) {
-			newItem = item;
+		HTTPHeaderItem *_item = headerItemList->headerItem;
+		if (_item->key == key) {
+			item = _item;
 			should_create_new_item = false;
 		}
 		headerItemList = headerItemList->prev;
