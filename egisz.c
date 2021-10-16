@@ -84,7 +84,7 @@ int main(int argc, char *argv[])
 	//print_json(json);
 	//printf("ITEM: %s\n", cJSON_Print(json));	
 	
-	URLRequest *request = url_request_new_with_string("https://mail.ru/");
+	URLRequest *request = url_request_new_with_string("https://mail.ru/index.html");
 	printf("HOST: %s\n", request->hostname);
 	printf("PORT: %d\n", request->port);
 	printf("PROTOCOL: %d\n", request->protocol);
