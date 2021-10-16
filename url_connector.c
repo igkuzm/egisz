@@ -2,7 +2,7 @@
  * File              : url_connector.c
  * Author            : Igor V. Sementsov <ig.kuzm@gmail.com>
  * Date              : 15.10.2021
- * Last Modified Date: 16.10.2021
+ * Last Modified Date: 17.10.2021
  * Last Modified By  : Igor V. Sementsov <ig.kuzm@gmail.com>
  */
 #include "url_connector.h"
@@ -26,6 +26,16 @@
 #include <arpa/inet.h>
 #include <netdb.h>
 #endif
+
+const char *HTTPMethod(HTTP_METHOD method)
+{
+    switch (method)
+    {
+		case HTTP_METHOD_GET: return "GET";
+		case HTTP_METHOD_PUT: return "PUT";
+		case HTTP_METHOD_POST: return "POST";
+    }
+}
 
 const char *HTTPHeaderItemKey(HTTP_HEADER_ITEM_KEY key)
 {
