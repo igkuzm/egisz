@@ -176,6 +176,7 @@ void url_request_add_header_item(URLRequest *request, HTTP_HEADER_ITEM_KEY key, 
 		newHeaderItemList->next = NULL;
 
 		newItem = malloc(sizeof(HTTPHeaderItem));
+		newHeaderItemList->item = newItem;
 	}
 		newItem->key = key;
 		strcpy(newItem->value, value);
