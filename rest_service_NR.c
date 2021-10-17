@@ -247,11 +247,11 @@ cJSON *egisz_rest_org_get(char *oid){
 
 ///////////////////
 cJSON *egisz_rest_depart_parts(int departTypeId){
-	char *method = "GET /rest/depart/parts";
-	char _departTypeId[128];
-	sprintf(_departTypeId, "departTypeId=%d", departTypeId);
-	char *argv[] = {_departTypeId};	
-	return json_from_egisz_ssl_connector_answer(method, 1, argv);
+	URLRequest *request = url_request_prepare();
+	char requestString[256];	
+	sprintf(requestString, "rest/depart/parts?departTypeId=%d", departTypeId);
+	url_request_set_request_string(request, requestString);
+	return json_from_url_connection_send_request(request);	
 }
 
 cJSON *egisz_rest_depart_part(int departTypeId, int part){
