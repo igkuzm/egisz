@@ -357,17 +357,17 @@ int url_connection_send_request_ssl(int sd, char *write_buf, void *data, int (*c
 	while ((bytes = SSL_read(ssl, buf, sizeof buf)) >0 ) {
 		buf[bytes] = 0;
 
-		//if (callback) {
-			//int c = callback(buf, bytes, &count, data); //run callback
-			//if (c != 0) { //stop function if callback returned non zero
-				//fprintf(stderr, "Stop SSL_read - callback returned: %d\n", c);
-				//break;
-			//}
-			//count++; //we need count to know how many times callback was called
-		//}
-		//else {
-			//printf("%s", buf); //print for debug
-		//}
+		if (callback) {
+			int c = callback(buf, bytes, &count, data); //run callback
+			if (c != 0) { //stop function if callback returned non zero
+				fprintf(stderr, "Stop SSL_read - callback returned: %d\n", c);
+				break;
+			}
+			count++; //we need count to know how many times callback was called
+		}
+		else {
+			printf("%s", buf); //print for debug
+		}
 	}
 	if (bytes < 0 ){ //hendle with error
 		_handle_with_ssl_error(ssl, bytes);
