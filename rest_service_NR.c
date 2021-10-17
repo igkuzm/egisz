@@ -62,10 +62,10 @@ URLRequest *url_request_prepare(){
 	
 	return request;
 }
-cJSON *json_from_url_connector(char *method, int argc, char *argv[]){
+cJSON *json_from_url_connector(URLRequest *request){
 	EgiszSSLConnectorAnswer *answer = egisz_ssl_connector_answer_new();
-	if (egisz_ssl_connector_socket(HOST, PORT, APIKEY, method, argc, argv, answer, egisz_ssl_connector_answer_callback)){
-		fprintf(stderr, "Error in function egisz_ssl_connector\n");
+	if (url_connection_send_request(request, answer, egisz_ssl_connector_answer_callback)){
+		fprintf(stderr, "Error in function url_connection_send_request\n");
 		return NULL;
 	}
 
