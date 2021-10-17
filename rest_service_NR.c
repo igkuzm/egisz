@@ -65,6 +65,8 @@ URLRequest *url_request_prepare(){
 
 ///////////////////
 cJSON *egisz_rest_refs_list(){
+	URLRequest *request = url_request_prepare();
+	url_request_set_request_string(request, "/rest/refs/list")
 	char *method = "GET /rest/refs/list";
 	return json_from_egisz_ssl_connector_answer(method, 0, NULL);
 }
