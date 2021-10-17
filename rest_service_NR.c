@@ -64,6 +64,7 @@ URLRequest *url_request_prepare(){
 
 	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Accept, "application/json");
 	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Host, HOST);
+	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Connection, "close");
 
 	//strcat(write_buf, "Connection: close\r\n");
 	
