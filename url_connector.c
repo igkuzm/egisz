@@ -275,7 +275,7 @@ int socket_for_url_request(URLRequest *request){
 }
 
 char *message_for_url_request(URLRequest *request){
-	char *write_buf = malloc(2*BUFSIZ * sizeof(char));
+	char *write_buf = malloc(BUFSIZ * sizeof(char));
 	if (write_buf == NULL) {
 		fprintf(stderr, "Cannot allocate memory for message_for_url_request\n");
 		return NULL;
