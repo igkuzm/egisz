@@ -390,8 +390,6 @@ int url_connection_send_request_no_ssl(int sd, char *write_buf, void *data, int 
 	//WRITE
 	int retval = write(sd, write_buf, strlen(write_buf));
 
-	free(write_buf); //no need any more
-
 	if (retval <= 0 ){ //handle with error
 		return retval;			
 	}
