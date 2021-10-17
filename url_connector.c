@@ -359,9 +359,9 @@ int url_connection_send_request_ssl(int sd, char *write_buf, void *data, int (*c
 	SSL_load_error_strings();
 	const SSL_METHOD *method = SSLv23_client_method();
 	SSL_CTX *ctx = SSL_CTX_new(method);
-	if (_ctx) {
-		*_ctx = ctx;
-	}
+	//if (_ctx) {
+		//*_ctx = ctx;
+	//}
 	if ( ctx == NULL ){
 		fprintf(stderr, "Error. Can't init SSL_CTX\n");	
 		return NULL;
