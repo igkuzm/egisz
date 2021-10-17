@@ -109,6 +109,7 @@ char *msg =
 	
 	url_connection_send_request(request,  NULL, NULL);
 
+	url_request_free(request);
 
 	printf("Press any key to close application\n");
 	getchar();
