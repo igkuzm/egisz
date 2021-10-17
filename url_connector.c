@@ -346,7 +346,6 @@ int url_connection_send_request_ssl(int sd, char *write_buf, void *data, int (*c
 
 	//SSL WRITE
 	int retval = SSL_write(ssl, write_buf, strlen(write_buf));
-	free(write_buf);
 
 	if (retval <= 0 ){ //handle with error
 		_handle_with_ssl_error(ssl, retval);
@@ -449,7 +448,7 @@ int url_connection_send_request(URLRequest *request, void *data, int (*callback)
 		}
 	}
 
-	//free(write_buf);
+	free(write_buf);
 	close(sd);      
 
 	return 0;
