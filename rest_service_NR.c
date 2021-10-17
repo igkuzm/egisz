@@ -262,11 +262,11 @@ cJSON *egisz_rest_depart_part(int departTypeId, int part){
 	return json_from_url_connection_send_request(request);	
 }
 cJSON *egisz_rest_depart_get(char *oid){
-	char *method = "GET /rest/depart/get";
-	char _oid[256];
-	sprintf(_oid, "oid=%s", oid);
-	char *argv[] = {_oid};	
-	return json_from_egisz_ssl_connector_answer(method, 1, argv);
+	URLRequest *request = url_request_prepare();
+	char requestString[256];	
+	sprintf(requestString, "rest/depart/get?oid=%s", oid);
+	url_request_set_request_string(request, requestString);
+	return json_from_url_connection_send_request(request);	
 }
 
 
