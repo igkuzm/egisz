@@ -440,6 +440,7 @@ int url_connection_send_request(URLRequest *request, void *data, int (*callback)
 	//Send request
 	if (request->protocol == URL_CONNECTION_PROTOCOL_HTTP) {
 		if (url_connection_send_request_no_ssl(sd, write_buf, data, callback)){
+			printf("ZZZZZ\n");
 			
 		}
 	}
