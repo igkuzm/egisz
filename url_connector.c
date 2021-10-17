@@ -421,8 +421,8 @@ int url_connection_send_request_no_ssl(int sd, char *write_buf, void *data, int 
 		else {
 			printf("%s", buf); //print for debug
 		}
-
 	}
+	printf("OKOKOKOKO\n");
 	if (bytes < 0 ){ //hendle with error
 		return bytes;			
 	}
