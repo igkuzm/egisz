@@ -34,7 +34,6 @@
 
 #define HOST "nr.egisz.rosminzdrav.ru"
 #define PORT 443
-#define APIKEY ""
 
 
 //struct to get answer from HTTP GET request of REST service
