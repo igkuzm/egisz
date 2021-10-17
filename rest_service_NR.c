@@ -29,6 +29,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <errno.h>
 
 #define HOST "nr.egisz.rosminzdrav.ru"
 #define PORT 443
@@ -45,6 +46,27 @@ typedef struct{
 	char *body; //allocates and frees automaticaly
 	int len_body;
 } RestServiceAnswer;
+
+RestServiceAnswer *rest_service_answer_new(){
+	RestServiceAnswer *answer = malloc(sizeof(RestServiceAnswer));
+	if (answer == NULL) {
+		fprintf(stderr, "Cannot allocate memory for RestServiceAnswer\n");
+		exit(ENOMEM);
+	}
+	answer->body = malloc(BUFSIZ*sizeof(char));
+	if (answer->body == NULL) {
+		fprintf(stderr, "Cannot allocate memory for EgiszSSLConnectorAnswer->body\n");
+		exit(ENOMEM);
+	}	
+	return answer;
+}
+
+void egisz_ssl_connector_answer_free(EgiszSSLConnectorAnswer *answer){
+	free(answer->body);
+	free(answer);
+}
+
+
 
 
 cJSON *json_from_egisz_ssl_connector_answer(char *method, int argc, char *argv[]){
