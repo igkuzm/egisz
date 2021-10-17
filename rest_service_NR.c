@@ -209,7 +209,7 @@ cJSON *egisz_rest_refs_list(){
 
 cJSON *egisz_rest_refs_parts(int id){
 	URLRequest *request = url_request_prepare();
-	char requestString[256];	
+	char requestString[BUFSIZ];	
 	sprintf(requestString, "rest/refs/parts?id=%d", id);
 	url_request_set_request_string(request, requestString);
 	return json_from_url_connection_send_request(request);
@@ -217,7 +217,7 @@ cJSON *egisz_rest_refs_parts(int id){
 
 cJSON *egisz_rest_refs_part(int id, int part){
 	URLRequest *request = url_request_prepare();
-	char requestString[256];	
+	char requestString[BUFSIZ];	
 	sprintf(requestString, "rest/refs/part?id=%d&part=%d", id, part);
 	url_request_set_request_string(request, requestString);
 	return json_from_url_connection_send_request(request);	
@@ -226,7 +226,7 @@ cJSON *egisz_rest_refs_part(int id, int part){
 ///////////////////
 cJSON *egisz_rest_org_parts(int orgTypeId){
 	URLRequest *request = url_request_prepare();
-	char requestString[256];	
+	char requestString[BUFSIZ];	
 	sprintf(requestString, "rest/org/parts?orgTypeId=%d", orgTypeId);
 	url_request_set_request_string(request, requestString);
 	return json_from_url_connection_send_request(request);	
@@ -234,7 +234,7 @@ cJSON *egisz_rest_org_parts(int orgTypeId){
 
 cJSON *egisz_rest_org_part(int orgTypeId, int part){
 	URLRequest *request = url_request_prepare();
-	char requestString[256];	
+	char requestString[BUFSIZ];	
 	sprintf(requestString, "rest/org/part?orgTypeId=%d&part=%d", orgTypeId, part);
 	url_request_set_request_string(request, requestString);
 	return json_from_url_connection_send_request(request);	
@@ -242,7 +242,7 @@ cJSON *egisz_rest_org_part(int orgTypeId, int part){
 
 cJSON *egisz_rest_org_get(char *oid){
 	URLRequest *request = url_request_prepare();
-	char requestString[256];	
+	char requestString[BUFSIZ];	
 	sprintf(requestString, "rest/org/get?oid=%s", oid);
 	url_request_set_request_string(request, requestString);
 	return json_from_url_connection_send_request(request);	
@@ -251,7 +251,7 @@ cJSON *egisz_rest_org_get(char *oid){
 ///////////////////
 cJSON *egisz_rest_depart_parts(int departTypeId){
 	URLRequest *request = url_request_prepare();
-	char requestString[256];	
+	char requestString[BUFSIZ];	
 	sprintf(requestString, "rest/depart/parts?departTypeId=%d", departTypeId);
 	url_request_set_request_string(request, requestString);
 	return json_from_url_connection_send_request(request);	
@@ -259,14 +259,14 @@ cJSON *egisz_rest_depart_parts(int departTypeId){
 
 cJSON *egisz_rest_depart_part(int departTypeId, int part){
 	URLRequest *request = url_request_prepare();
-	char requestString[256];	
+	char requestString[BUFSIZ];	
 	sprintf(requestString, "rest/depart/part?departTypeId=%d&part=%d", departTypeId, part);
 	url_request_set_request_string(request, requestString);
 	return json_from_url_connection_send_request(request);	
 }
 cJSON *egisz_rest_depart_get(char *oid){
 	URLRequest *request = url_request_prepare();
-	char requestString[256];	
+	char requestString[BUFSIZ];	
 	sprintf(requestString, "rest/depart/get?oid=%s", oid);
 	url_request_set_request_string(request, requestString);
 	return json_from_url_connection_send_request(request);	
@@ -278,7 +278,7 @@ cJSON *egisz_rest_depart_get(char *oid){
 
 cJSON *egisz_rest_mo(char *oid){
 	URLRequest *request = url_request_prepare();
-	char requestString[256];	
+	char requestString[BUFSIZ];	
 	sprintf(requestString, "rest/mo?oid=%s", oid);
 	url_request_set_request_string(request, requestString);
 	return json_from_url_connection_send_request(request);	
@@ -287,7 +287,7 @@ cJSON *egisz_rest_mo(char *oid){
 
 cJSON *egisz_rest_lic_get(int service){
 	URLRequest *request = url_request_prepare();
-	char requestString[256];	
+	char requestString[BUFSIZ];	
 	sprintf(requestString, "rest/lic/get?service=%d", service);
 	url_request_set_request_string(request, requestString);
 	return json_from_url_connection_send_request(request);	
