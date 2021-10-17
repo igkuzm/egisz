@@ -438,17 +438,17 @@ int url_connection_send_request(URLRequest *request, void *data, int (*callback)
 	printf("HOST: %s, PORT: %d, PROTOCOL: %s, REQUEST MESSAGE: %s\n", request->hostname, request->port, URLConnectionProtocol(request->protocol), write_buf);
 	
 	//Send request
-	if (request->protocol == URL_CONNECTION_PROTOCOL_HTTP) {
-		if (url_connection_send_request_no_ssl(sd, write_buf, data, callback)){
-			
-		}
-	}
 
 	if (request->protocol == URL_CONNECTION_PROTOCOL_HTTPS) {
 		if (url_connection_send_request_ssl(sd, write_buf, data, callback)){
 			printf("ZZZZZ\n");
 		}
 	}	
+	if (request->protocol == URL_CONNECTION_PROTOCOL_HTTP) {
+		if (url_connection_send_request_no_ssl(sd, write_buf, data, callback)){
+
+		}
+	}
 
 	free(write_buf);
 	close(sd);      
