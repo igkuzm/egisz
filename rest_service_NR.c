@@ -194,10 +194,10 @@ cJSON *json_from_url_connection_send_request(URLRequest *request){
 		fprintf(stderr, "Error in function url_connection_send_request\n");
 		return NULL;
 	}
+	cJSON *json;
 	//cJSON *json = cJSON_Parse(answer->body);
 	//rest_service_answer_free(answer);
-	//return json;
-	return cJSON_NULL;
+	return json;
 }
 
 ///////////////////
