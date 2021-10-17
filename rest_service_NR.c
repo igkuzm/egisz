@@ -197,7 +197,7 @@ cJSON *json_from_url_connection_send_request(URLRequest *request){
 	//cJSON *json = cJSON_Parse(answer->body);
 	//rest_service_answer_free(answer);
 	//return json;
-	return cJSON;
+	return cJSON_NULL;
 }
 
 ///////////////////
