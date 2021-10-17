@@ -24,7 +24,6 @@
  *
  */
 #include "rest_service_NR.h"
-#include "egisz_ssl_connector.h"
 #include "url_connector.h"
 #include <stdio.h>
 #include <stdlib.h>
