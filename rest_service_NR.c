@@ -32,6 +32,7 @@
 
 #define HOST "nr.egisz.rosminzdrav.ru"
 #define PORT 443
+#define APIKEY ""
 
 cJSON *json_from_egisz_ssl_connector_answer(char *method, int argc, char *argv[]){
 	EgiszSSLConnectorAnswer *answer = egisz_ssl_connector_answer_new();
