@@ -75,6 +75,7 @@ void url_request_add_header_item(URLRequest *request, HTTP_HEADER_ITEM_KEY key, 
 		
 		HTTPHeaderItemList *newHeaderItemList = malloc(sizeof(HTTPHeaderItemList));
 		newHeaderItemList->prev = headerItemList;
+		newHeaderItemList->next = NULL;
 		newHeaderItemList->headerItem = item;
 
 		request->headerItemList = newHeaderItemList;
@@ -96,7 +97,7 @@ URLRequest *url_request_new(){
 		return NULL;
 	}
 	
-	headerItemList->prev = NULL;
+	headerItemList->prev = headerItemList->next = NULL;
 	request->headerItemList = headerItemList;
 	request->method = HTTP_METHOD_GET;
 
