@@ -192,18 +192,7 @@ cJSON *json_from_url_connection_send_request(URLRequest *request){
 		fprintf(stderr, "Error in function url_connection_send_request\n");
 		return NULL;
 	}
-
-	//printf("HEADER: %s\n", answer->header);
-	//printf("BODY: %s\n", answer->body);
-	
 	cJSON *json = cJSON_Parse(answer->body);
-	//if (json == NULL) { //get answer string
-		//if (answer->len_body > 0) {
-			//char answer_str[answer->len_body + 2];
-			//sprintf(answer_str, "\"%s\"", answer->body);	
-			//json = cJSON_Parse(answer_str);
-		//}
-	//}
 	rest_service_answer_free(answer);
 	return json;
 }
