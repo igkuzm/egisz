@@ -222,11 +222,11 @@ cJSON *egisz_rest_refs_part(int id, int part){
 
 ///////////////////
 cJSON *egisz_rest_org_parts(int orgTypeId){
-	char *method = "GET /rest/org/parts";
-	char _orgTypeId[128];
-	sprintf(_orgTypeId, "orgTypeId=%d", orgTypeId);
-	char *argv[] = {_orgTypeId};	
-	return json_from_egisz_ssl_connector_answer(method, 1, argv);
+	URLRequest *request = url_request_prepare();
+	char requestString[256];	
+	sprintf(requestString, "rest/org/parts?orgTypeId=%d", orgTypeId);
+	url_request_set_request_string(request, requestString);
+	return json_from_url_connection_send_request(request);	
 }
 
 cJSON *egisz_rest_org_part(int orgTypeId, int part){
