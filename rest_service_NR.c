@@ -206,7 +206,7 @@ cJSON *egisz_rest_refs_list(){
 
 cJSON *egisz_rest_refs_parts(int id){
 	URLRequest *request = url_request_prepare();
-	char *requestString[256];	
+	char requestString[256];	
 	sprintf(requestString, "rest/refs/parts?id=%d", id);
 	url_request_set_request_string(request, requestString);
 	return json_from_url_connection_send_request(request);
