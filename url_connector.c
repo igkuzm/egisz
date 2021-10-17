@@ -202,6 +202,14 @@ void url_request_set_hostname(URLRequest *request, char *hostname){
 	strcpy(request->hostname, hostname);
 }
 
+void url_request_set_port(URLRequest *request, int port){
+	request->port = port;
+}
+
+void url_request_set_request_string(URLRequest *request, char *requestString){
+	strcpy(request->requestString, requestString);
+}
+
 void url_request_set_http_body_from_string(URLRequest *request, const char *contentType, char *bodyString){
 	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Content_Type, contentType);
 	
