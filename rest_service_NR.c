@@ -2,7 +2,7 @@
  * File              : rest_service_NR.c
  * Author            : Igor V. Sementsov <ig.kuzm@gmail.com>
  * Date              : 12.10.2021
- * Last Modified Date: 15.10.2021
+ * Last Modified Date: 17.10.2021
  * Last Modified By  : Igor V. Sementsov <ig.kuzm@gmail.com>
  */
 /**
@@ -25,6 +25,7 @@
  */
 #include "rest_service_NR.h"
 #include "egisz_ssl_connector.h"
+#include "url_connector.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
