@@ -448,8 +448,8 @@ int url_connection_send_request(URLRequest *request, void *data, int (*callback)
 		//}
 	//}
 
-	free(write_buf);
-	close(sd);      
+	//free(write_buf);
+	//close(sd);      
 
 	return 0;
 }
