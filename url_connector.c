@@ -423,9 +423,9 @@ int url_connection_send_request_no_ssl(int sd, char *write_buf, void *data, int 
 		}
 
 	}
-	if (bytes < 0 ){ //hendle with error
-		return bytes;			
-	}
+	//if (bytes < 0 ){ //hendle with error
+		//return bytes;			
+	//}
 
 	
 	return 0;
