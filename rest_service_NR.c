@@ -170,8 +170,6 @@ int rest_service_answer_callback(char *str, int len, int *count, void *_answer){
 		//
 	}	
 
-
-
 	return 0;
 }
 
