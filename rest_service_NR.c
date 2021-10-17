@@ -238,11 +238,11 @@ cJSON *egisz_rest_org_part(int orgTypeId, int part){
 }
 
 cJSON *egisz_rest_org_get(char *oid){
-	char *method = "GET /rest/org/get";
-	char _oid[256];
-	sprintf(_oid, "oid=%s", oid);
-	char *argv[] = {_oid};	
-	return json_from_egisz_ssl_connector_answer(method, 1, argv);
+	URLRequest *request = url_request_prepare();
+	char requestString[256];	
+	sprintf(requestString, "rest/org/get?oid=%s", oid);
+	url_request_set_request_string(request, requestString);
+	return json_from_url_connection_send_request(request);	
 }
 
 ///////////////////
