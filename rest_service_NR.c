@@ -61,7 +61,7 @@ RestServiceAnswer *rest_service_answer_new(){
 	return answer;
 }
 
-void egisz_ssl_connector_answer_free(RestServiceAnswer *answer){
+void rest_service_answer_free(RestServiceAnswer *answer){
 	free(answer->body);
 	free(answer);
 }
