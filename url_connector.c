@@ -383,7 +383,7 @@ int url_connection_send_request_ssl(int sd, char *write_buf, void *data, int (*c
 	SSL_CTX_free(ctx);   
 
 	printf("OKOKOKOKOKOKOKO\n");
-	return 1;
+	return 0;
 } 
 
 int url_connection_send_request_no_ssl(int sd, char *write_buf, void *data, int (*callback)(char*,int,int*,void*)){
