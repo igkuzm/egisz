@@ -237,6 +237,12 @@ cJSON *egisz_rest_org_part(int orgTypeId, int part){
 	sprintf(_part, "part=%d", part);	
 	char *argv[] = {_orgTypeId, _part};	
 	return json_from_egisz_ssl_connector_answer(method, 2, argv);
+
+	URLRequest *request = url_request_prepare();
+	char requestString[256];	
+	sprintf(requestString, "rest/org/part?orgTypeId=%d&part=%d", orgTypeId, part);
+	url_request_set_request_string(request, requestString);
+	return json_from_url_connection_send_request(request);	
 }
 
 cJSON *egisz_rest_org_get(char *oid){
