@@ -283,11 +283,11 @@ cJSON *egisz_rest_mo(char *oid){
 
 
 cJSON *egisz_rest_lic_get(int service){
-	char *method = "GET /rest/lic/get";
-	char _service[256];
-	sprintf(_service, "service=%d", service);
-	char *argv[] = {_service};	
-	return json_from_egisz_ssl_connector_answer(method, 1, argv);
+	URLRequest *request = url_request_prepare();
+	char requestString[256];	
+	sprintf(requestString, "rest/lic/get?service=%d", service);
+	url_request_set_request_string(request, requestString);
+	return json_from_url_connection_send_request(request);	
 }
 
 
