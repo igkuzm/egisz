@@ -319,9 +319,8 @@ char *message_for_url_request(URLRequest *request){
 		}		
 	}
 	
-	char length_str[128];
-	sprintf(length_str, "%ld", sizeof(write_buf));
-
+	printf("WRITE_BUF: %s", write_buf);
+	
 	return write_buf;
 }
 
