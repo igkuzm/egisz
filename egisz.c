@@ -74,7 +74,7 @@ char *readString(){
 
 int main(int argc, char *argv[])
 {
-	cJSON *json = egisz_refs_list();
+	cJSON *json = egisz_rest_refs_list();
 	//cJSON *json = egisz_refs_parts(15);
 	//cJSON *json = egisz_depart_part(1, 10);
 	//cJSON *json = egisz_org_part(2, 1);
