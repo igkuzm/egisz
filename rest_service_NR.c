@@ -34,6 +34,19 @@
 #define PORT 443
 #define APIKEY ""
 
+
+//struct to get answer from HTTP GET request of REST service
+typedef struct{
+	char header[1024];
+	int len_header;
+	char content_type[256];
+	char transfer_encoding[256];
+	int	content_length;
+	char *body; //allocates and frees automaticaly
+	int len_body;
+} RestServiceAnswer;
+
+
 cJSON *json_from_egisz_ssl_connector_answer(char *method, int argc, char *argv[]){
 	EgiszSSLConnectorAnswer *answer = egisz_ssl_connector_answer_new();
 	if (egisz_ssl_connector_socket(HOST, PORT, APIKEY, method, argc, argv, answer, egisz_ssl_connector_answer_callback)){
