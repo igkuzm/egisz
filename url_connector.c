@@ -198,6 +198,10 @@ void url_request_set_http_method(URLRequest *request, HTTP_METHOD method){
 	request->method = method;
 }
 
+void url_request_set_url_connection_protocol(URLRequest *request, URL_CONNECTION_PROTOCOL protocol){
+	request->protocol = protocol;
+}
+
 void url_request_set_hostname(URLRequest *request, char *hostname){
 	strcpy(request->hostname, hostname);
 }
