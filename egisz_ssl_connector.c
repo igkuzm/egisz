@@ -2,7 +2,7 @@
  * File              : egisz_ssl_connector.c
  * Author            : Igor V. Sementsov <ig.kuzm@gmail.com>
  * Date              : 12.10.2021
- * Last Modified Date: 15.10.2021
+ * Last Modified Date: 17.10.2021
  * Last Modified By  : Igor V. Sementsov <ig.kuzm@gmail.com>
  */
 /**
@@ -286,7 +286,7 @@ int egisz_ssl_connector_answer_callback(char *str, int len, int *count, void *_a
 				else { //good - we have a chunked size
 					//printf("CHUNKED SIZE: %d\n", chunked_size);
 					answer->len_body += chunked_size;
-					answer->body = realloc(answer->body, answer->len_body * sizeof(char)); //realoc body string to add chunked_size
+					//answer->body = realloc(answer->body, answer->len_body * sizeof(char)); //realoc body string to add chunked_size
 					if (answer->body == NULL) {
 						fprintf(stderr, "Cannot reallocate memory for EgiszSSLConnectorAnswer->body\n");
 						exit(ENOMEM);
