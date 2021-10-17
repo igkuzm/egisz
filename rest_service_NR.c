@@ -213,13 +213,11 @@ cJSON *egisz_rest_refs_parts(int id){
 }
 
 cJSON *egisz_rest_refs_part(int id, int part){
-	char *method = "GET /rest/refs/part";
-	char _id[128];
-	sprintf(_id, "id=%d", id);
-	char _part[128];
-	sprintf(_part, "part=%d", part);
-	char *argv[] = {_id, _part};	
-	return json_from_egisz_ssl_connector_answer(method, 2, argv);
+	URLRequest *request = url_request_prepare();
+	char requestString[256];	
+	sprintf(requestString, "rest/refs/part?id=%d&part=%d", id, part);
+	url_request_set_request_string(request, requestString);
+	return json_from_url_connection_send_request(request);	
 }
 
 ///////////////////
