@@ -24,6 +24,7 @@
  *
  */
 #include "rest_service_NR.h"
+#include "cJSON.h"
 #include "url_connector.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -193,9 +194,10 @@ cJSON *json_from_url_connection_send_request(URLRequest *request){
 		fprintf(stderr, "Error in function url_connection_send_request\n");
 		return NULL;
 	}
-	cJSON *json = cJSON_Parse(answer->body);
-	rest_service_answer_free(answer);
-	return json;
+	//cJSON *json = cJSON_Parse(answer->body);
+	//rest_service_answer_free(answer);
+	//return json;
+	return cJSON;
 }
 
 ///////////////////
