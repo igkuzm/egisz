@@ -204,7 +204,7 @@ cJSON *json_from_url_connection_send_request(URLRequest *request){
 			//json = cJSON_Parse(answer_str);
 		//}
 	//}
-	egisz_ssl_connector_answer_free(answer);
+	rest_service_answer_free(answer);
 	return json;
 }
 
