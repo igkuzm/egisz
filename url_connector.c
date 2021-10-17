@@ -37,6 +37,16 @@ const char *HTTPMethod(HTTP_METHOD method)
     }
 }
 
+const char *URLConnectionProtocol(URL_CONNECTION_PROTOCOL protocol)
+{
+    switch (protocol)
+    {
+		case URL_CONNECTION_PROTOCOL_HTTP: return "HTTP";
+		case URL_CONNECTION_PROTOCOL_HTTPS: return "HTTPS";
+    }
+}
+
+
 const char *HTTPHeaderItemKey(HTTP_HEADER_ITEM_KEY key)
 {
     switch (key)
@@ -435,7 +445,7 @@ int url_connection_send_request(URLRequest *request, void *data, int (*callback)
 		perror("Error in function socket_for_url_request()");
 		return -1;
 	}
-	printf("REQUEST MESSAGE: %s\n", write_buf);
+	printf("HOST: %s, PORT: %d, PROTOCOL: %s, REQUEST MESSAGE: %s\n", request->hostname, request->port, HTTPPro write_buf);
 	
 	//Send request
 	if (request->protocol == URL_CONNECTION_PROTOCOL_HTTP) {
