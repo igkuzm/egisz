@@ -70,7 +70,7 @@ URLRequest *url_request_prepare(){
 }
 cJSON *json_from_url_connection_send_request(URLRequest *request){
 	EgiszSSLConnectorAnswer *answer = egisz_ssl_connector_answer_new();
-	if (url_connection_send_request(request, NULL, NULL)){
+	if (url_connection_send_request(request, answer, egisz_ssl_connector_answer_callback)){
 		fprintf(stderr, "Error in function url_connection_send_request\n");
 		return NULL;
 	}
