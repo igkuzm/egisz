@@ -136,7 +136,7 @@ int rest_service_answer_callback(char *str, int len, int *count, void *_answer){
 					fprintf(stderr, "Can't get chunked_size from string: %s\n", chunked_size_str);
 				} 
 				else { //good - we have a chunked size
-					//printf("CHUNKED SIZE: %d\n", chunked_size);
+					printf("CHUNKED SIZE: %d\n", chunked_size);
 					answer->len_body += chunked_size;
 					answer->body = realloc(answer->body, answer->len_body * sizeof(char)); //realoc body string to add chunked_size
 					if (answer->body == NULL) {
