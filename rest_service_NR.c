@@ -205,11 +205,11 @@ cJSON *egisz_rest_refs_list(){
 }
 
 cJSON *egisz_rest_refs_parts(int id){
-	char *method = "GET /rest/refs/parts";
-	char _id[128];
-	sprintf(_id, "id=%d", id);
-	char *argv[] = {_id};	
-	return json_from_egisz_ssl_connector_answer(method, 1, argv);
+	URLRequest *request = url_request_prepare();
+	char *requestString[256];	
+	sprintf(requestString, "rest/refs/parts?id=%d", id);
+	url_request_set_request_string(request, requestString);
+	return json_from_url_connection_send_request(request);
 }
 
 cJSON *egisz_rest_refs_part(int id, int part){
