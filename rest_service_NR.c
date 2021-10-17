@@ -255,14 +255,6 @@ cJSON *egisz_rest_depart_parts(int departTypeId){
 }
 
 cJSON *egisz_rest_depart_part(int departTypeId, int part){
-	char *method = "GET /rest/depart/part";
-	char _departTypeId[128];
-	sprintf(_departTypeId, "departTypeId=%d", departTypeId);
-	char _part[128];
-	sprintf(_part, "part=%d", part);	
-	char *argv[] = {_departTypeId, _part};	
-	return json_from_egisz_ssl_connector_answer(method, 2, argv);
-
 	URLRequest *request = url_request_prepare();
 	char requestString[256];	
 	sprintf(requestString, "rest/depart/part?departTypeId=%d&part=%d", departTypeId, part);
