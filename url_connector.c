@@ -440,9 +440,64 @@ int url_connection_send_request(URLRequest *request, void *data, int (*callback)
 	//Send request
 
 	if (request->protocol == URL_CONNECTION_PROTOCOL_HTTPS) {
-		if (url_connection_send_request_ssl(sd, write_buf, data, callback)){
-			printf("ZZZZZ\n");
+	//init SSL
+	SSL_library_init();
+	OpenSSL_add_all_algorithms();
+	SSL_load_error_strings();
+	const SSL_METHOD *method = SSLv23_client_method();
+	SSL_CTX *ctx = SSL_CTX_new(method);
+	if ( ctx == NULL ){
+		fprintf(stderr, "Error. Can't init SSL_CTX\n");	
+		return -1;
+	} 
+	
+	SSL *ssl = SSL_new(ctx); //create ssl structure
+	SSL_set_fd(ssl, sd); //connect SSL to socket 
+	if ( SSL_connect(ssl) == -1 ){
+		fprintf(stderr, "Error. Can't connect SSL to socket\n");	
+		return -1;
+	}  
+
+	//SSL WRITE
+	int retval = SSL_write(ssl, write_buf, strlen(write_buf));
+
+	if (retval <= 0 ){ //handle with error
+		_handle_with_ssl_error(ssl, retval);
+		fprintf(stderr, "Error while SSL_write\n");
+		return retval;			
+	}
+	
+	//SSL READ
+	int count = 0;
+	char buf[1024];
+	long bytes;
+	while ((bytes = SSL_read(ssl, buf, sizeof buf)) >0 ) {
+		buf[bytes] = 0;
+
+		if (callback) {
+			int c = callback(buf, bytes, &count, data); //run callback
+			if (c != 0) { //stop function if callback returned non zero
+				fprintf(stderr, "Stop SSL_read - callback returned: %d\n", c);
+				break;
+			}
+			count++; //we need count to know how many times callback was called
 		}
+		else {
+			printf("%s", buf); //print for debug
+		}
+	}
+	if (bytes < 0 ){ //hendle with error
+		_handle_with_ssl_error(ssl, bytes);
+		fprintf(stderr, "Error while SSL_read\n");
+		return bytes;			
+	}	
+
+	//Close SSL
+	SSL_free(ssl);   
+	SSL_CTX_free(ctx);   
+
+	printf("OKOKOKOKOKOKOKO\n");
+
 	}	
 
 	if (request->protocol == URL_CONNECTION_PROTOCOL_HTTP) {
