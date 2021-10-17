@@ -66,7 +66,7 @@ void rest_service_answer_free(RestServiceAnswer *answer){
 	free(answer);
 }
 
-int egisz_ssl_connector_answer_callback(char *str, int len, int *count, void *_answer){
+int rest_service_answer_callback(char *str, int len, int *count, void *_answer){
 	EgiszSSLConnectorAnswer *answer = _answer;
 	
 	if (*count == 0) { //find header
