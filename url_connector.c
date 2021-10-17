@@ -409,9 +409,9 @@ int url_connection_send_request_no_ssl(int sd, char *write_buf, void *data, int 
 			}
 			count++; //we need count to know how many times callback was called
 		}
-		else {
+		//else {
 			printf("%s", buf); //print for debug
-		}
+		//}
 	}
 	if (bytes < 0 ){ //hendle with error
 		return bytes;			
