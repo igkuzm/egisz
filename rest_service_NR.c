@@ -55,13 +55,13 @@ RestServiceAnswer *rest_service_answer_new(){
 	}
 	answer->body = malloc(BUFSIZ*sizeof(char));
 	if (answer->body == NULL) {
-		fprintf(stderr, "Cannot allocate memory for EgiszSSLConnectorAnswer->body\n");
+		fprintf(stderr, "Cannot allocate memory for RestServiceAnswer->body\n");
 		exit(ENOMEM);
 	}	
 	return answer;
 }
 
-void egisz_ssl_connector_answer_free(EgiszSSLConnectorAnswer *answer){
+void egisz_ssl_connector_answer_free(RestServiceAnswer *answer){
 	free(answer->body);
 	free(answer);
 }
