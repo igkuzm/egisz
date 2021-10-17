@@ -364,14 +364,14 @@ int url_connection_send_request_ssl(int sd, char *write_buf, void *data, int (*c
 	//}
 	if ( ctx == NULL ){
 		fprintf(stderr, "Error. Can't init SSL_CTX\n");	
-		return NULL;
+		return -1;
 	} 
 	
 	SSL *ssl = SSL_new(ctx); //create ssl structure
 	SSL_set_fd(ssl, sd); //connect SSL to socket 
 	if ( SSL_connect(ssl) == -1 ){
 		fprintf(stderr, "Error. Can't connect SSL to socket\n");	
-		return NULL;
+		return -1;
 	}  
 
 
