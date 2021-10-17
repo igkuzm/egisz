@@ -325,43 +325,13 @@ char *message_for_url_request(URLRequest *request){
 	return write_buf;
 }
 
-SSL *ssl_init_for_socket(int sd, SSL_CTX **_ctx){
+int url_connection_send_request_ssl(int sd, char *write_buf, void *data, int (*callback)(char*,int,int*,void*)){
 	//init SSL
 	SSL_library_init();
 	OpenSSL_add_all_algorithms();
 	SSL_load_error_strings();
 	const SSL_METHOD *method = SSLv23_client_method();
 	SSL_CTX *ctx = SSL_CTX_new(method);
-	if (_ctx) {
-		*_ctx = ctx;
-	}
-	if ( ctx == NULL ){
-		fprintf(stderr, "Error. Can't init SSL_CTX\n");	
-		return NULL;
-	} 
-	
-	SSL *ssl = SSL_new(ctx); //create ssl structure
-	SSL_set_fd(ssl, sd); //connect SSL to socket 
-	if ( SSL_connect(ssl) == -1 ){
-		fprintf(stderr, "Error. Can't connect SSL to socket\n");	
-		return NULL;
-	}  
-
-	return ssl;
-}
-
-int url_connection_send_request_ssl(int sd, char *write_buf, void *data, int (*callback)(char*,int,int*,void*)){
-	//SSL_CTX *ctx;
-	//SSL *ssl = ssl_init_for_socket(sd, &ctx);	
-
-	SSL_library_init();
-	OpenSSL_add_all_algorithms();
-	SSL_load_error_strings();
-	const SSL_METHOD *method = SSLv23_client_method();
-	SSL_CTX *ctx = SSL_CTX_new(method);
-	//if (_ctx) {
-		//*_ctx = ctx;
-	//}
 	if ( ctx == NULL ){
 		fprintf(stderr, "Error. Can't init SSL_CTX\n");	
 		return -1;
@@ -373,7 +343,6 @@ int url_connection_send_request_ssl(int sd, char *write_buf, void *data, int (*c
 		fprintf(stderr, "Error. Can't connect SSL to socket\n");	
 		return -1;
 	}  
-
 
 	//SSL WRITE
 	int retval = SSL_write(ssl, write_buf, strlen(write_buf));
