@@ -74,7 +74,7 @@ char *readString(){
 
 int main(int argc, char *argv[])
 {
-	//cJSON *json = egisz_refs_list();
+	cJSON *json = egisz_refs_list();
 	//cJSON *json = egisz_refs_parts(15);
 	//cJSON *json = egisz_depart_part(1, 10);
 	//cJSON *json = egisz_org_part(2, 1);
@@ -85,31 +85,31 @@ int main(int argc, char *argv[])
 	//print_json(json);
 	//printf("ITEM: %s\n", cJSON_Print(json));	
 	
-	URLRequest *request = url_request_new_with_string("https://nsi.rosminzdrav.ru/wsdl/SOAP-server.v2.php");
-	//url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_SOAPAction, "");
+	//URLRequest *request = url_request_new_with_string("https://nsi.rosminzdrav.ru/wsdl/SOAP-server.v2.php");
+	////url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_SOAPAction, "");
 	
 
-char *msg = 
-"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
-"<SOAP-ENV:Envelope"
-"    xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\""
-"    xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\""
-"    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\""
-"    xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\""
-"    xmlns:ns1=\"urn:service\">"
-" <SOAP-ENV:Body>"
-"  <ns1:getRefbookList>"
-"   <userKey></userKey>"
-"  </ns1:getRefbookList>"
-" </SOAP-ENV:Body>"
-"</SOAP-ENV:Envelope>";
+//char *msg = 
+//"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+//"<SOAP-ENV:Envelope"
+//"    xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\""
+//"    xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\""
+//"    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\""
+//"    xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\""
+//"    xmlns:ns1=\"urn:service\">"
+//" <SOAP-ENV:Body>"
+//"  <ns1:getRefbookList>"
+//"   <userKey></userKey>"
+//"  </ns1:getRefbookList>"
+//" </SOAP-ENV:Body>"
+//"</SOAP-ENV:Envelope>";
 
-	url_request_set_http_method(request, HTTP_METHOD_POST);
-	url_request_set_http_body_from_string(request, "text/xml;charset=UTF-8", msg);	
+	//url_request_set_http_method(request, HTTP_METHOD_POST);
+	//url_request_set_http_body_from_string(request, "text/xml;charset=UTF-8", msg);	
 	
-	//url_connection_send_request(request,  NULL, NULL);
+	////url_connection_send_request(request,  NULL, NULL);
 
-	url_request_free(request);
+	//url_request_free(request);
 
 	printf("Press any key to close application\n");
 	getchar();
