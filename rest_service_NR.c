@@ -172,27 +172,6 @@ int rest_service_answer_callback(char *str, int len, int *count, void *_answer){
 	return 0;
 }
 
-cJSON *json_from_egisz_ssl_connector_answer(char *method, int argc, char *argv[]){
-	EgiszSSLConnectorAnswer *answer = egisz_ssl_connector_answer_new();
-	if (egisz_ssl_connector_socket(HOST, PORT, APIKEY, method, argc, argv, answer, egisz_ssl_connector_answer_callback)){
-		fprintf(stderr, "Error in function egisz_ssl_connector\n");
-		return NULL;
-	}
-
-	//printf("HEADER: %s\n", answer->header);
-	//printf("BODY: %s\n", answer->body);
-	
-	cJSON *json = cJSON_Parse(answer->body);
-	//if (json == NULL) { //get answer string
-		//if (answer->len_body > 0) {
-			//char answer_str[answer->len_body + 2];
-			//sprintf(answer_str, "\"%s\"", answer->body);	
-			//json = cJSON_Parse(answer_str);
-		//}
-	//}
-	egisz_ssl_connector_answer_free(answer);
-	return json;
-}
 URLRequest *url_request_prepare(){
 	URLRequest *request = url_request_new();
 	url_request_set_url_connection_protocol(request, URL_CONNECTION_PROTOCOL_HTTPS);
