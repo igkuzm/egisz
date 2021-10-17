@@ -325,7 +325,7 @@ char *message_for_url_request(URLRequest *request){
 	return write_buf;
 }
 
-void url_connection_send_request_ssl(int sd, char *write_buf, void *data, int (*callback)(char*,int,int*,void*)){
+int url_connection_send_request_ssl(int sd, char *write_buf, void *data, int (*callback)(char*,int,int*,void*)){
 	//init SSL
 	SSL_library_init();
 	OpenSSL_add_all_algorithms();
@@ -334,14 +334,14 @@ void url_connection_send_request_ssl(int sd, char *write_buf, void *data, int (*
 	SSL_CTX *ctx = SSL_CTX_new(method);
 	if ( ctx == NULL ){
 		fprintf(stderr, "Error. Can't init SSL_CTX\n");	
-		//return -1;
+		return -1;
 	} 
 	
 	SSL *ssl = SSL_new(ctx); //create ssl structure
 	SSL_set_fd(ssl, sd); //connect SSL to socket 
 	if ( SSL_connect(ssl) == -1 ){
 		fprintf(stderr, "Error. Can't connect SSL to socket\n");	
-		//return -1;
+		return -1;
 	}  
 
 	//SSL WRITE
@@ -350,7 +350,7 @@ void url_connection_send_request_ssl(int sd, char *write_buf, void *data, int (*
 	if (retval <= 0 ){ //handle with error
 		_handle_with_ssl_error(ssl, retval);
 		fprintf(stderr, "Error while SSL_write\n");
-		//return retval;			
+		return retval;			
 	}
 	
 	//SSL READ
@@ -375,15 +375,14 @@ void url_connection_send_request_ssl(int sd, char *write_buf, void *data, int (*
 	if (bytes < 0 ){ //hendle with error
 		_handle_with_ssl_error(ssl, bytes);
 		fprintf(stderr, "Error while SSL_read\n");
-		//return bytes;			
+		return bytes;			
 	}	
 
 	//Close SSL
 	SSL_free(ssl);   
 	SSL_CTX_free(ctx);   
 
-	printf("OKOKOKOKOKOKOKO\n");
-	//return 1;
+	return 0;
 } 
 
 int url_connection_send_request_no_ssl(int sd, char *write_buf, void *data, int (*callback)(char*,int,int*,void*)){
