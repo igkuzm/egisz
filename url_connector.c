@@ -454,6 +454,7 @@ int url_connection_send_request(URLRequest *request, void *data, int (*callback)
 
 	if (request->protocol == URL_CONNECTION_PROTOCOL_HTTPS) {
 		url_connection_send_request_ssl(sd, write_buf, data, callback);
+		printf("KLKLKKKKKKKKKKKKKKKKKKL\n");
 	}	
 
 	free(write_buf);
