@@ -56,6 +56,8 @@ cJSON *json_from_egisz_ssl_connector_answer(char *method, int argc, char *argv[]
 	return json;
 }
 URLRequest *url_request_prepare(){
+	URLRequest *request = url_request_new();
+	url_request_set_http_method(request, HTTP_METHOD_GET);
 
 }
 
