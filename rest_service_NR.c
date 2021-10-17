@@ -30,6 +30,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
+#include <stdbool.h>
 
 #define HOST "nr.egisz.rosminzdrav.ru"
 #define PORT 443
