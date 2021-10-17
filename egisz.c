@@ -107,7 +107,7 @@ char *msg =
 	url_request_set_http_method(request, HTTP_METHOD_POST);
 	url_request_set_http_body_from_string(request, "text/xml;charset=UTF-8", msg);	
 	
-	url_connection_send_request(request,  NULL, NULL);
+	//url_connection_send_request(request,  NULL, NULL);
 
 	url_request_free(request);
 
