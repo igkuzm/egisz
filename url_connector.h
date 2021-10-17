@@ -63,6 +63,8 @@ void url_request_free(URLRequest *request);
 
 void url_request_set_url_connection_protocol(URLRequest *request, URL_CONNECTION_PROTOCOL protocol);
 void url_request_set_http_method(URLRequest *request, HTTP_METHOD method);
+void url_request_set_hostname(URLRequest *request, char *hostname);
+void url_request_set_port(URLRequest *request, int port);
 void url_request_add_header_item(URLRequest *request, HTTP_HEADER_ITEM_KEY key, const char *value);
 
 void url_request_set_http_body_from_string(URLRequest *request, const char *contentType, char *bodyString);
