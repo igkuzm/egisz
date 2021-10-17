@@ -456,8 +456,6 @@ int url_connection_send_request(URLRequest *request, void *data, int (*callback)
 		url_connection_send_request_ssl(sd, write_buf, data, callback);
 	}	
 
-	printf("KOKOKOKOKO\n");
-	
 	free(write_buf);
 	close(sd);      
 
