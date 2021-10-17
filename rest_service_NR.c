@@ -66,9 +66,6 @@ URLRequest *url_request_prepare(){
 	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Host, HOST);
 	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Connection, "close");
 
-	//strcat(write_buf, "Connection: close\r\n");
-	
-	
 	return request;
 }
 cJSON *json_from_url_connection_send_request(URLRequest *request){
