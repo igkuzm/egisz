@@ -431,7 +431,7 @@ int url_connection_send_request(URLRequest *request, void *data, int (*callback)
 		perror("Error in function socket_for_url_request()");
 		return -1;
 	}
-	printf("HOST: %s, PORT: %d, PROTOCOL: %s, REQUEST MESSAGE: %s\n", request->hostname, request->port, URLConnectionProtocol(request->protocol), write_buf);
+	printf("HOST: %s, PORT: %d, PROTOCOL: %s\nREQUEST: %s\n", request->hostname, request->port, URLConnectionProtocol(request->protocol), write_buf);
 	
 	//Send request
 
