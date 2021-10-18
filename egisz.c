@@ -111,7 +111,10 @@ char *msg =
 	
 	url_connection_send_request(request,  answer, url_connect_answer_callback);
 
+	printf("HEADER: %s\n", answer->header);
+
 	url_request_free(request);
+	url_connect_answer_free(answer);
 
 	printf("Press any key to close application\n");
 	getchar();
