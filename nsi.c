@@ -7,4 +7,8 @@
  */
 #include "nsi.h"
 
+ezxml_t egisz_nsi_get_server_time(){
+
+}
+
 
