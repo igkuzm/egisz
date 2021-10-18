@@ -68,7 +68,7 @@ cJSON *json_from_url_connection_send_request(URLRequest *request){
 }
 
 ///////////////////
-cJSON *egisz_rest_refs_list(){
+int egisz_rest_refs_list(struct egisz_rest_refs_list_struct *array){
 	URLRequest *request = url_request_prepare();
 	url_request_set_request_string(request, "rest/refs/list");
 	return json_from_url_connection_send_request(request);
