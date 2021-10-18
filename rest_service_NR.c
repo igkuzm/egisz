@@ -198,10 +198,9 @@ cJSON *json_from_url_connection_send_request(URLRequest *request){
 		return NULL;
 	}
 	printf("BODY: %s\n", answer->body);
-	cJSON *json;
-	//cJSON *json = cJSON_Parse(answer->body);
-	//rest_service_answer_free(answer);
-	//url_request_free(request);
+	cJSON *json = cJSON_Parse(answer->body);
+	rest_service_answer_free(answer);
+	url_request_free(request);
 	printf("JSON_FROM_URL DONE!\n");
 	return json;
 }
