@@ -8,7 +8,7 @@
 #include "nsi.h"
 #include "url_connector.h"
 
-#define HOST ""
+#define HOST "nsi.rosminzdrav.ru"
 #define PORT 443
 
 URLRequest *url_request_prepare(){
