@@ -120,12 +120,6 @@ char *msg =
 	ezxml_t ezxml = ezxml_parse_str(answer->body, strlen(answer->body));
 	printf("EZXML NAME: %s\n", ezxml->name);
 	
-	ezxml_t child = ezxml->child;
-	printf("CHILD NAME: %s\n", child->name);
-
-	ezxml_t child1 = child->child;
-	printf("CHILD1 NAME: %s\n", child1->name);
-
 	
 
 	url_request_free(request);
