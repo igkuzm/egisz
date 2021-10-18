@@ -32,7 +32,6 @@ Dictionary *dictionary_new(){
 
 	dictionary->data = NULL;
 	uuid_generate_random(dictionary->id);
-	
 
 	return dictionary;
 }
