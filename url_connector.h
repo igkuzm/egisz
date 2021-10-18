@@ -84,7 +84,7 @@ typedef struct{
 	char content_type[256]; //type of content - eg. json
 	char transfer_encoding[256]; //eg. chunked
 	int	content_length; //length of content
-	char *body; //allocates and frees automaticaly
+	char *body; //body of answer - allocates and frees automaticaly
 	int len_body; //sizeof body
 } URLConnectAnswer;
 
