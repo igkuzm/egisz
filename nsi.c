@@ -47,7 +47,7 @@ ezxml_t nsi_xml_from_url_connection_send_request(URLRequest *request){
 
 ezxml_t egisz_nsi_get_server_time(){
 	URLRequest *request = nsi_url_request_prepare(); 
-	char *msg = "<<<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n"
+	char *msg = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n"
 	"<SOAP-ENV:Envelope\r\n"
 	" xmlns:SOAP-ENV=\"http:schemas.xmlsoap.org/soap/envelope/\"\r\n"
 	" xmlns:SOAP-ENC=\"http:schemas.xmlsoap.org/soap/encoding/\"\r\n"
