@@ -137,7 +137,7 @@ int rest_service_answer_callback(char *str, int len, int *count, void *_answer){
 				else { //good - we have a chunked size
 					printf("CHUNKED SIZE: %d\n", chunked_size);
 					answer->len_body += chunked_size;
-					answer->body = realloc(answer->body, answer->len_body + 1 * sizeof(char)); //realoc body string to add chunked_size
+					answer->body = realloc(answer->body, answer->len_body * sizeof(char)); //realoc body string to add chunked_size
 					if (answer->body == NULL) {
 						fprintf(stderr, "Cannot reallocate memory for EgiszSSLConnectorAnswer->body\n");
 						exit(ENOMEM);
