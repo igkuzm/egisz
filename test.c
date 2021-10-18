@@ -92,9 +92,9 @@ int main(int argc, char *argv[])
 		//printf("REGION: %s, CODE: %d\n", array[i].region, array[i].territoryCode);
 	//}
 	
-	struct egisz_rest_refs_part_struct *array;
-	int c = egisz_rest_refs_part_all(&array, 15);
-	printf("COUNT: %d\n", c);
+	/*struct egisz_rest_refs_part_struct *array;*/
+	/*int c = egisz_rest_refs_part_all(&array, 15);*/
+	/*printf("COUNT: %d\n", c);*/
 	//int	i;
 	//for (i = 0; i < c; ++i) {
 		//printf("REGION: %s, CODE: %d\n", array[i].region, array[i].territoryCode);
@@ -110,7 +110,7 @@ int main(int argc, char *argv[])
 
 	
 
-	//ezxml_t ezxml = egisz_nsi_get_server_time(); 
+	ezxml_t ezxml = egisz_nsi_get_server_time(); 
 	//ezxml_t ezxml = egisz_nsi_get_refbook_list(); 
 	//printf("EZXML NAME: %s\n", ezxml->name);
 
