@@ -118,7 +118,7 @@ char *msg =
 
 
 	ezxml_t ezxml = ezxml_parse_str(answer->body, strlen(answer->body));
-	printf("EZXML TEXT: %s\n", ezxml.txt);
+	printf("EZXML TEXT: %s\n", ezxml->txt);
 	
 
 	url_request_free(request);
