@@ -8,7 +8,7 @@
 
 #include "egisz.h"
 #include "cJSON.h"
-#include "sxml.h"
+#include "ezxml.h"
 #include "rest_service_NR.h"
 #include "url_connector.h"
 #include <stdio.h>
