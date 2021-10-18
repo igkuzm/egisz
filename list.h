@@ -8,8 +8,7 @@
 #include <stdio.h>
 
 struct LIST_t {
-   int data;
-   int key;
+   void *data;
    struct LIST_t *next;
 };
 typedef struct LIST_t LIST;
