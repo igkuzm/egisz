@@ -20,9 +20,9 @@ URLRequest *nsi_url_request_prepare(){
 	url_request_set_url_connection_protocol(request, URL_CONNECTION_PROTOCOL_HTTPS);
 	url_request_set_request_string(request, "wsdl/SOAP-server.v2.php");
 	
-	//url_request_set_header_item(request, HTTP_HEADER_ITEM_KEY_Connection, "close");
+	url_request_set_header_item(request, HTTP_HEADER_ITEM_KEY_Connection, "close");
 	url_request_set_header_item(request, HTTP_HEADER_ITEM_KEY_Host, HOST);
-	url_request_set_header_item(request, HTTP_HEADER_ITEM_KEY_SOAPAction, "");
+	url_request_set_header_item(request, HTTP_HEADER_ITEM_KEY_SOAPAction, "urn:service:getRefbookList");
 
 	return request;
 }
