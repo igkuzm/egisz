@@ -12,4 +12,4 @@ struct DICT_t {
    char *value;
    struct DICT_t *next;
 };
-typedef struct LIST_t LIST;
+typedef struct DICT_t DICT;
