@@ -29,7 +29,6 @@ Dictionary *dictionary_new(){
 		exit(ENOMEM);
 	}
 
-	new->next = NULL;
 	return new;
 }
 
