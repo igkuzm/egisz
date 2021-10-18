@@ -82,7 +82,7 @@ ezxml_t egisz_nsi_get_refbook_list(){
 	"   <soapenv:Header/>\r\n"
 	"   <soapenv:Body>\r\n"
 	"	  <urn:getRefbookList>\r\n"
-    "		<userKey1></userKey1>\r\n"	
+    "		<userKey></userKey>\r\n"	
 	"	  </urn:getRefbookList>\r\n"
 	"   </soapenv:Body>\r\n"
 	"</soapenv:Envelope>\r\n";
