@@ -473,7 +473,7 @@ void url_connect_answer_free(URLConnectAnswer *answer){
 }
 
 
-int rest_service_answer_callback(char *str, int len, int *count, void *_answer){
+int url_connect_answer_callback(char *str, int len, int *count, void *_answer){
 	URLConnectAnswer *answer = _answer;
 	
 	if (*count == 0) { //find header
