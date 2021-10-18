@@ -112,7 +112,11 @@ int main(int argc, char *argv[])
 	
 
 	time_t time = egisz_nsi_get_server_time(); 
-	printf("TIME: %ld\n", time);
+	struct tm *ltm = localtime(&Time);
+	char *bufer=calloc(11, sizeof(char));
+	int c = strftime(bufer,11, "%d.%m.%Y", ltm); 
+	
+	printf("TIME: %s\n", bufer);
 	//ezxml_t ezxml = egisz_nsi_get_refbook_list(); 
 	//printf("EZXML NAME: %s\n", ezxml->name);
 
