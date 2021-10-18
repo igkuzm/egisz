@@ -6,3 +6,4 @@
  * Last Modified By  : Igor V. Sementsov <ig.kuzm@gmail.com>
  */
 #include <stdio.h>
+#include "ezxml.h"
