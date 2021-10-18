@@ -25,9 +25,13 @@ void dictionary_print_data(Dictionary *dictionary) {
 }
 
 Dictionary *dictionary_add_value_for_key(Dictionary *head, void *value, const char key){
-   Dictionary *ptr = head;	
-   if (ptr != NULL) { //search last item
-	   while(ptr->next != NULL) {
+   Dictionary *ptr = head;
+   if (ptr == NULL) { //create new head
+	   ptr = malloc(sizeof(Dictionary));
+	   ptr->next = NULL;
+   }
+   else {
+	   while(ptr->next != NULL) { //find last dict
 		  ptr = ptr->next;
 	   }
    }
