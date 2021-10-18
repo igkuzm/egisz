@@ -12,7 +12,7 @@
 #define HOST "nsi.rosminzdrav.ru"
 #define PORT 443
 
-URLRequest *url_request_prepare(){
+URLRequest *nsi_url_request_prepare(){
 	URLRequest *request = url_request_new();
 	url_request_set_port(request, PORT);
 	url_request_set_hostname(request, HOST);
@@ -25,7 +25,7 @@ URLRequest *url_request_prepare(){
 	return request;
 }
 
-ezxml_t xml_from_url_connection_send_request(URLRequest *request){
+ezxml_t nsi_xml_from_url_connection_send_request(URLRequest *request){
 	URLConnectAnswer *answer = url_connect_answer_new();
 	if (url_connection_send_request(request, answer, url_connect_answer_callback)){
 		fprintf(stderr, "Error in function url_connection_send_request\n");
@@ -44,7 +44,7 @@ ezxml_t xml_from_url_connection_send_request(URLRequest *request){
 
 
 ezxml_t egisz_nsi_get_server_time(){
-	URLRequest *request = url_request_prepare(); 
+	URLRequest *request = nsi_url_request_prepare(); 
 	char *msg = 
 	"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n"
 	"<SOAP-ENV:Envelope\r\n"
@@ -60,7 +60,7 @@ ezxml_t egisz_nsi_get_server_time(){
 	"</SOAP-ENV:Envelope>\r\n";
 	url_request_set_http_body_from_string(request, "text/xml;charset=UTF-8", msg);
 
-	return xml_from_url_connection_send_request(request); 
+	return nsi_xml_from_url_connection_send_request(request); 
 }
 
 
