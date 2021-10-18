@@ -135,7 +135,6 @@ int rest_service_answer_callback(char *str, int len, int *count, void *_answer){
 					fprintf(stderr, "Can't get chunked_size from string: %s\n", chunked_size_str);
 				} 
 				else { //good - we have a chunked size
-					printf("CHUNKED SIZE: %d\n", chunked_size);
 					answer->len_body += chunked_size;
 					answer->body = realloc(answer->body, answer->len_body * sizeof(char)); //realoc body string to add chunked_size
 					if (answer->body == NULL) {
@@ -146,7 +145,6 @@ int rest_service_answer_callback(char *str, int len, int *count, void *_answer){
 					start_of_chunked = i;
 					i = len; //stop FOR cicle
 					if (chunked_size == 0) {
-						printf("CHUNKED IS ZERO\n");
 						chunked_size_is_zero = true;	
 					}
 				}
@@ -157,7 +155,6 @@ int rest_service_answer_callback(char *str, int len, int *count, void *_answer){
 		}
 		if (we_have_chunked_size) {
 		//remove chunked_size string from str
-			printf("START OF CHUNKED: %d\n", start_of_chunked);
 			if (!chunked_size_is_zero){
 				for (i = 0; i < 8; ++i) {
 					memmove(&str[start_of_chunked],&str[start_of_chunked + 1],len - start_of_chunked);
