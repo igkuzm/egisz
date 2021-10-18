@@ -30,7 +30,7 @@ Dictionary *dictionary_add_value_for_key(Dictionary *head, void *value, const ch
 	   ptr = malloc(sizeof(Dictionary));
 	   ptr->next = NULL;
 	   strncpy(ptr->key, key, 127);
-	   key[127] = 0;
+	   ptr->key[127] = 0;
    }
    else {
 	   while(ptr->next != NULL) { //find last dict
