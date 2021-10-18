@@ -6,8 +6,10 @@
  * Last Modified By  : Igor V. Sementsov <ig.kuzm@gmail.com>
  */
 #include <stdio.h>
+#include <uuid/uuid.h>
 
 struct Dictionary_t {
+
    char key[128];
    char *value;
    struct Dictionary_t *next;
