@@ -12,5 +12,4 @@ struct LIST_t {
    int key;
    struct LIST_t *next;
 };
-
 typedef struct LIST_t LIST;
