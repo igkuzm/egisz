@@ -147,6 +147,7 @@ int rest_service_answer_callback(char *str, int len, int *count, void *_answer){
 					start_of_chunked = i;
 					i = len; //stop FOR cicle
 					if (chunked_size == 0) {
+						printf("CHUNKED IS ZERO\n");
 						chunked_size_is_zero = true;	
 					}
 				}
