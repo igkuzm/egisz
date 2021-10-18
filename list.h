@@ -15,4 +15,4 @@ struct DICT_t {
 };
 typedef struct DICT_t DICT;
 
-DICT *DICT_new()
+DICT *DICT_new(DICT *head);
