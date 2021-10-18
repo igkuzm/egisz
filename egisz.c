@@ -87,9 +87,9 @@ int main(int argc, char *argv[])
 
 	
 	URLRequest *request = url_request_new_with_string("https://nsi.rosminzdrav.ru/wsdl/SOAP-server.v2.php");
-	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Connection, "close");
-	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Host, "nsi.rosminzdrav.ru");
-	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_SOAPAction, "getRefbookList");
+	//url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Connection, "close");
+	//url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Host, "nsi.rosminzdrav.ru");
+	//url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_SOAPAction, "getRefbookList");
 	url_request_set_http_method(request, HTTP_METHOD_POST);
 	
 
