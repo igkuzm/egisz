@@ -85,14 +85,20 @@ int main(int argc, char *argv[])
 
 	//printf("PARTS: %d\n", egisz_rest_refs_parts(15));
 	
-	cJSON *json = egisz_rest_refs_part(15, 1);
+	struct egisz_rest_refs_part_struct *array;
+	int c = egisz_rest_refs_part(&array, 15, 1);
+	int	i;
+	for (i = 0; i < c; ++i) {
+		printf("ID: %d, REGION: %s\n, CODE: %d, ISCITY: %d", array[i].id, array[i].region, array[i].territoryCode, array[i].isFederalCity);
+	}
+	
 	//cJSON *json = egisz_rest_depart_part(1, 10);
 	//cJSON *json = egisz_rest_org_part(2, 1);
 	//cJSON *json = egisz_rest_org_get("1.2.643.5.1.13.13.12.1.42.202");		
 	//cJSON *json = egisz_rest_depart_get("1.2.643.5.1.13.13.12.2.51.4977.0.2787.2107");		
 	//cJSON *json = egisz_mo("1.2.643.5.1.13.13.12.1.42.202");		
 	//cJSON *json = egisz_rest_lic_get(1);		
-	print_json(json);
+	//print_json(json);
 
 	
 
