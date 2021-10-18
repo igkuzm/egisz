@@ -24,4 +24,8 @@ void dictionary_print_data(Dictionary *dictionary) {
    printf(" }");
 }
 
+Dictionary *dictionary_add_value_for_key(Dictionary *head, void *value, const char key){
+   Dictionary *ptr = head;	
 
+
+}
