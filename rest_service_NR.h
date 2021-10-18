@@ -2,7 +2,7 @@
  * File              : rest_service_NR.h
  * Author            : Igor V. Sementsov <ig.kuzm@gmail.com>
  * Date              : 12.10.2021
- * Last Modified Date: 13.10.2021
+ * Last Modified Date: 18.10.2021
  * Last Modified By  : Igor V. Sementsov <ig.kuzm@gmail.com>
  */
 #include <stdio.h>
@@ -10,6 +10,9 @@
 
 //******************************************************************************************************
 //Сервис получения внутренних справочников
+struct	egisz_rest_refs_list_struct {
+	
+};
 cJSON *egisz_rest_refs_list(); //Получение списка справочников
 
 cJSON *egisz_rest_refs_parts //Возвращает количество частей справочника, которое можно получить
