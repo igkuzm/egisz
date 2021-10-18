@@ -52,8 +52,8 @@ URLRequest *url_request_prepare(){
 
 
 cJSON *json_from_url_connection_send_request(URLRequest *request){
-	RestServiceAnswer *answer = rest_service_answer_new();
-	if (url_connection_send_request(request, answer, rest_service_answer_callback)){
+	URLConnectAnswer *answer = url_connect_answer_new();
+	if (url_connection_send_request(request, answer, url_connect_answer_callback)){
 		fprintf(stderr, "Error in function url_connection_send_request\n");
 		return NULL;
 	}
