@@ -420,16 +420,16 @@ int url_connection_send_request_no_ssl(int sd, char *write_buf, void *data, int 
 int url_connection_send_request(URLRequest *request, void *data, int (*callback)(char*,int,int*,void*)){
 	//int socket
 	int sd = socket_for_url_request(request);
-	if (sd == -1) {
+	if (sd < 0) {
 		perror("Error in function socket_for_url_request()");
-		return -1;
+		return sd;
 	}
 	 
 	//generage HTTP REQUEST MESSAGE
 	char *write_buf = message_for_url_request(request);	
 	if (write_buf == NULL) {
 		perror("Error in function socket_for_url_request()");
-		return -1;
+		return URL_CONNECTOR_ERROR_MESSAGE;
 	}
 	printf("HOST: %s, PORT: %d, PROTOCOL: %s\nREQUEST: %s\n", request->hostname, request->port, URLConnectionProtocol(request->protocol), write_buf);
 	
