@@ -89,7 +89,7 @@ int main(int argc, char *argv[])
 	int c = egisz_rest_refs_part(&array, 15, 1);
 	int	i;
 	for (i = 0; i < c; ++i) {
-		printf("ID: %d, REGION: %s\n, CODE: %d, ISCITY: %d\n", array[i].id, array[i].region, array[i].territoryCode, array[i].isFederalCity);
+		printf("REGION: %s\n, CODE: %d\n", array[i].region, array[i].territoryCode);
 	}
 	
 	//cJSON *json = egisz_rest_depart_part(1, 10);
