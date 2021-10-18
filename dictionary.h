@@ -14,4 +14,4 @@ struct Dictionary_t {
 };
 typedef struct Dictionary_t Dictionary;
 
-Dictionary *dictionary_new(Dictionary *prev);
+Dictionary *dictionary_new_value_for_key(Dictionary *head, void *value, const char key);
