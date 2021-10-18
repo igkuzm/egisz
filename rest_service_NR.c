@@ -92,11 +92,11 @@ int egisz_rest_refs_list(struct egisz_rest_refs_list_struct **_array){
 		struct egisz_rest_refs_list_struct dict;
 		cJSON *id = cJSON_GetObjectItem(item, "id");
 		dict.id = cJSON_GetNumberValue(id);
-		printf("ID: %d\n", dict.id);
+		//printf("ID: %d\n", dict.id);
 		
 		cJSON *refsName = cJSON_GetObjectItem(item, "refsName");
 		strcpy(dict.refsName, cJSON_GetStringValue(refsName));
-		printf("NAME: %s\n", dict.refsName);
+		//printf("NAME: %s\n", dict.refsName);
 
 		array[i] = dict;
 		
