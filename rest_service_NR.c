@@ -146,7 +146,7 @@ int egisz_rest_refs_part(struct egisz_rest_refs_part_struct **_array, int id, in
 	
 	int i;
 	int	count = cJSON_GetArraySize(json);
-	struct egisz_rest_refs_list_struct *array = malloc(sizeof(struct egisz_rest_refs_list_struct));
+	struct egisz_rest_refs_part_struct *array = malloc(sizeof(struct egisz_rest_refs_list_struct));
 	if (array == NULL) {
 		fprintf(stderr, "Error allocate memory for egisz_rest_refs_list_struct\n");
 		return -1;
