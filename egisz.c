@@ -11,6 +11,7 @@
 #include "ezxml.h"
 #include "rest_service_NR.h"
 #include "url_connector.h"
+#include "nsi.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -86,58 +87,10 @@ int main(int argc, char *argv[])
 	//print_json(json);
 
 	
-	URLRequest *request = url_request_new_with_string("https://nsi.rosminzdrav.ru/wsdl/SOAP-server.v2.php");
-	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Connection, "close");
-	//url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Host, "nsi.rosminzdrav.ru");
-	//url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_SOAPAction, "getRefbookList");
-	url_request_set_http_method(request, HTTP_METHOD_POST);
-	
 
-char *msg = 
-"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n"
-"<SOAP-ENV:Envelope\r\n"
-" xmlns:SOAP-ENV=\"http:schemas.xmlsoap.org/soap/envelope/\"\r\n"
-" xmlns:SOAP-ENC=\"http:schemas.xmlsoap.org/soap/encoding/\"\r\n"
-" xmlns:xsi=\"http:www.w3.org/2001/XMLSchema-instance\"\r\n"
-" xmlns:xsd=\"http:www.w3.org/2001/XMLSchema\"\r\n"
-" xmlns:ns1=\"urn:service\">\r\n"
-" <SOAP-ENV:Body>\r\n"
-"  <ns1:getServerTime>\r\n"
-"  </ns1:getServerTime>\r\n"
-" </SOAP-ENV:Body>\r\n"
-"</SOAP-ENV:Envelope>\r\n";
-	
-/*char *msg = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n"*/
-/*"<SOAP-ENV:Envelope\r\n"*/
-    /*"xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n"*/
-    /*"xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\"\r\n"*/
-    /*"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n"*/
-    /*"xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\r\n"*/
-    /*"xmlns:ns1=\"urn:service\">\r\n"*/
- /*"<SOAP-ENV:Body>\r\n"*/
-  /*"<ns1:getRefbookList>\r\n"*/
-   /*"<userKey1></userKey1>\r\n"*/
-  /*"</ns1:getRefbookList>\r\n"*/
- /*"</SOAP-ENV:Body>\r\n"*/
-/*"</SOAP-ENV:Envelope>\r\n";*/
-
-	url_request_set_http_body_from_string(request, "text/xml;charset=UTF-8", msg);	
-
-	URLConnectAnswer *answer = url_connect_answer_new();
-	
-	url_connection_send_request(request,  answer, url_connect_answer_callback);
-
-	printf("HEADER: %s\n", answer->header);
-	printf("BODY: %s\n", answer->body);
-
-
-	ezxml_t ezxml = ezxml_parse_str(answer->body, strlen(answer->body));
+	ezxml_t ezxml = 
+		ezxml_parse_str(answer->body, strlen(answer->body));
 	printf("EZXML NAME: %s\n", ezxml->name);
-	
-	
-
-	url_request_free(request);
-	url_connect_answer_free(answer);
 
 	printf("Press any key to close application\n");
 	getchar();
