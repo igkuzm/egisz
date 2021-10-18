@@ -70,13 +70,13 @@ void url_request_set_header_item(URLRequest *request, HTTP_HEADER_ITEM_KEY key, 
 	HTTPHeaderItemList *headerItemList = request->headerItemList;
 
 	//find if theis already item with key
-	while (headerItemList->prev != NULL) {
+	while (headerItemList->next != NULL) {
 		HTTPHeaderItem *_item = headerItemList->headerItem;
 		if (_item->key == key) {
 			item = _item;
 			should_create_new_item = false;
 		}
-		headerItemList = headerItemList->prev;
+		headerItemList = headerItemList->next;
 	}	
 
 	if (should_create_new_item) {
@@ -84,7 +84,7 @@ void url_request_set_header_item(URLRequest *request, HTTP_HEADER_ITEM_KEY key, 
 		HTTPHeaderItemList *headerItemList = request->headerItemList;
 		
 		HTTPHeaderItemList *newHeaderItemList = malloc(sizeof(HTTPHeaderItemList));
-		newHeaderItemList->prev = headerItemList;
+		newHeaderItemList->next = headerItemList;
 		newHeaderItemList->headerItem = item;
 
 		request->headerItemList = newHeaderItemList;
@@ -106,7 +106,7 @@ URLRequest *url_request_new(){
 		return NULL;
 	}
 	
-	headerItemList->prev = NULL;
+	headerItemList->next = NULL;
 	request->headerItemList = headerItemList;
 	request->method = HTTP_METHOD_GET;
 
