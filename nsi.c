@@ -59,8 +59,7 @@ ezxml_t egisz_nsi_get_server_time(){
 	"		</ns1:getServerTime>\r\n"
 	"	</SOAP-ENV:Body>\r\n"
 	"</SOAP-ENV:Envelope>\r\n";
-	//url_request_set_http_body_from_string(request, "text/xml;charset=UTF-8", msg);
-	url_request_set_http_body_from_string(request, "text/xml", msg);
+	url_request_set_http_body_from_string(request, "text/xml;charset=UTF-8", msg);
 
 	return nsi_xml_from_url_connection_send_request(request); 
 }
