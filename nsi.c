@@ -47,18 +47,18 @@ ezxml_t nsi_xml_from_url_connection_send_request(URLRequest *request){
 
 ezxml_t egisz_nsi_get_server_time(){
 	URLRequest *request = nsi_url_request_prepare(); 
-	char *msg = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n"
-	"<SOAP-ENV:Envelope\r\n"
-	"	xmlns:SOAP-ENV=\"http:schemas.xmlsoap.org/soap/envelope/\"\r\n"
-	"	xmlns:SOAP-ENC=\"http:schemas.xmlsoap.org/soap/encoding/\"\r\n"
-	"	xmlns:xsi=\"http:www.w3.org/2001/XMLSchema-instance\"\r\n"
-	"	xmlns:xsd=\"http:www.w3.org/2001/XMLSchema\"\r\n"
-	"	xmlns:ns1=\"urn:service\">\r\n"
-	"	<SOAP-ENV:Body>\r\n"
-	"		<ns1:getServerTime>\r\n"
-	"		</ns1:getServerTime>\r\n"
-	"	</SOAP-ENV:Body>\r\n"
-	"</SOAP-ENV:Envelope>\r\n";
+	char *msg = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+	"<SOAP-ENV:Envelope"
+	"	xmlns:SOAP-ENV=\"http:schemas.xmlsoap.org/soap/envelope/\""
+	"	xmlns:SOAP-ENC=\"http:schemas.xmlsoap.org/soap/encoding/\""
+	"	xmlns:xsi=\"http:www.w3.org/2001/XMLSchema-instance\""
+	"	xmlns:xsd=\"http:www.w3.org/2001/XMLSchema\""
+	"	xmlns:ns1=\"urn:service\">"
+	"	<SOAP-ENV:Body>"
+	"		<ns1:getServerTime>"
+	"		</ns1:getServerTime>"
+	"	</SOAP-ENV:Body>"
+	"</SOAP-ENV:Envelope>";
 	url_request_set_http_body_from_string(request, "text/xml;charset=UTF-8", msg);
 
 	return nsi_xml_from_url_connection_send_request(request); 
