@@ -8,6 +8,7 @@
 #include "list.h"
 #include <stdlib.h>
 #include <errno.h>
+#include <string.h>
 #include <uuid/uuid.h>
 
 void dictionary_print_data(Dictionary *dictionary) {
@@ -36,7 +37,7 @@ Dictionary *dictionary_new(){
 	return dictionary;
 }
 
-void dictionary_new_value_for_key(Dictionary *dictionary, char *value, char *key){
+void dictionary_new_value_for_key(Dictionary *dictionary, char *value, const char *key){
 	struct dictionary_data_t *ptr = dictionary->data;	
 	struct dictionary_data_t *new_data = malloc(sizeof(struct dictionary_data_t));
 	if (new_data == NULL) {
@@ -45,6 +46,8 @@ void dictionary_new_value_for_key(Dictionary *dictionary, char *value, char *key
 	}   
 	new_data->next = ptr;
 	dictionary->data = new_data;
+
+	strncpy(new_data->key, key, unsigned long)
 
 
 
