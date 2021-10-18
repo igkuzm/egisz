@@ -11,5 +11,8 @@ struct DICT_t {
    char key[128];
    char *value;
    struct DICT_t *next;
+   struct DICT_t *prev;
 };
 typedef struct DICT_t DICT;
+
+DICT *DICT_new()
