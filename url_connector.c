@@ -223,11 +223,11 @@ void url_request_set_request_string(URLRequest *request, char *requestString){
 }
 
 void url_request_set_http_body_from_string(URLRequest *request, const char *contentType, char *bodyString){
-	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Content_Type, contentType);
+	url_request_set_header_item(request, HTTP_HEADER_ITEM_KEY_Content_Type, contentType);
 	
 	char size_str[128];
 	sprintf(size_str, "%ld", strlen(bodyString));
-	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Content_Length, size_str);
+	url_request_set_header_item(request, HTTP_HEADER_ITEM_KEY_Content_Length, size_str);
 
 	request->httpBody = bodyString;
 }
