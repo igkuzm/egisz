@@ -13,4 +13,4 @@ struct LIST_t {
    struct LIST_t *next;
 };
 
-typedef LIST_t LIST;
+typedef struct LIST_t LIST;
