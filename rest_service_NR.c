@@ -36,50 +36,6 @@
 #define PORT 443
 
 
-//struct to get answer from HTTP GET request of REST service
-typedef struct{
-	char header[1024];
-	int len_header;
-	char content_type[256];
-	char transfer_encoding[256];
-	int	content_length;
-	char *body; //allocates and frees automaticaly
-	int len_body;
-} RestServiceAnswer;
-
-RestServiceAnswer *rest_service_answer_new(){
-	RestServiceAnswer *answer = malloc(sizeof(RestServiceAnswer));
-	if (answer == NULL) {
-		fprintf(stderr, "Cannot allocate memory for RestServiceAnswer\n");
-		exit(ENOMEM);
-	}
-	answer->body = malloc(BUFSIZ*sizeof(char));
-	if (answer->body == NULL) {
-		fprintf(stderr, "Cannot allocate memory for RestServiceAnswer->body\n");
-		exit(ENOMEM);
-	}	
-	return answer;
-}
-
-void rest_service_answer_free(RestServiceAnswer *answer){
-	free(answer->body);
-	free(answer);
-}
-
-
-URLRequest *url_request_prepare(){
-	URLRequest *request = url_request_new();
-	url_request_set_url_connection_protocol(request, URL_CONNECTION_PROTOCOL_HTTPS);
-	url_request_set_http_method(request, HTTP_METHOD_GET);
-	url_request_set_hostname(request, HOST);
-	url_request_set_port(request, PORT);
-
-	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Connection, "close");
-	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Accept, "application/json");
-	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Host, HOST);
-
-	return request;
-}
 
 cJSON *json_from_url_connection_send_request(URLRequest *request){
 	RestServiceAnswer *answer = rest_service_answer_new();
