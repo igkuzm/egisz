@@ -15,4 +15,4 @@ struct Dictionary_t {
 };
 typedef struct Dictionary_t Dictionary;
 
-Dictionary *dictionary_new(dictionary *head);
+Dictionary *dictionary_new();
