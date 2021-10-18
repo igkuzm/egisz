@@ -76,3 +76,14 @@ void url_request_set_http_body_from_file(URLRequest *request, const char *conten
 
 
 int url_connection_send_request(URLRequest *request, void *data, int (*callback)(char*,int,int*,void*));
+
+//struct to get answer from url_connection_send_request
+typedef struct{
+	char header[1024];
+	int len_header;
+	char content_type[256];
+	char transfer_encoding[256];
+	int	content_length;
+	char *body; //allocates and frees automaticaly
+	int len_body;
+} URLConnectAnswer;
