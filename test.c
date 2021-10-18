@@ -119,6 +119,9 @@ int main(int argc, char *argv[])
 
 	ezxml_t child_child = child->child;
 	printf("CHILD_CHILD NAME: %s\n", child_child->name);
+
+	ezxml_t child_child_child = child_child->child;
+	printf("CHILD_CHILD_CHILD NAME: %s\n", child_child_child->name);	
 	
 
 
