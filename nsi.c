@@ -81,7 +81,6 @@ ezxml_t egisz_nsi_get_refbook_list(){
 	"</ns1:getRefbookList>\r\n"
 	"</SOAP-ENV:Body>\r\n"
 	"</SOAP-ENV:Envelope>\r\n"
-	"\r\n";
 	url_request_set_http_body_from_string(request, "application/x-www-form-urlencoded", msg);
 
 	return nsi_xml_from_url_connection_send_request(request); 
