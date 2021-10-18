@@ -63,7 +63,7 @@ typedef struct {
 
 URLRequest *url_request_new(); //create new url request
 URLRequest *url_request_new_with_string(const char *url_string); //create new url GET request from string - eg. http://example.com/?username=user&password=password
-void url_request_free(URLRequest *request);
+void url_request_free(URLRequest *request); //free memory
 
 void url_request_set_url_connection_protocol(URLRequest *request, URL_CONNECTION_PROTOCOL protocol);
 void url_request_set_http_method(URLRequest *request, HTTP_METHOD method);
