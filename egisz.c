@@ -120,7 +120,14 @@ char *msg =
 	sxml_t *parser;
 	sxml_init(parser);
 
-	sxml_parse(parser, answer->body, strlen(answer->body), NULL, 0);
+	int n = sxml_parse(parser, answer->body, strlen(answer->body), NULL, 0);
+	if (n == SXML_ERROR_BUFFERDRY) {
+		printf("SXML_ERROR_BUFFERDRY\n");
+	}
+	if (n == SXML_ERROR_TOKENSFULL) {
+		printf("SXML_ERROR_TOKENSFULL\n");
+	}
+	
 
 	url_request_free(request);
 	url_connect_answer_free(answer);
