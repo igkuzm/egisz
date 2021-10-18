@@ -355,8 +355,6 @@ int url_connection_send_request_ssl(int sd, char *write_buf, void *data, int (*c
 	while ((bytes = SSL_read(ssl, buf, sizeof(buf) -1)) >0 ) {
 		buf[bytes] = 0;
 			
-		printf("%s", buf); //print for debug
-
 		if (callback) {
 			int c = callback(buf, bytes, &count, data); //run callback
 			if (c != 0) { //stop function if callback returned non zero
