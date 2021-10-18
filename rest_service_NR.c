@@ -31,7 +31,6 @@
 #include <string.h>
 #include <errno.h>
 #include <stdbool.h>
-#include <unistd.h>
 
 
 #define HOST "nr.egisz.rosminzdrav.ru"
