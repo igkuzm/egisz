@@ -112,7 +112,7 @@ int main(int argc, char *argv[])
 	
 
 	time_t time = egisz_nsi_get_server_time(); 
-	struct tm *ltm = localtime(&Time);
+	struct tm *ltm = localtime(&time);
 	char *bufer=calloc(11, sizeof(char));
 	int c = strftime(bufer,11, "%d.%m.%Y", ltm); 
 	
