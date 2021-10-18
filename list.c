@@ -23,13 +23,16 @@ void dictionary_print_data(Dictionary *dictionary) {
 }
 
 Dictionary *dictionary_new(){
-	Dictionary *new = malloc(sizeof(Dictionary));
-	if (new == NULL) {
+	Dictionary *dictionary = malloc(sizeof(Dictionary));
+	if (dictionary == NULL) {
 		fprintf(stderr, "Error to allocate memory\n");
 		exit(ENOMEM);
 	}
 
-	return new;
+	dictionary->data = NULL;
+	
+
+	return dictionary;
 }
 
 
