@@ -28,6 +28,8 @@ dictionary *dictionary_new(dictionary *head){
 		fprintf(stderr, "Error to allocate memory\n");
 		exit(ENOMEM);
 	}
+
+	
 	
 
 }
