@@ -112,6 +112,7 @@ int main(int argc, char *argv[])
 	
 
 	time_t time = egisz_nsi_get_server_time(); 
+	printf("TIME: %ld\n", time);
 	//ezxml_t ezxml = egisz_nsi_get_refbook_list(); 
 	//printf("EZXML NAME: %s\n", ezxml->name);
 
