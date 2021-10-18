@@ -45,10 +45,9 @@ typedef struct{ //HTTP header item
 	char value[256];
 } HTTPHeaderItem;
 
-typedef struct httpHeaderItemList{
+typedef struct httpHeaderItemList{ //struct list to handle header items
 	HTTPHeaderItem *headerItem;
 	struct httpHeaderItemList *prev;
-	struct httpHeaderItemList *next;
 } HTTPHeaderItemList;
 
 typedef struct {
