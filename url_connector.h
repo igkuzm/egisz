@@ -7,7 +7,7 @@
  */
 #include <stdio.h>
 
-typedef enum {
+typedef enum { //errors
 	URL_CONNECTOR_ERROR_PROTOCOL = -14141,
 	URL_CONNECTOR_ERROR_HOSTNAME = -14142,
 	URL_CONNECTOR_ERROR_SOCKET = -14143,
@@ -16,12 +16,12 @@ typedef enum {
 	URL_CONNECTOR_ERROR_MESSAGE = -14146,
 } URL_CONNECTION_ERROR;
 
-typedef enum {
+typedef enum { //connection protocols
 	URL_CONNECTION_PROTOCOL_HTTP,
 	URL_CONNECTION_PROTOCOL_HTTPS,
 } URL_CONNECTION_PROTOCOL;
 
-typedef enum {
+typedef enum { //http connection methods
 	HTTP_METHOD_GET,
 	HTTP_METHOD_PUT,
 	HTTP_METHOD_POST,
