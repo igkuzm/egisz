@@ -26,7 +26,7 @@
 /**
  *Short description how to use url_connector: 
  * first - create URL REQUEST with url_request_new or url_request_new_with_string
- * then set params for request eith url_request_set... and url_request_add_header_item
+ * then set params for request eith url_request_set_...
  * then run url_connection_send_request - with data NULL and callback NULL - you will get answer in stdout
  * to handle with answer - you should url_connect_answer_new and set it as data in url_connection_send_request and set callback to url_connect_answer_callback
  */
