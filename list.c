@@ -37,8 +37,12 @@ Dictionary *dictionary_new(){
 }
 
 void dictionary_new_value_for_key(Dictionary *dictionary, char *value, char *key){
-   struct dictionary_data_t *ptr = dictionary->data;	
-   struct dictionary_data_t *new_data = malloc(sizeof(struct dictionary_data_t));
+	struct dictionary_data_t *ptr = dictionary->data;	
+	struct dictionary_data_t *new_data = malloc(sizeof(struct dictionary_data_t));
+	if (dictionary == NULL) {
+		fprintf(stderr, "Error to allocate memory\n");
+		exit(ENOMEM);
+	}   
 
 
 
