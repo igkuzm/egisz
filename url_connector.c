@@ -467,7 +467,7 @@ URLConnectAnswer *url_connect_answer_new(){
 	return answer;
 }
 
-void rest_service_answer_free(URLConnectAnswer *answer){
+void url_connect_answer_free(URLConnectAnswer *answer){
 	free(answer->body);
 	free(answer);
 }
