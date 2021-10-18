@@ -24,10 +24,24 @@ void dictionary_print_data(Dictionary *dictionary) {
    printf(" }");
 }
 
+Dictionary *dictionary_new_with_value_for_key(void *value, const char *key){
+   Dictionary *dictionary = malloc(sizeof(Dictionary));
+   if (ptr == NULL) { //check memory allocation
+		
+   }
+   ptr->next = NULL;
+   strncpy(ptr->key, key, 127);
+   ptr->key[127] = 0;
+   return ptr;
+}
+
 Dictionary *dictionary_add_value_for_key(Dictionary *head, void *value, const char *key){
    Dictionary *ptr = head;
    if (ptr == NULL) { //create new head
 	   ptr = malloc(sizeof(Dictionary));
+	   if (ptr == NULL) { //check memory allocation
+			
+	   }
 	   ptr->next = NULL;
 	   strncpy(ptr->key, key, 127);
 	   ptr->key[127] = 0;
