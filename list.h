@@ -6,3 +6,11 @@
  * Last Modified By  : Igor V. Sementsov <ig.kuzm@gmail.com>
  */
 #include <stdio.h>
+
+struct LIST_t {
+   int data;
+   int key;
+   struct LIST_t *next;
+};
+
+typedef LIST_t LIST;
