@@ -395,7 +395,7 @@ int url_connection_send_request_no_ssl(int sd, char *write_buf, void *data, int 
 	int count = 0;
 	char buf[1024];
 	long bytes;
-	while ((bytes = read(sd, buf, sizeof buf)) >0 ) {
+	while ((bytes = read(sd, buf, sizeof(buf) -1)) >0 ) {
 		buf[bytes] = 0;
 		if (callback) {
 			int c = callback(buf, bytes, &count, data); //run callback
