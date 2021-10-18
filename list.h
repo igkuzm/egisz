@@ -8,6 +8,13 @@
 #include <stdio.h>
 #include <uuid/uuid.h>
 
+struct DictionaryData_t {
+	char key[128];
+	char *value;
+	struct DictionaryData_t *next;
+};
+typedef struct DictionaryData_t DictionaryData;
+
 struct Dictionary_t {
 	uuid_t id;
 	char key[128];
