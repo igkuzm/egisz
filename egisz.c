@@ -110,18 +110,6 @@ char *msg =
 
 	url_request_set_http_body_from_string(request, "text/xml;charset=UTF-8", msg);	
 
-	printf("HOST: %s\n", request->hostname);
-	printf("PORT: %d\n", request->port);
-	printf("METHOD: %d\n", request->method);
-	printf("PROTOCOL: %d\n", request->protocol);
-	HTTPHeaderItemList *list = request->headerItemList;
-	while (list->prev != NULL) {
-		HTTPHeaderItem *item = list->headerItem;
-		printf("HEADER ITEM: %d: %s\n", item->key, item->value);
-		list = list->prev;
-	}
-	printf("BODY: %s\n", request->httpBody);
-
 	URLConnectAnswer *answer = url_connect_answer_new();
 	
 	url_connection_send_request(request,  answer, url_connect_answer_callback);
