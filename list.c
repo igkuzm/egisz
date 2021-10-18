@@ -10,7 +10,7 @@
 #include <errno.h>
 
 void DICT_print(Dictionary *head) {
-   dictionary *ptr = head;
+   Dictionary *ptr = head;
    printf("\n{ ");
 	
    //start from the beginning
