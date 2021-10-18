@@ -116,19 +116,6 @@ int main(int argc, char *argv[])
 	//ezxml_t ezxml = egisz_nsi_get_refbook_list(); 
 	//printf("EZXML NAME: %s\n", ezxml->name);
 
-	ezxml_t child = ezxml->child;
-	printf("CHILD NAME: %s\n", child->name);
-
-	ezxml_t child_child = child->child;
-	printf("CHILD_CHILD NAME: %s\n", child_child->name);
-
-	ezxml_t child_child_child = child_child->child;
-	printf("CHILD_CHILD_CHILD NAME: %s\n", child_child_child->name);	
-
-	printf("TEXT: %s\n", child_child_child->txt);
-	
-
-
 	printf("Press any key to close application\n");
 	getchar();
 
