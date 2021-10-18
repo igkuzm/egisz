@@ -7,8 +7,8 @@
  */
 #include "list.h"
 
-void DICT_print(DICT *head) {
-   DICT *ptr = head;
+void DICT_print(dictionary *head) {
+   dictionary *ptr = head;
    printf("\n{ ");
 	
    //start from the beginning
@@ -19,3 +19,5 @@ void DICT_print(DICT *head) {
 	
    printf(" }");
 }
+
+
