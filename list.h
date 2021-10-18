@@ -6,13 +6,14 @@
  * Last Modified By  : Igor V. Sementsov <ig.kuzm@gmail.com>
  */
 #include <stdio.h>
+#include <sys/_types/_uuid_t.h>
 #include <uuid/uuid.h>
 
 struct Dictionary_t {
-
-   char key[128];
-   char *value;
-   struct Dictionary_t *next;
+	uuid_t id;
+	char key[128];
+	char *value;
+	struct Dictionary_t *next;
 };
 typedef struct Dictionary_t Dictionary;
 
