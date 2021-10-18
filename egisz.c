@@ -90,6 +90,7 @@ int main(int argc, char *argv[])
 	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Connection, "close");
 	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Host, "nsi.rosminzdrav.ru");
 	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_SOAPAction, "");
+	url_request_set_http_method(request, HTTP_METHOD_POST);
 	
 
 char *msg = 
@@ -107,7 +108,6 @@ char *msg =
 " </SOAP-ENV:Body>"
 "</SOAP-ENV:Envelope>";
 
-	url_request_set_http_method(request, HTTP_METHOD_POST);
 	url_request_set_http_body_from_string(request, "text/xml;charset=UTF-8", msg);	
 
 	URLConnectAnswer *answer = url_connect_answer_new();
