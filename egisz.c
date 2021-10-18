@@ -11,6 +11,7 @@
 #include "ezxml.h"
 #include "rest_service_NR.h"
 #include "url_connector.h"
+#include "picohttpparser.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
