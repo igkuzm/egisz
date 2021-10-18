@@ -121,38 +121,38 @@ int rest_service_answer_callback(char *str, int len, int *count, void *_answer){
 		int start_of_chunked = 0;
 		int i;
 		for (i = 0; i < len; ++i) {
-			//if (str[i] == '\r' && str[i+1] == '\n') { //chunked size goes after \r\n
-				//char chunked_size_str[5];
-				//chunked_size_str[0] = str[i+2];
-				//chunked_size_str[1] = str[i+3];
-				//chunked_size_str[2] = str[i+4];
-				//chunked_size_str[3] = str[i+5];
-				//chunked_size_str[4] = '\0';
+			if (str[i] == '\r' && str[i+1] == '\n') { //chunked size goes after \r\n
+				char chunked_size_str[5];
+				chunked_size_str[0] = str[i+2];
+				chunked_size_str[1] = str[i+3];
+				chunked_size_str[2] = str[i+4];
+				chunked_size_str[3] = str[i+5];
+				chunked_size_str[4] = '\0';
 
-				////get size integer
-				//int chunked_size;
-				//if (sscanf(chunked_size_str,"%x",&chunked_size) != 1) {
-					//fprintf(stderr, "Can't get chunked_size from string: %s\n", chunked_size_str);
-				//} 
-				//else { //good - we have a chunked size
-					//printf("CHUNKED SIZE: %d\n", chunked_size);
-					//answer->len_body += chunked_size;
-					//answer->body = realloc(answer->body, answer->len_body * sizeof(char)); //realoc body string to add chunked_size
-					//if (answer->body == NULL) {
-						//fprintf(stderr, "Cannot reallocate memory for EgiszSSLConnectorAnswer->body\n");
-						//exit(ENOMEM);
-					//}		
-					//we_have_chunked_size = 1;
-					//start_of_chunked = i;
-					//i = len; //stop FOR cicle
-					//if (chunked_size == 0) {
-						//chunked_size_is_zero = true;	
-					//}
-				//}
-			//}
-			//else { //no chunked size this callback
+				//get size integer
+				int chunked_size;
+				if (sscanf(chunked_size_str,"%x",&chunked_size) != 1) {
+					fprintf(stderr, "Can't get chunked_size from string: %s\n", chunked_size_str);
+				} 
+				else { //good - we have a chunked size
+					printf("CHUNKED SIZE: %d\n", chunked_size);
+					answer->len_body += chunked_size;
+					answer->body = realloc(answer->body, answer->len_body * sizeof(char)); //realoc body string to add chunked_size
+					if (answer->body == NULL) {
+						fprintf(stderr, "Cannot reallocate memory for EgiszSSLConnectorAnswer->body\n");
+						exit(ENOMEM);
+					}		
+					we_have_chunked_size = 1;
+					start_of_chunked = i;
+					i = len; //stop FOR cicle
+					if (chunked_size == 0) {
+						chunked_size_is_zero = true;	
+					}
+				}
+			}
+			else { //no chunked size this callback
 			
-			//}
+			}
 		}
 		if (we_have_chunked_size) {
 		//remove chunked_size string from str
