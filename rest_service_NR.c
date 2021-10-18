@@ -159,8 +159,8 @@ int egisz_rest_refs_part(struct egisz_rest_refs_part_struct **_array, int id, in
 		dict.id = cJSON_GetNumberValue(id);
 		//printf("ID: %d\n", dict.id);
 		
-		cJSON *refsName = cJSON_GetObjectItem(item, "refsName");
-		strcpy(dict.refsName, cJSON_GetStringValue(refsName));
+		cJSON *region = cJSON_GetObjectItem(item, "region");
+		strcpy(dict.region, cJSON_GetStringValue(region));
 		//printf("NAME: %s\n", dict.refsName);
 
 		array[i] = dict;
