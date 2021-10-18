@@ -110,6 +110,9 @@ char *msg =
 
 	url_request_set_http_body_from_string(request, "text/xml;charset=UTF-8", msg);	
 
+	printf("HOST: %s\n", request->hostname);
+	printf("PORT: %d\n", request->port);
+
 	URLConnectAnswer *answer = url_connect_answer_new();
 	
 	url_connection_send_request(request,  answer, url_connect_answer_callback);
