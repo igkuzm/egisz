@@ -87,3 +87,7 @@ typedef struct{
 	char *body; //allocates and frees automaticaly
 	int len_body;
 } URLConnectAnswer;
+
+URLConnectAnswer *url_connect_answer_new();
+void url_connect_answer_free(URLConnectAnswer *answer);
+
