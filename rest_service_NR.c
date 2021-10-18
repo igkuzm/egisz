@@ -135,7 +135,47 @@ int egisz_rest_refs_part(struct egisz_rest_refs_part_struct **_array, int id, in
 	char requestString[BUFSIZ];	
 	sprintf(requestString, "rest/refs/part?id=%d&part=%d", id, part);
 	url_request_set_request_string(request, requestString);
-	return json_from_url_connection_send_request(request);	
+
+	cJSON *json = json_from_url_connection_send_request(request);
+	if (!json) {
+		return -1;
+	}
+	if (!cJSON_IsArray(json)){
+		return -1;
+	}
+	
+	int i;
+	int	count = cJSON_GetArraySize(json);
+	struct egisz_rest_refs_list_struct *array = malloc(sizeof(struct egisz_rest_refs_list_struct));
+	if (array == NULL) {
+		fprintf(stderr, "Error allocate memory for egisz_rest_refs_list_struct\n");
+		return -1;
+	}
+
+	cJSON *item = json->child;	
+	for (i = 0; i < count; ++i) {
+		struct egisz_rest_refs_list_struct dict;
+		cJSON *id = cJSON_GetObjectItem(item, "id");
+		dict.id = cJSON_GetNumberValue(id);
+		//printf("ID: %d\n", dict.id);
+		
+		cJSON *refsName = cJSON_GetObjectItem(item, "refsName");
+		strcpy(dict.refsName, cJSON_GetStringValue(refsName));
+		//printf("NAME: %s\n", dict.refsName);
+
+		array[i] = dict;
+		
+		item = item->next;
+	}
+
+	if (_array) {
+		*_array = array;
+	}
+	else {
+		free(array);
+	}
+
+	return count;
 }
 
 ///////////////////
