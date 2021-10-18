@@ -2,14 +2,14 @@
  * File              : url_connector.h
  * Author            : Igor V. Sementsov <ig.kuzm@gmail.com>
  * Date              : 15.10.2021
- * Last Modified Date: 17.10.2021
+ * Last Modified Date: 18.10.2021
  * Last Modified By  : Igor V. Sementsov <ig.kuzm@gmail.com>
  */
 #include <stdio.h>
 
 typedef enum {
-	URL_CONNECTOR_ERROR_PROTOCOL = 1,
-	URL_CONNECTOR_ERROR_HOSTNAME
+	URL_CONNECTOR_ERROR_PROTOCOL = -1,
+	URL_CONNECTOR_ERROR_HOSTNAME = -2,
 } URL_CONNECTION_ERROR;
 
 typedef enum {
