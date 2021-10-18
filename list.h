@@ -7,8 +7,9 @@
  */
 #include <stdio.h>
 
-struct LIST_t {
-   void *data;
-   struct LIST_t *next;
+struct DICT_t {
+   char key[128];
+   char *value;
+   struct DICT_t *next;
 };
 typedef struct LIST_t LIST;
