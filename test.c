@@ -76,12 +76,13 @@ char *readString(){
 int main(int argc, char *argv[])
 {
 
-	struct egisz_rest_refs_list_struct *array;
-	int c = egisz_rest_refs_list(&array);
-	int	i;
-	for (i = 0; i < c; ++i) {
-		printf("ID: %d, NAME: %s\n", array[i].id, array[i].refsName);
-	}
+	//struct egisz_rest_refs_list_struct *array;
+	//int c = egisz_rest_refs_list(&array);
+	//int	i;
+	//for (i = 0; i < c; ++i) {
+		//printf("ID: %d, NAME: %s\n", array[i].id, array[i].refsName);
+	//}
+
 	//cJSON *json = egisz_rest_refs_parts(15);
 	//cJSON *json = egisz_rest_depart_part(1, 10);
 	//cJSON *json = egisz_rest_org_part(2, 1);
