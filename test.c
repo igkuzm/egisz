@@ -94,10 +94,10 @@ int main(int argc, char *argv[])
 	
 	struct egisz_rest_refs_part_struct *array;
 	int c = egisz_rest_refs_part_all(&array, 15);
-	int	i;
-	for (i = 0; i < c; ++i) {
-		printf("REGION: %s, CODE: %d\n", array[i].region, array[i].territoryCode);
-	}
+	//int	i;
+	//for (i = 0; i < c; ++i) {
+		//printf("REGION: %s, CODE: %d\n", array[i].region, array[i].territoryCode);
+	//}
 	
 	//cJSON *json = egisz_rest_depart_part(1, 10);
 	//cJSON *json = egisz_rest_org_part(2, 1);
