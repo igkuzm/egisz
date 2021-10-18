@@ -7,7 +7,6 @@
  */
 #include "nsi.h"
 #include <string.h>
-#include <time.h>
 #include "url_connector.h"
 
 #define HOST "nsi.rosminzdrav.ru"
