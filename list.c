@@ -23,6 +23,10 @@ void DICT_print(dictionary *head) {
 
 dictionary *dictionary_new(dictionary *head){
 	dictionary *new = malloc(sizeof(dictionary));
+	if (new == NULL) {
+		fprintf(stderr, "Error to allocate memory\n");
+		exit(ENOMEM);
+	}
 	
 
 }
