@@ -89,8 +89,7 @@ int egisz_rest_refs_list(struct egisz_rest_refs_list_struct **array){
 		item = item->next;
 	}
 
-
-	
+	return count;
 }
 
 cJSON *egisz_rest_refs_parts(int id){
