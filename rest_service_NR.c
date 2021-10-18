@@ -32,6 +32,29 @@
 #include <errno.h>
 #include <stdbool.h>
 
+#include "egisz_ssl_connector.h"
+#include <openssl/ssl.h>
+#include <openssl/err.h>
+#include <openssl/bio.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <errno.h>
+#include <stdbool.h>
+
+#include <unistd.h>
+#if defined _WIN32 || defined _WIN64
+#include <winsock2.h>
+#include <windows.h>
+#include <ws2tcpip.h>
+#else
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <netdb.h>
+#endif
+
+
 
 #define HOST "nr.egisz.rosminzdrav.ru"
 #define PORT 443
