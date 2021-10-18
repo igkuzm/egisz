@@ -257,7 +257,7 @@ int socket_for_url_request(URLRequest *request){
  
 	if ( (host = gethostbyname(request->hostname)) == NULL ){
 		fprintf(stderr, "Error. Can't get host ip address with hostname: %s\n", request->hostname);	
-		return -1;
+		return URL_CONNECTOR_ERROR_HOSTNAME;
 	} 
 	int sd = socket(PF_INET, SOCK_STREAM, 0); //init socket
 	//bzero(&addr, sizeof(addr));
@@ -268,7 +268,7 @@ int socket_for_url_request(URLRequest *request){
 	addr.sin_addr.s_addr = *(long*)(host->h_addr);
 	if ( connect(sd, (struct sockaddr*)&addr, sizeof addr)){ //connect socket
 		fprintf(stderr, "Error. Can't connect to socket with address: %s:%d\n", host->h_addr, request->port);	
-		return -1;
+		return URL_CONNECTOR_ERROR_SOCKET;
 	} 
 
 	return sd;
