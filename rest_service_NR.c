@@ -126,7 +126,6 @@ int egisz_rest_refs_parts(int id){
 	if (!cJSON_IsNumber(json)){
 		return -1;
 	}
-	
 
 	return cJSON_GetNumberValue(json);
 }
