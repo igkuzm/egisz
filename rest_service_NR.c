@@ -197,6 +197,10 @@ int egisz_rest_refs_part_all(struct egisz_rest_refs_part_struct **_array, int id
 	for (i = 1; i < part_count + 1; ++i) {
 		struct egisz_rest_refs_part_struct *array;
 		int count = egisz_rest_refs_part(&array, id, i);
+		if (count < 0) {
+			fprintf(stderr, "Error allocate memory for egisz_rest_refs_part\n");
+			return -1;			
+		}
 		int k;
 		for (k=0; k < count; k++) {
 			/*all_array[all_count] = array[k];*/
