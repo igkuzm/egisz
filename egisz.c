@@ -115,7 +115,7 @@ char *msg =
 	printf("METHOD: %d\n", request->method);
 	printf("METHOD: %d\n", request->protocol);
 	HTTPHeaderItemList *list = request->headerItemList;
-	while (list->prev != NULL) {
+	while (list != NULL) {
 		HTTPHeaderItem *item = list->headerItem;
 		printf("HEADER ITEM: %d: %s\n", item->key, item->value);
 		list = list->prev;
