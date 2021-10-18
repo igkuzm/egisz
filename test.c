@@ -75,7 +75,9 @@ char *readString(){
 
 int main(int argc, char *argv[])
 {
-	int c = egisz_rest_refs_list(NULL);
+
+	struct egisz_rest_refs_list_struct *array;
+	int c = egisz_rest_refs_list(&array);
 	//cJSON *json = egisz_rest_refs_parts(15);
 	//cJSON *json = egisz_rest_depart_part(1, 10);
 	//cJSON *json = egisz_rest_org_part(2, 1);
