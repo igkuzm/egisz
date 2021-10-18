@@ -115,8 +115,8 @@ char *msg =
 	/*printf("HEADER: %s\n", answer->header);*/
 	/*printf("BODY: %s\n", answer->body);*/
 
-	url_request_free(request);
-	url_connect_answer_free(answer);
+	/*url_request_free(request);*/
+	/*url_connect_answer_free(answer);*/
 
 	printf("Press any key to close application\n");
 	getchar();
