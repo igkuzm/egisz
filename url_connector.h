@@ -91,3 +91,5 @@ typedef struct{
 URLConnectAnswer *url_connect_answer_new();
 void url_connect_answer_free(URLConnectAnswer *answer);
 
+int url_connect_answer_callback(char *str, int len, int *count, void *_answer);
+
