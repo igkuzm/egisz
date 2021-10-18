@@ -293,14 +293,14 @@ char *message_for_url_request(URLRequest *request){
 	}	
 
 	HTTPHeaderItemList *headerItemList = request->headerItemList;
-	while (headerItemList->prev != NULL) {
+	while (headerItemList->next != NULL) {
 		HTTPHeaderItem *item = headerItemList->headerItem;
 		ret = sprintf(write_buf, "%s%s: %s\r\n", write_buf, HTTPHeaderItemKey(item->key), item->value);
 		if (ret == -1) {
 			fprintf(stderr, "Error. Can't merge http request with header item: %s: %s\n", HTTPHeaderItemKey(item->key), item->value);	
 			return NULL;
 		}	
-		headerItemList = headerItemList->prev;
+		headerItemList = headerItemList->next;
 	}
 	
 	ret = sprintf(write_buf, "%s\r\n", write_buf);
