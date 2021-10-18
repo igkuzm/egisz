@@ -118,6 +118,16 @@ int egisz_rest_refs_parts(int id){
 	char requestString[BUFSIZ];	
 	sprintf(requestString, "rest/refs/parts?id=%d", id);
 	url_request_set_request_string(request, requestString);
+
+	cJSON *json = json_from_url_connection_send_request(request);
+	if (!json) {
+		return -1;
+	}
+	if (!cJSON_IsNumber(json)){
+		return -1;
+	}
+	
+
 	return json_from_url_connection_send_request(request);
 }
 
