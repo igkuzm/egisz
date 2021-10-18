@@ -103,6 +103,13 @@ int egisz_rest_refs_list(struct egisz_rest_refs_list_struct **_array){
 		item = item->next;
 	}
 
+	if (_array) {
+		*_array = array;
+	}
+	else {
+		free(array);
+	}
+
 	return count;
 }
 
