@@ -86,7 +86,7 @@ typedef struct {
 	char hostname[256]; //hostname - to set use url_request_set_hostname
 	int port; //port to connect - eg. 80, 443 - to set use url_request_set_port
 	char requestString[BUFSIZ]; //request string - to set use url_request_set_request_string
-	char *body; //pointer to httpBody - to set body use url_request_set_http_body_from_string, or url_request_set_http_body_from_file
+	char *httpBody; //pointer to httpBody - to set body use url_request_set_http_body_from_string, or url_request_set_http_body_from_file
 	HTTPHeaderItemList *headerItemList; //list of header Items - to add item use: url_request_add_header_item
 } URLRequest;
 
