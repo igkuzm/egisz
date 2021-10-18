@@ -32,8 +32,6 @@ Dictionary *dictionary_new(Dictionary *head){
 	new->prev = head;	
 	head->next = new;
 	new->next = NULL;
-	
-
 }
 
 
