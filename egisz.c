@@ -116,6 +116,12 @@ char *msg =
 	printf("HEADER: %s\n", answer->header);
 	printf("BODY: %s\n", answer->body);
 
+
+	sxml_t *parser;
+	sxml_init(parser);
+
+	sxml_parse(parser, answer->body, strlen(answer->body), NULL, 0);
+
 	url_request_free(request);
 	url_connect_answer_free(answer);
 
