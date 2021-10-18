@@ -85,8 +85,15 @@ int main(int argc, char *argv[])
 
 	//printf("PARTS: %d\n", egisz_rest_refs_parts(15));
 	
+	//struct egisz_rest_refs_part_struct *array;
+	//int c = egisz_rest_refs_part(&array, 15, 1);
+	//int	i;
+	//for (i = 0; i < c; ++i) {
+		//printf("REGION: %s, CODE: %d\n", array[i].region, array[i].territoryCode);
+	//}
+	
 	struct egisz_rest_refs_part_struct *array;
-	int c = egisz_rest_refs_part(&array, 15, 1);
+	int c = egisz_rest_refs_part_all(&array, 15);
 	int	i;
 	for (i = 0; i < c; ++i) {
 		printf("REGION: %s, CODE: %d\n", array[i].region, array[i].territoryCode);
