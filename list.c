@@ -9,8 +9,8 @@
 #include <stdlib.h>
 #include <errno.h>
 
-void DICT_print(Dictionary *head) {
-   Dictionary *ptr = head;
+void dictionary_print_data(Dictionary *dictionary) {
+   struct dictionary_data_t *ptr = dictionary->data;
    printf("\n{ ");
 	
    //start from the beginning
