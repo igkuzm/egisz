@@ -452,3 +452,149 @@ int url_connection_send_request(URLRequest *request, void *data, int (*callback)
 	return 0;
 }
 
+//struct to get answer from HTTP GET request of REST service
+typedef struct{
+	char header[1024];
+	int len_header;
+	char content_type[256];
+	char transfer_encoding[256];
+	int	content_length;
+	char *body; //allocates and frees automaticaly
+	int len_body;
+} URLConnectAnswer;
+
+RestServiceAnswer *rest_service_answer_new(){
+	RestServiceAnswer *answer = malloc(sizeof(RestServiceAnswer));
+	if (answer == NULL) {
+		fprintf(stderr, "Cannot allocate memory for RestServiceAnswer\n");
+		exit(ENOMEM);
+	}
+	answer->body = malloc(BUFSIZ*sizeof(char));
+	if (answer->body == NULL) {
+		fprintf(stderr, "Cannot allocate memory for RestServiceAnswer->body\n");
+		exit(ENOMEM);
+	}	
+	return answer;
+}
+
+void rest_service_answer_free(RestServiceAnswer *answer){
+	free(answer->body);
+	free(answer);
+}
+
+
+URLRequest *url_request_prepare(){
+	URLRequest *request = url_request_new();
+	url_request_set_url_connection_protocol(request, URL_CONNECTION_PROTOCOL_HTTPS);
+	url_request_set_http_method(request, HTTP_METHOD_GET);
+	url_request_set_hostname(request, HOST);
+	url_request_set_port(request, PORT);
+
+	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Connection, "close");
+	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Accept, "application/json");
+	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Host, HOST);
+
+	return request;
+}
+
+int rest_service_answer_callback(char *str, int len, int *count, void *_answer){
+	RestServiceAnswer *answer = _answer;
+	
+	if (*count == 0) { //find header
+		int len_header = 0, len_line = 0;
+		int i;
+		char line[BUFSIZ];
+		for (i = 0; i < len; ++i) {
+			if (str[i] == '\n' && str[i+1] == '\r') {//new line with \r is header stop
+				len_header = i;
+			}
+			if (str[i] == '\n') { //new line in header
+				//find header arguments
+				sscanf(line, " Content-Type: %s", answer->content_type);
+				sscanf(line, " Content-Length: %d", &answer->content_length);
+				sscanf(line, " Transfer-Encoding: %s", answer->transfer_encoding);
+				len_line = 0;
+				line[0] = '\0';
+			}			
+			else {
+				line[len_line] = str[i];
+				len_line++;	
+			}
+		}
+		answer->len_header = len_header;
+		strncpy(answer->header, str, len_header);
+
+		//remove header, and continue to parce answer
+		answer->len_body = len - len_header;
+		for (i = 0; i < len_header + 1; ++i) {
+			memmove(&str[0],&str[1],len - 0); //move char:1 to char:0 - so remove char 0
+		}
+	}
+
+	////////////////////////////
+	if (answer->content_length > 0) { //OK - we have a standart content
+		if (answer->content_length > answer->len_body) {
+			answer->body = realloc(answer->body, answer->content_length * sizeof(char)); //realoc body string to match content length
+			if (answer->body == NULL) {
+				fprintf(stderr, "Cannot reallocate memory for EgiszSSLConnectorAnswer->body\n");
+				exit(ENOMEM);
+			}		
+		}
+		answer->len_body = answer->content_length;
+		strncat(answer->body, str, len); //cat string to body
+	}
+
+	////////////////////////////
+	if (strcmp(answer->transfer_encoding, "chunked") == 0) { //We have a chunked content
+		//lets find size of chunked
+		bool we_have_chunked_size = false, chunked_size_is_zero = false;
+		int start_of_chunked = 0;
+		int i;
+		for (i = 0; i < len; ++i) {
+			if (str[i] == '\r' && str[i+1] == '\n') { //chunked size goes after \r\n
+				char chunked_size_str[5];
+				chunked_size_str[0] = str[i+2];
+				chunked_size_str[1] = str[i+3];
+				chunked_size_str[2] = str[i+4];
+				chunked_size_str[3] = str[i+5];
+				chunked_size_str[4] = '\0';
+
+				//get size integer
+				int chunked_size;
+				if (sscanf(chunked_size_str,"%x",&chunked_size) != 1) {
+					fprintf(stderr, "Can't get chunked_size from string: %s\n", chunked_size_str);
+				} 
+				else { //good - we have a chunked size
+					answer->len_body += chunked_size;
+					answer->body = realloc(answer->body, answer->len_body * sizeof(char)); //realoc body string to add chunked_size
+					if (answer->body == NULL) {
+						fprintf(stderr, "Cannot reallocate memory for EgiszSSLConnectorAnswer->body\n");
+						exit(ENOMEM);
+					}		
+					we_have_chunked_size = 1;
+					start_of_chunked = i;
+					i = len; //stop FOR cicle
+					if (chunked_size == 0) {
+						chunked_size_is_zero = true;	
+					}
+				}
+			}
+			else { //no chunked size this callback
+			
+			}
+		}
+		if (we_have_chunked_size) {
+		//remove chunked_size string from str
+			if (!chunked_size_is_zero){
+				for (i = 0; i < 8; ++i) {
+					memmove(&str[start_of_chunked],&str[start_of_chunked + 1],len - start_of_chunked);
+				}
+			}
+		}
+		//
+		strncat(answer->body, str, len); //cat string to body			
+		//
+	}	
+
+	return 0;
+}
