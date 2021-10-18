@@ -354,7 +354,7 @@ int url_connection_send_request_ssl(int sd, char *write_buf, void *data, int (*c
 	int count = 0;
 	char buf[1024];
 	long bytes;
-	while ((bytes = SSL_read(ssl, buf, sizeof(buf) -1) >0 )) {
+	while ((bytes = SSL_read(ssl, buf, sizeof(buf) -1)) >0 ) {
 		buf[bytes] = 0;
 
 		if (callback) {
