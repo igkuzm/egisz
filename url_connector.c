@@ -110,7 +110,6 @@ URLRequest *url_request_new(){
 	request->headerItemList = headerItemList;
 	request->method = HTTP_METHOD_GET;
 
-
 	return request;
 }
 
