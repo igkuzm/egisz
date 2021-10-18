@@ -452,7 +452,6 @@ int url_connection_send_request(URLRequest *request, void *data, int (*callback)
 	free(write_buf);
 	close(sd);      
 
-	printf("URL_COONECTION_FINISHED\n");
 	return 0;
 }
 
