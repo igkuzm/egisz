@@ -79,11 +79,11 @@ int url_connection_send_request(URLRequest *request, void *data, int (*callback)
 
 //struct to get answer from url_connection_send_request
 typedef struct{
-	char header[1024];
-	int len_header;
-	char content_type[256];
-	char transfer_encoding[256];
-	int	content_length;
+	char header[1024]; //header of answer
+	int len_header; //size of header
+	char content_type[256]; //type of content - eg. json
+	char transfer_encoding[256]; //encoding
+	int	content_length; //length of content
 	char *body; //allocates and frees automaticaly
 	int len_body;
 } URLConnectAnswer;
