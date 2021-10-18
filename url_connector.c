@@ -484,9 +484,10 @@ int url_connect_answer_callback(char *str, int len, int *count, void *_answer){
 		int len_header = 0, len_line = 0;
 		int i;
 		char line[BUFSIZ];
-		for (i = 0; i < len; ++i) {
+		for (i = 0; i < len_to_search; ++i) {
 			if (str[i] == '\r' && str[i+1] == '\n' && str[i+2] == '\r' && str[i+3] == '\n') {//blank line is header stop
 				len_header = i;
+				len_to_search = i; //stop FOR function
 			}
 			if (str[i] == '\n') { //new line in header
 				//find header arguments
