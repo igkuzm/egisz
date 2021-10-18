@@ -111,10 +111,10 @@ int main(int argc, char *argv[])
 
 	
 
-	time_t time = egisz_nsi_get_server_time(); 
-	struct tm *ltm = localtime(&time);
-	printf("TIME: %d.%d.%d %d:%d:%d\n", ltm->tm_mday, ltm->tm_mon, ltm->tm_year + 1900, ltm->tm_hour, ltm->tm_min, ltm->tm_sec);
-	//ezxml_t ezxml = egisz_nsi_get_refbook_list(); 
+	//time_t time = egisz_nsi_get_server_time(); 
+	//struct tm *ltm = localtime(&time);
+	//printf("TIME: %d.%d.%d %d:%d:%d\n", ltm->tm_mday, ltm->tm_mon, ltm->tm_year + 1900, ltm->tm_hour, ltm->tm_min, ltm->tm_sec);
+	ezxml_t ezxml = egisz_nsi_get_refbook_list(); 
 	//printf("EZXML NAME: %s\n", ezxml->name);
 
 	printf("Press any key to close application\n");
