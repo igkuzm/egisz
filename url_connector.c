@@ -453,7 +453,7 @@ int url_connection_send_request(URLRequest *request, void *data, int (*callback)
 }
 
 
-URLConnectAnswer *rest_service_answer_new(){
+URLConnectAnswer *url_connect_answer_new(){
 	URLConnectAnswer *answer = malloc(sizeof(URLConnectAnswer));
 	if (answer == NULL) {
 		fprintf(stderr, "Cannot allocate memory for URLConnectAnswer\n");
