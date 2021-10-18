@@ -29,7 +29,8 @@ dictionary *dictionary_new(dictionary *head){
 		exit(ENOMEM);
 	}
 
-	
+	new->prev = head;	
+	new->next = NULL;
 	
 
 }
