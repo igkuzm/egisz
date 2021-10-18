@@ -15,7 +15,7 @@ struct	egisz_rest_refs_list_struct {
 	char refsName[BUFSIZ];	
 };
 
-int egisz_rest_refs_list(struct egisz_rest_refs_list_struct *array); //Получение списка справочников
+int egisz_rest_refs_list(struct egisz_rest_refs_list_struct **array); //Получение списка справочников
 //возвращает количество записей массива array, -1 при ошибке
 
 cJSON *egisz_rest_refs_parts //Возвращает количество частей справочника, которое можно получить
