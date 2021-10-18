@@ -111,13 +111,13 @@ char *msg =
 
 	URLConnectAnswer *answer = url_connect_answer_new();
 	
-	/*url_connection_send_request(request,  answer, url_connect_answer_callback);*/
+	url_connection_send_request(request,  answer, url_connect_answer_callback);
 
-	/*printf("HEADER: %s\n", answer->header);*/
-	/*printf("BODY: %s\n", answer->body);*/
+	printf("HEADER: %s\n", answer->header);
+	printf("BODY: %s\n", answer->body);
 
-	/*url_request_free(request);*/
-	/*url_connect_answer_free(answer);*/
+	url_request_free(request);
+	url_connect_answer_free(answer);
 
 	printf("Press any key to close application\n");
 	getchar();
