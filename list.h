@@ -8,15 +8,15 @@
 #include <stdio.h>
 #include <uuid/uuid.h>
 
-struct DictionaryData_t {
+struct dictionary_data_t {
 	char key[128];
 	char *value;
-	struct DictionaryData_t *next;
+	struct dictionary_data_t *next;
 };
 
 struct Dictionary_t {
 	uuid_t id;
-	struct DictionaryData_t *data;
+	struct dictionary_data_t *data;
 };
 typedef struct Dictionary_t Dictionary;
 
