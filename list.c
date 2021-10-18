@@ -30,6 +30,7 @@ dictionary *dictionary_new(dictionary *head){
 	}
 
 	new->prev = head;	
+	head->next = new;
 	new->next = NULL;
 	
 
