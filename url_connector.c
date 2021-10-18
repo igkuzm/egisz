@@ -174,7 +174,7 @@ URLRequest *url_request_new_with_string(const char *url_string){
 	if (strlen(hostname_string) > 0) {
 		strncpy(request->hostname, hostname_string, 256);
 		request->hostname[255] = '\0';
-		url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Host, request->hostname);
+		url_request_set_header_item(request, HTTP_HEADER_ITEM_KEY_Host, request->hostname);
 	}
 	else {
 		fprintf(stderr, "Error. Cant parse hostname from string: %s\n", url_string);
