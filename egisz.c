@@ -130,8 +130,8 @@ char *msg = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n"
 	printf("BODY: %s\n", answer->body);
 
 
-	//ezxml_t ezxml = ezxml_parse_str(answer->body, strlen(answer->body));
-	//printf("EZXML NAME: %s\n", ezxml->name);
+	ezxml_t ezxml = ezxml_parse_str(answer->body, strlen(answer->body));
+	printf("EZXML NAME: %s\n", ezxml->name);
 	
 	
 
