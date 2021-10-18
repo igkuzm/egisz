@@ -76,7 +76,7 @@ typedef struct{ //HTTP header item
 
 typedef struct httpHeaderItemList{ //struct list to handle header items
 	HTTPHeaderItem *headerItem;
-	struct httpHeaderItemList *prev;
+	struct httpHeaderItemList *next;
 } HTTPHeaderItemList;
 
 //URL Request
