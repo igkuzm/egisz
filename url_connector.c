@@ -484,7 +484,7 @@ void rest_service_answer_free(URLConnectAnswer *answer){
 
 
 int rest_service_answer_callback(char *str, int len, int *count, void *_answer){
-	RestServiceAnswer *answer = _answer;
+	URLConnectAnswer *answer = _answer;
 	
 	if (*count == 0) { //find header
 		int len_header = 0, len_line = 0;
