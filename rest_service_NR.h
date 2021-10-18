@@ -26,7 +26,7 @@ int egisz_rest_refs_parts //Возвращает количество часте
 struct	egisz_rest_refs_part_struct {
 	int id;
 	char region[256];	
-	id territoryCode;
+	int territoryCode;
 	bool isFederalCity;
 };
 
