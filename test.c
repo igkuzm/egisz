@@ -112,7 +112,7 @@ int main(int argc, char *argv[])
 
 	ezxml_t ezxml = egisz_nsi_get_server_time(); 
 	//ezxml_t ezxml = egisz_nsi_get_refbook_list(); 
-	//printf("EZXML NAME: %s\n", ezxml->name);
+	printf("EZXML NAME: %s\n", ezxml->name);
 
 	printf("Press any key to close application\n");
 	getchar();
