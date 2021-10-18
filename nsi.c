@@ -5,6 +5,6 @@
  * Last Modified Date: 18.10.2021
  * Last Modified By  : Igor V. Sementsov <ig.kuzm@gmail.com>
  */
-#include <stdio.h>
+#include "nsi.h"
 
 
