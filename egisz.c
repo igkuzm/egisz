@@ -76,14 +76,14 @@ int main(int argc, char *argv[])
 {
 	//cJSON *json = egisz_rest_refs_list();
 	//cJSON *json = egisz_rest_refs_parts(15);
-	//cJSON *json = egisz_rest_depart_part(1, 10);
+	cJSON *json = egisz_rest_depart_part(1, 10);
 	//cJSON *json = egisz_rest_org_part(2, 1);
 	//cJSON *json = egisz_rest_org_get("1.2.643.5.1.13.13.12.1.42.202");		
 	//cJSON *json = egisz_rest_depart_get("1.2.643.5.1.13.13.12.2.51.4977.0.2787.2107");		
 	//cJSON *json = egisz_mo("1.2.643.5.1.13.13.12.1.42.202");		
 	//cJSON *json = egisz_rest_lic_get(1);		
 	//print_json(json);
-	//printf("ITEM: %s\n", cJSON_Print(json));	
+	printf("ITEM: %s\n", cJSON_Print(json));	
 	
 	URLRequest *request = url_request_new_with_string("https://nsi.rosminzdrav.ru/wsdl/SOAP-server.v2.php");
 	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Connection, "close");
