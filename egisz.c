@@ -119,7 +119,6 @@ char *msg =
 
 	ezxml_t ezxml = ezxml_parse_str(answer->body, strlen(answer->body));
 	
-	
 
 	url_request_free(request);
 	url_connect_answer_free(answer);
