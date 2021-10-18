@@ -6,7 +6,6 @@
  * Last Modified By  : Igor V. Sementsov <ig.kuzm@gmail.com>
  */
 #include <stdio.h>
-#include <sys/_types/_uuid_t.h>
 #include <uuid/uuid.h>
 
 struct Dictionary_t {
