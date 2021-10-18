@@ -114,6 +114,10 @@ int main(int argc, char *argv[])
 	//ezxml_t ezxml = egisz_nsi_get_refbook_list(); 
 	printf("EZXML NAME: %s\n", ezxml->name);
 
+	ezxml_t next = ezxml->next;
+	printf("NEXT NAME: %s\n", next->name);
+
+
 	printf("Press any key to close application\n");
 	getchar();
 
