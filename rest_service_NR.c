@@ -57,8 +57,10 @@ cJSON *json_from_url_connection_send_request(URLRequest *request){
 		fprintf(stderr, "Error in function url_connection_send_request\n");
 		return NULL;
 	}
-	//printf("HEADER: %s\n", answer->header);
-	//printf("BODY: %s\n", answer->body);
+	
+	printf("HEADER: %s\n", answer->header);
+	printf("BODY: %s\n", answer->body);
+	
 	cJSON *json = cJSON_Parse(answer->body);
 	url_connect_answer_free(answer);
 	url_request_free(request);
