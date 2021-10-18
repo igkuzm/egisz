@@ -117,6 +117,10 @@ int main(int argc, char *argv[])
 	ezxml_t child = ezxml->child;
 	printf("CHILD NAME: %s\n", child->name);
 
+	ezxml_t child_child = child->child;
+	printf("CHILD_CHILD NAME: %s\n", child_child->name);
+	
+
 
 	printf("Press any key to close application\n");
 	getchar();
