@@ -68,7 +68,7 @@ cJSON *json_from_url_connection_send_request(URLRequest *request){
 }
 
 ///////////////////
-int egisz_rest_refs_list(struct egisz_rest_refs_list_struct *array){
+int egisz_rest_refs_list(struct egisz_rest_refs_list_struct **array){
 	URLRequest *request = url_request_prepare();
 	url_request_set_request_string(request, "rest/refs/list");
 	cJSON *json = json_from_url_connection_send_request(request);
@@ -78,7 +78,15 @@ int egisz_rest_refs_list(struct egisz_rest_refs_list_struct *array){
 	if (!cJSON_IsArray(json)){
 		return -1;
 	}
-	int count = cJSON_GetArraySize(json);
+	
+	int i;
+	int	count = cJSON_GetArraySize(json);
+	cJSON *item = json->child;	
+	for (i = 0; i < count; ++i) {
+		printf("ITEM %d: %s\n", i, cJSON_Print(item));
+		item = item->next;
+	}
+
 
 	
 }
