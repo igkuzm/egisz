@@ -27,7 +27,7 @@ typedef enum { //http connection methods
 	HTTP_METHOD_POST,
 } HTTP_METHOD;
 
-typedef enum {
+typedef enum  { //items for HTTP header
 	HTTP_HEADER_ITEM_KEY_Content_Length,
 	HTTP_HEADER_ITEM_KEY_Content_Type,
 	HTTP_HEADER_ITEM_KEY_Authorization,
