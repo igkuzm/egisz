@@ -64,7 +64,7 @@ const char *HTTPHeaderItemKey(HTTP_HEADER_ITEM_KEY key)
     }
 }
 
-void url_request_add_header_item(URLRequest *request, HTTP_HEADER_ITEM_KEY key, const char *value){
+void url_request_set_header_item(URLRequest *request, HTTP_HEADER_ITEM_KEY key, const char *value){
 	HTTPHeaderItem *item;
 	bool should_create_new_item = true;
 	HTTPHeaderItemList *headerItemList = request->headerItemList;
