@@ -123,8 +123,8 @@ char *msg =
 	ezxml_t child = ezxml->child;
 	printf("CHILD NAME: %s\n", child->name);
 
-	ezxml_t next = child->next;
-	printf("NEXT NAME: %s\n", next->name);
+	ezxml_t child1 = child->child;
+	printf("CHILD1 NAME: %s\n", child1->name);
 
 	
 
