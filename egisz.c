@@ -120,7 +120,7 @@ char *msg =
 		printf("HEADER ITEM: %d: %s\n", item->key, item->value);
 		list = list->prev;
 	}
-	printf("BODY: %s\n", request->body);
+	printf("BODY: %s\n", request->httpBody);
 
 	URLConnectAnswer *answer = url_connect_answer_new();
 	
