@@ -61,8 +61,8 @@ typedef struct {
 	HTTPHeaderItemList *headerItemList; //list of header Items - to add item use: url_request_add_header_item
 } URLRequest;
 
-URLRequest *url_request_new();
-URLRequest *url_request_new_with_string(const char *url_string);
+URLRequest *url_request_new(); //create new url request
+URLRequest *url_request_new_with_string(const char *url_string); //create new url request from string - eg. http://example.com/?username=user&password=password
 void url_request_free(URLRequest *request);
 
 void url_request_set_url_connection_protocol(URLRequest *request, URL_CONNECTION_PROTOCOL protocol);
