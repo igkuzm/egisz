@@ -128,7 +128,7 @@ int egisz_rest_refs_parts(int id){
 	}
 	
 
-	return json_from_url_connection_send_request(request);
+	return cJSON_GetNumberValue(json);
 }
 
 cJSON *egisz_rest_refs_part(int id, int part){
