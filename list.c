@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <errno.h>
 
-void DICT_print(dictionary *head) {
+void DICT_print(Dictionary *head) {
    dictionary *ptr = head;
    printf("\n{ ");
 	
@@ -22,8 +22,8 @@ void DICT_print(dictionary *head) {
    printf(" }");
 }
 
-dictionary *dictionary_new(dictionary *head){
-	dictionary *new = malloc(sizeof(dictionary));
+Dictionary *dictionary_new(Dictionary *head){
+	Dictionary *new = malloc(sizeof(Dictionary));
 	if (new == NULL) {
 		fprintf(stderr, "Error to allocate memory\n");
 		exit(ENOMEM);
