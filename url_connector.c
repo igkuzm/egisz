@@ -463,39 +463,25 @@ typedef struct{
 	int len_body;
 } URLConnectAnswer;
 
-RestServiceAnswer *rest_service_answer_new(){
-	RestServiceAnswer *answer = malloc(sizeof(RestServiceAnswer));
+URLConnectAnswer *rest_service_answer_new(){
+	URLConnectAnswer *answer = malloc(sizeof(URLConnectAnswer));
 	if (answer == NULL) {
-		fprintf(stderr, "Cannot allocate memory for RestServiceAnswer\n");
+		fprintf(stderr, "Cannot allocate memory for URLConnectAnswer\n");
 		exit(ENOMEM);
 	}
 	answer->body = malloc(BUFSIZ*sizeof(char));
 	if (answer->body == NULL) {
-		fprintf(stderr, "Cannot allocate memory for RestServiceAnswer->body\n");
+		fprintf(stderr, "Cannot allocate memory for URLConnectAnswer->body\n");
 		exit(ENOMEM);
 	}	
 	return answer;
 }
 
-void rest_service_answer_free(RestServiceAnswer *answer){
+void rest_service_answer_free(URLConnectAnswer *answer){
 	free(answer->body);
 	free(answer);
 }
 
-
-URLRequest *url_request_prepare(){
-	URLRequest *request = url_request_new();
-	url_request_set_url_connection_protocol(request, URL_CONNECTION_PROTOCOL_HTTPS);
-	url_request_set_http_method(request, HTTP_METHOD_GET);
-	url_request_set_hostname(request, HOST);
-	url_request_set_port(request, PORT);
-
-	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Connection, "close");
-	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Accept, "application/json");
-	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Host, HOST);
-
-	return request;
-}
 
 int rest_service_answer_callback(char *str, int len, int *count, void *_answer){
 	RestServiceAnswer *answer = _answer;
