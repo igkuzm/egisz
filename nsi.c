@@ -22,7 +22,7 @@ URLRequest *nsi_url_request_prepare(){
 	
 	url_request_set_header_item(request, HTTP_HEADER_ITEM_KEY_Connection, "close");
 	url_request_set_header_item(request, HTTP_HEADER_ITEM_KEY_Host, HOST);
-	url_request_set_header_item(request, HTTP_HEADER_ITEM_KEY_SOAPAction, "urn:service:getRefbookList");
+	url_request_set_header_item(request, HTTP_HEADER_ITEM_KEY_SOAPAction, "");
 
 	return request;
 }
@@ -68,19 +68,17 @@ ezxml_t egisz_nsi_get_server_time(){
 ezxml_t egisz_nsi_get_refbook_list(){
 	URLRequest *request = nsi_url_request_prepare(); 
 	char *msg = 
-	"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n"
-	"<SOAP-ENV:Envelope\r\n"
-	"xmlns:SOAP-ENV=\"http:schemas.xmlsoap.org/soap/envelope/\"\r\n"
-	"xmlns:SOAP-ENC=\"http:schemas.xmlsoap.org/soap/encoding/\"\r\n"
-	"xmlns:xsi=\"http:www.w3.org/2001/XMLSchema-instance\"\r\n"
-	"xmlns:xsd=\"http:www.w3.org/2001/XMLSchema\"\r\n"
-	"xmlns:ns1=\"urn:service\">\r\n"
-	"<SOAP-ENV:Body>\r\n"
-	"<ns1:getRefbookList>\r\n"
-    "<userKey></userKey>\r\n"	
-	"</ns1:getRefbookList>\r\n"
-	"</SOAP-ENV:Body>\r\n"
-	"</SOAP-ENV:Envelope>\r\n";
+	"<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:service\">\r\n"
+	"   <soapenv:Header/>\r\n"
+	"   <soapenv:Body>\r\n"
+	"	  <urn:getRefbook>\r\n"
+	"		 <userKey></userKey>\r\n"
+	"		 <refbookCode>1.2.643.5.1.13.13.11.1067</refbookCode>\r\n"
+	"		 <version>2.2</version>\r\n"
+	"	  </urn:getRefbook>\r\n"
+	"   </soapenv:Body>\r\n"
+	"</soapenv:Envelope>\r\n";
+		
 	url_request_set_http_body_from_string(request, "text/xml;charset=UTF-8", msg);
 
 	return nsi_xml_from_url_connection_send_request(request); 
