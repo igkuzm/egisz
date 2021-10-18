@@ -161,9 +161,9 @@ int rest_service_answer_callback(char *str, int len, int *count, void *_answer){
 				len--;
 			}
 		}
-		//if (chunked_size_is_zero) {
-			//len++;
-		//}
+		if (chunked_size_is_zero) {
+			len++;
+		}
 		//
 		strncat(answer->body, str, len); //cat string to body			
 		//
