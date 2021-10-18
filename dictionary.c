@@ -24,33 +24,4 @@ void dictionary_print_data(Dictionary *dictionary) {
    printf(" }");
 }
 
-Dictionary *dictionary_new(){
-	Dictionary *dictionary = malloc(sizeof(Dictionary));
-	if (dictionary == NULL) {
-		fprintf(stderr, "Error to allocate memory\n");
-		exit(ENOMEM);
-	}
-
-	dictionary->data = NULL;
-	uuid_generate_random(dictionary->id);
-
-	return dictionary;
-}
-
-void dictionary_new_value_for_key(Dictionary *dictionary, char *value, const char *key){
-	struct dictionary_data_t *ptr = dictionary->data;	
-	struct dictionary_data_t *new_data = malloc(sizeof(struct dictionary_data_t));
-	if (new_data == NULL) {
-		fprintf(stderr, "Error to allocate memory\n");
-		exit(ENOMEM);
-	}   
-	new_data->next = ptr;
-	dictionary->data = new_data;
-
-	strncpy(new_data->key, key, 127);
-	new_data->key[127]='\0';
-
-	new_data->value = value;
-}
-
 
