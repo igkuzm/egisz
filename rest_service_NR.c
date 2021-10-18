@@ -130,6 +130,7 @@ int egisz_rest_refs_parts(int id){
 	return cJSON_GetNumberValue(json);
 }
 
+int egisz_rest_refs_part(struct egisz_rest_refs_part_struct **_array){
 cJSON *egisz_rest_refs_part(int id, int part){
 	URLRequest *request = url_request_prepare();
 	char requestString[BUFSIZ];	
