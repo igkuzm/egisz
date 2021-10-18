@@ -369,15 +369,15 @@ int url_connection_send_request_ssl(int sd, char *write_buf, void *data, int (*c
 			printf("%s", buf); //print for debug
 		}
 	}
-	//if (bytes < 0 ){ //hendle with error
-		//_handle_with_ssl_error(ssl, bytes);
-		//fprintf(stderr, "Error while SSL_read\n");
-		//return bytes;			
-	//}	
+	if (bytes < 0 ){ //hendle with error
+		_handle_with_ssl_error(ssl, bytes);
+		fprintf(stderr, "Error while SSL_read\n");
+		return bytes;			
+	}	
 
-	////Close SSL
-	//SSL_free(ssl);   
-	//SSL_CTX_free(ctx);   
+	//Close SSL
+	SSL_free(ssl);   
+	SSL_CTX_free(ctx);   
 
 	return 0;
 } 
