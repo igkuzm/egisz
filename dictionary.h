@@ -11,5 +11,5 @@ struct Dictionary_t {
 	char key[128];
 	void *value;
 	struct Dictionary_t *next;
-};
+} Dictionary;
 
