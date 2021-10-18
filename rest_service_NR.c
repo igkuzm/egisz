@@ -198,6 +198,7 @@ int egisz_rest_refs_part_all(struct egisz_rest_refs_part_struct **_array, int id
 			/*all_array[all_count] = array[k];*/
 			all_count++;
 		}
+		free(array);
 	}
 	/*if (_array) {*/
 		/**_array = all_array;*/
