@@ -17,9 +17,7 @@ typedef struct DictionaryData_t DictionaryData;
 
 struct Dictionary_t {
 	uuid_t id;
-	char key[128];
-	char *value;
-	struct Dictionary_t *next;
+	DictionaryData *data;
 };
 typedef struct Dictionary_t Dictionary;
 
