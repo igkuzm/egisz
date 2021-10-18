@@ -199,12 +199,12 @@ int egisz_rest_refs_part_all(struct egisz_rest_refs_part_struct **_array, int id
 			all_count++;
 		}
 	}
-	if (_array) {
-		*_array = all_array;
-	}
-	else {
-		free(all_array);
-	}	
+	/*if (_array) {*/
+		/**_array = all_array;*/
+	/*}*/
+	/*else {*/
+		/*free(all_array);*/
+	/*}	*/
 
 	return all_count;
 }
