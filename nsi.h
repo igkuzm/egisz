@@ -9,4 +9,4 @@
 #include "ezxml.h"
 
 
-ezxml egisz_nsi_get_time();
+ezxml_t egisz_nsi_get_time();
