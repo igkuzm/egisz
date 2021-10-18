@@ -68,7 +68,7 @@ cJSON *json_from_url_connection_send_request(URLRequest *request){
 }
 
 ///////////////////
-int egisz_rest_refs_list(struct egisz_rest_refs_list_struct **array){
+int egisz_rest_refs_list(struct egisz_rest_refs_list_struct **_array){
 	URLRequest *request = url_request_prepare();
 	url_request_set_request_string(request, "rest/refs/list");
 	cJSON *json = json_from_url_connection_send_request(request);
@@ -81,6 +81,12 @@ int egisz_rest_refs_list(struct egisz_rest_refs_list_struct **array){
 	
 	int i;
 	int	count = cJSON_GetArraySize(json);
+	struct egisz_rest_refs_list_struct *array = malloc(sizeof(struct egisz_rest_refs_list_struct));
+	if (array == NULL) {
+		fprintf(stderr, "Error allocate memory for egisz_rest_refs_list_struct\n");
+		return -1;
+	}
+
 	cJSON *item = json->child;	
 	for (i = 0; i < count; ++i) {
 		struct egisz_rest_refs_list_struct dict;
