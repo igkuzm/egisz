@@ -46,7 +46,7 @@ ezxml_t nsi_xml_from_url_connection_send_request(URLRequest *request){
 }
 
 
-ezxml_t egisz_nsi_get_server_time(){
+time_t egisz_nsi_get_server_time(){
 	URLRequest *request = nsi_url_request_prepare(); 
 	char *msg = 
 	"<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:service\">\r\n"
@@ -72,6 +72,8 @@ ezxml_t egisz_nsi_get_server_time(){
 	ezxml_t getServerTimeResponse = body->child;
 	ezxml_t getServerTimeReturn = getServerTimeResponse->child;
 	char *time_str = getServerTimeReturn->txt;
+	time_t time = atoi(time_str);
+	return time;
 }
 
 ezxml_t egisz_nsi_get_refbook_list(){
