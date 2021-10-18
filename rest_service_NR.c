@@ -157,12 +157,13 @@ int egisz_rest_refs_part(struct egisz_rest_refs_part_struct **_array, int id, in
 		struct egisz_rest_refs_part_struct dict;
 		cJSON *id = cJSON_GetObjectItem(item, "id");
 		dict.id = cJSON_GetNumberValue(id);
-		//printf("ID: %d\n", dict.id);
 		
 		cJSON *region = cJSON_GetObjectItem(item, "region");
 		strcpy(dict.region, cJSON_GetStringValue(region));
-		//printf("NAME: %s\n", dict.refsName);
 
+		cJSON *territoryCode = cJSON_GetObjectItem(item, "territoryCode");
+		dict.territoryCode = cJSON_GetNumberValue(territoryCode);
+		
 		array[i] = dict;
 		
 		item = item->next;
