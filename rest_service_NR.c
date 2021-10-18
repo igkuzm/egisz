@@ -96,8 +96,8 @@ int rest_service_answer_callback(char *str, int len, int *count, void *_answer){
 		//remove header, and continue to parce answer
 		answer->len_body = len - len_header;
 		for (i = 0; i < len_header + 1; ++i) {
-			memmove(&str[0],&str[1],len-1);
-			len--;
+			memmove(&str[0],&str[1],0);
+			//len--;
 		}
 	}
 
