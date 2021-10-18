@@ -88,8 +88,8 @@ typedef struct{
 	int len_body; //sizeof body
 } URLConnectAnswer;
 
-URLConnectAnswer *url_connect_answer_new();
-void url_connect_answer_free(URLConnectAnswer *answer);
+URLConnectAnswer *url_connect_answer_new(); //create answer
+void url_connect_answer_free(URLConnectAnswer *answer); //free memory
 
-int url_connect_answer_callback(char *str, int len, int *count, void *_answer);
+int url_connect_answer_callback(char *str, int len, int *count, void *_answer); //calback for url_connection_send_request to fill answer struct
 
