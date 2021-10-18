@@ -31,6 +31,7 @@ Dictionary *dictionary_add_value_for_key(Dictionary *head, void *value, const ch
 	   ptr->next = NULL;
 	   strncpy(ptr->key, key, 127);
 	   ptr->key[127] = 0;
+	   return ptr;
    }
    else {
 	   while(ptr->next != NULL) { //find last dict
