@@ -23,6 +23,13 @@ int egisz_rest_refs_parts //Возвращает количество часте
 		int id //Идентификатор справочника
 ); 
 
+struct	egisz_rest_refs_part_struct {
+	int id;
+	char region[256];	
+	id territoryCode;
+	bool isFederalCity;
+};
+
 cJSON *egisz_rest_refs_part //Возвращает записи справочника по его идентификатору
 (
 		int id,  //Идентификатор справочника 
