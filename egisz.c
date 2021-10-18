@@ -117,7 +117,7 @@ char *msg =
 	printf("BODY: %s\n", answer->body);
 
 
-	ezxml_t *ezxml = ezxml_parse_str(answer->body, strlen(answer->body));
+	ezxml_t ezxml = ezxml_parse_str(answer->body, strlen(answer->body));
 	
 	
 
