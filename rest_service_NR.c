@@ -186,15 +186,14 @@ URLRequest *url_request_prepare(){
 cJSON *json_from_url_connection_send_request(URLRequest *request){
 	RestServiceAnswer *answer = rest_service_answer_new();
 	if (url_connection_send_request(request, answer, rest_service_answer_callback)){
-	//if (url_connection_send_request(request, NULL, NULL)){
 		fprintf(stderr, "Error in function url_connection_send_request\n");
 		return NULL;
 	}
+	printf("HEADER: %s\n", answer->header);
 	printf("BODY: %s\n", answer->body);
 	cJSON *json = cJSON_Parse(answer->body);
 	rest_service_answer_free(answer);
 	url_request_free(request);
-	printf("JSON_FROM_URL DONE!\n");
 	return json;
 }
 
