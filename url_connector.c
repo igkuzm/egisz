@@ -477,6 +477,8 @@ void url_connect_answer_free(URLConnectAnswer *answer){
 
 int url_connect_answer_callback(char *str, int len, int *count, void *_answer){
 	URLConnectAnswer *answer = _answer;
+
+	int len_to_search = len;
 	
 	if (*count == 0) { //find header
 		int len_header = 0, len_line = 0;
