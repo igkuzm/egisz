@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 void print_json(cJSON *json){
 	if (cJSON_IsArray(json)) {
 		printf("JSON is array \n");		
@@ -110,9 +111,9 @@ int main(int argc, char *argv[])
 
 	
 
-	ezxml_t ezxml = egisz_nsi_get_server_time(); 
+	time_t time = egisz_nsi_get_server_time(); 
 	//ezxml_t ezxml = egisz_nsi_get_refbook_list(); 
-	printf("EZXML NAME: %s\n", ezxml->name);
+	//printf("EZXML NAME: %s\n", ezxml->name);
 
 	ezxml_t child = ezxml->child;
 	printf("CHILD NAME: %s\n", child->name);
