@@ -58,7 +58,8 @@ ezxml_t egisz_nsi_get_server_time(){
 		
 	url_request_set_http_body_from_string(request, "text/xml;charset=UTF-8", msg);
 
-	return nsi_xml_from_url_connection_send_request(request); 
+	ezxml_t envelop = nsi_xml_from_url_connection_send_request(request); 
+	ezxml_t child = envelop->child;
 }
 
 ezxml_t egisz_nsi_get_refbook_list(){
