@@ -144,7 +144,7 @@ int rest_service_answer_callback(char *str, int len, int *count, void *_answer){
 					}		
 					we_have_chunked_size = 1;
 					start_of_chunked = i;
-					i = len; //stop FOR cicle
+					//i = len; //stop FOR cicle
 					if (chunked_size == 0) {
 						chunked_size_is_zero = true;	
 					}
