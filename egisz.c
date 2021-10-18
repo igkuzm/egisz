@@ -106,8 +106,10 @@ char *msg =
 
 	url_request_set_http_method(request, HTTP_METHOD_POST);
 	url_request_set_http_body_from_string(request, "text/xml;charset=UTF-8", msg);	
+
+	URLConnectAnswer *answer = url_connect_answer_new();
 	
-	url_connection_send_request(request,  NULL, NULL);
+	url_connection_send_request(request,  answer, url_connect_answer_callback);
 
 	url_request_free(request);
 
