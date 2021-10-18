@@ -481,7 +481,7 @@ int url_connect_answer_callback(char *str, int len, int *count, void *_answer){
 		int i;
 		char line[BUFSIZ];
 		for (i = 0; i < len; ++i) {
-			if (str[i] == '\n' && str[i+1] == '\r') {//new line with \r is header stop
+			if (str[i] == '\r' && str[i+1] == '\n' && str[i+2] == '\r' && str[i+3] == '\n') {//\r\n with \r\n is header stop
 				len_header = i;
 			}
 			if (str[i] == '\n') { //new line in header
