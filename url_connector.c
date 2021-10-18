@@ -191,11 +191,11 @@ URLRequest *url_request_new_with_string(const char *url_string){
 
 void url_request_free(URLRequest *request){
 	HTTPHeaderItemList *headerItemList = request->headerItemList;
-	while (headerItemList->prev != NULL) {
+	while (headerItemList->next != NULL) {
 		HTTPHeaderItem *item = headerItemList->headerItem;
 		free(item);
 		HTTPHeaderItemList *headerItemListToFree = headerItemList;
-		headerItemList = headerItemList->prev;
+		headerItemList = headerItemList->next;
 		free(headerItemListToFree);
 	}
 	free(headerItemList);
