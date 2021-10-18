@@ -154,7 +154,7 @@ int egisz_rest_refs_part(struct egisz_rest_refs_part_struct **_array, int id, in
 
 	cJSON *item = json->child;	
 	for (i = 0; i < count; ++i) {
-		struct egisz_rest_refs_list_struct dict;
+		struct egisz_rest_refs_part_struct dict;
 		cJSON *id = cJSON_GetObjectItem(item, "id");
 		dict.id = cJSON_GetNumberValue(id);
 		//printf("ID: %d\n", dict.id);
