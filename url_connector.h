@@ -82,10 +82,10 @@ typedef struct{
 	char header[1024]; //header of answer
 	int len_header; //size of header
 	char content_type[256]; //type of content - eg. json
-	char transfer_encoding[256]; //encoding
+	char transfer_encoding[256]; //eg. chunked
 	int	content_length; //length of content
 	char *body; //allocates and frees automaticaly
-	int len_body;
+	int len_body; //sizeof body
 } URLConnectAnswer;
 
 URLConnectAnswer *url_connect_answer_new();
