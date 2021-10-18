@@ -181,6 +181,9 @@ int egisz_rest_refs_part(struct egisz_rest_refs_part_struct **_array, int id, in
 	return count;
 }
 
+int egisz_rest_refs_part_all(struct egisz_rest_refs_part_struct **_array, int id){
+}
+
 ///////////////////
 cJSON *egisz_rest_org_parts(int orgTypeId){
 	URLRequest *request = url_request_prepare();
