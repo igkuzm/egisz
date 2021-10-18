@@ -6,6 +6,7 @@
  * Last Modified By  : Igor V. Sementsov <ig.kuzm@gmail.com>
  */
 #include "list.h"
+#include <stdlib.h>
 
 void DICT_print(dictionary *head) {
    dictionary *ptr = head;
@@ -18,6 +19,12 @@ void DICT_print(dictionary *head) {
    }
 	
    printf(" }");
+}
+
+dictionary *dictionary_new(dictionary *head){
+	dictionary *new = malloc(sizeof(dictionary));
+	
+
 }
 
 
