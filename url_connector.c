@@ -452,7 +452,7 @@ int url_connection_send_request(URLRequest *request, void *data, int (*callback)
 	return 0;
 }
 
-//struct to get answer from HTTP GET request of REST service
+//struct to get answer from url_connection_send_request
 typedef struct{
 	char header[1024];
 	int len_header;
