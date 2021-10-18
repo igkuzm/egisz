@@ -81,11 +81,8 @@ ezxml_t egisz_nsi_get_refbook_list(){
 	"<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:service\">\r\n"
 	"   <soapenv:Header/>\r\n"
 	"   <soapenv:Body>\r\n"
-	"	  <urn:getRefbook>\r\n"
-	"		 <userKey></userKey>\r\n"
-	"		 <refbookCode>1.2.643.5.1.13.13.11.1067</refbookCode>\r\n"
-	"		 <version>2.2</version>\r\n"
-	"	  </urn:getRefbook>\r\n"
+	"	  <urn:getServerTime>\r\n"
+	"	  </urn:getServerTime>\r\n"
 	"   </soapenv:Body>\r\n"
 	"</soapenv:Envelope>\r\n";
 		
