@@ -452,16 +452,6 @@ int url_connection_send_request(URLRequest *request, void *data, int (*callback)
 	return 0;
 }
 
-//struct to get answer from url_connection_send_request
-typedef struct{
-	char header[1024];
-	int len_header;
-	char content_type[256];
-	char transfer_encoding[256];
-	int	content_length;
-	char *body; //allocates and frees automaticaly
-	int len_body;
-} URLConnectAnswer;
 
 URLConnectAnswer *rest_service_answer_new(){
 	URLConnectAnswer *answer = malloc(sizeof(URLConnectAnswer));
