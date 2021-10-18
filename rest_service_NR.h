@@ -31,7 +31,8 @@ struct	egisz_rest_refs_part_struct {
 	bool isFederalCity;
 };
 
-cJSON *egisz_rest_refs_part //Возвращает записи справочника по его идентификатору
+int egisz_rest_refs_part(struct egisz_rest_refs_part_struct **array) //Возвращает записи справочника по его идентификатору
+//возвращает количество записей массива array, -1 при ошибке
 (
 		int id,  //Идентификатор справочника 
 		int part //Часть записей справочника, которую необходимо получить
