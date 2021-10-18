@@ -8,12 +8,19 @@
 #include "nsi.h"
 #include "url_connector.h"
 
+#define HOST ""
+#define PORT 443
+
 URLRequest *url_request_prepare(){
-	URLRequest *request = url_request_new_with_string("https://nsi.rosminzdrav.ru/wsdl/SOAP-server.v2.php");
+	URLRequest *request = url_request_new();
+	url_request_set_port(request, PORT);
+	url_request_set_hostname(request, HOST);
+	url_request_set_http_method(request, HTTP_METHOD_POST);
+		
+		url_request_new_with_string("https://nsi.rosminzdrav.ru/wsdl/SOAP-server.v2.php");
 	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Connection, "close");
 	//url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Host, "nsi.rosminzdrav.ru");
 	//url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_SOAPAction, "getRefbookList");
-	url_request_set_http_method(request, HTTP_METHOD_POST);
 }
 
 
