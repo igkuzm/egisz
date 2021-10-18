@@ -50,9 +50,6 @@ void dictionary_new_value_for_key(Dictionary *dictionary, char *value, const cha
 	strncpy(new_data->key, key, 127);
 	new_data->key[127]='\0';
 
-
-
-
 }
 
 
