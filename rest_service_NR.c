@@ -120,7 +120,7 @@ int rest_service_answer_callback(char *str, int len, int *count, void *_answer){
 		//lets find size of chunked
 		bool we_have_chunked_size = false, chunked_size_is_zero = false;
 		int start_of_chunked = 0;
-		long i;
+		int i;
 		for (i = 0; i < len; ++i) {
 			if (str[i] == '\r' && str[i+1] == '\n') { //chunked size goes after \r\n
 				char chunked_size_str[5];
