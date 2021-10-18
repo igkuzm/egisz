@@ -93,7 +93,8 @@ int main(int argc, char *argv[])
 	url_request_set_http_method(request, HTTP_METHOD_POST);
 	
 
-char *msg = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n"
+char *msg = 
+"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n"
 "<SOAP-ENV:Envelope\r\n"
 "	xmlns:SOAP-ENV=\"http:schemas.xmlsoap.org/soap/envelope/\"\r\n"
 "	xmlns:SOAP-ENC=\"http:schemas.xmlsoap.org/soap/encoding/\"\r\n"
