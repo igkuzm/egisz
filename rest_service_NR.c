@@ -185,6 +185,7 @@ int egisz_rest_refs_part_all(struct egisz_rest_refs_part_struct **_array, int id
 	int part_count = egisz_rest_refs_parts(id); 
 	if (part_count < 1) {
 		fprintf(stderr, "ERROR in finction egisz_rest_refs_parts\n");	
+		return -1;
 	}
 	struct egisz_rest_refs_part_struct *all_array = malloc(part_count * sizeof(struct egisz_rest_refs_part_struct));
 	if (all_array == NULL) {
