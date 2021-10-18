@@ -7,12 +7,12 @@
  */
 #include <stdio.h>
 
-struct DICT_t {
+struct dictionary_t {
    char key[128];
    char *value;
-   struct DICT_t *next;
-   struct DICT_t *prev;
+   struct dictionary_t *next;
+   struct dictionary_t *prev;
 };
-typedef struct DICT_t DICT;
+typedef struct dictionary_t dictionary;
 
-DICT *DICT_new(DICT *head);
+dictionary *dictionary_new(dictionary *head);
