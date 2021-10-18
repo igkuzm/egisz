@@ -166,7 +166,6 @@ int egisz_rest_refs_part(struct egisz_rest_refs_part_struct **_array, int id, in
 
 		cJSON *isFederalCity = cJSON_GetObjectItem(item, "isFederalCity");
 		dict.isFederalCity = cJSON_GetBoolValue(isFederalCity);		
-		
 		array[i] = dict;
 		
 		item = item->next;
