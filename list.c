@@ -30,6 +30,7 @@ Dictionary *dictionary_new(){
 	}
 
 	new->next = NULL;
+	retur new;
 }
 
 
