@@ -47,7 +47,7 @@ void dictionary_new_value_for_key(Dictionary *dictionary, char *value, const cha
 	new_data->next = ptr;
 	dictionary->data = new_data;
 
-	strncpy(new_data->key, key, unsigned long)
+	strncpy(new_data->key, key, 127);
 
 
 
