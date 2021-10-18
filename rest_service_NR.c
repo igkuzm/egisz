@@ -182,6 +182,11 @@ int egisz_rest_refs_part(struct egisz_rest_refs_part_struct **_array, int id, in
 }
 
 int egisz_rest_refs_part_all(struct egisz_rest_refs_part_struct **_array, int id){
+	int part_count = egisz_rest_refs_parts(id); 
+	int i;
+	for (i = 0; i < part_count; ++i) {
+		
+	}
 }
 
 ///////////////////
