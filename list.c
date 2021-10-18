@@ -7,6 +7,7 @@
  */
 #include "list.h"
 #include <stdlib.h>
+#include <errno.h>
 
 void DICT_print(dictionary *head) {
    dictionary *ptr = head;
