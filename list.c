@@ -22,7 +22,7 @@ void DICT_print(Dictionary *head) {
    printf(" }");
 }
 
-Dictionary *dictionary_new(Dictionary *head){
+Dictionary *dictionary_new(){
 	Dictionary *new = malloc(sizeof(Dictionary));
 	if (new == NULL) {
 		fprintf(stderr, "Error to allocate memory\n");
