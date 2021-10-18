@@ -563,7 +563,7 @@ int url_connect_answer_callback(char *str, int len, int *count, void *_answer){
 		//remove chunked_size string from str
 			if (chunked_size_is_zero){
 				for (i = 0; i < 7; ++i) {
-					memmove(&str[start_of_chunked],&str[start_of_chunked + 1],len - start_of_chunked); //remove zero
+					memmove(&str[start_of_chunked],&str[start_of_chunked + 1],len - start_of_chunked); //remove zero and blank line
 				}				
 			}
 			else {
