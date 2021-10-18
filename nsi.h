@@ -7,3 +7,6 @@
  */
 #include <stdio.h>
 #include "ezxml.h"
+
+
+ezxml egisz_nsi_get_time();
