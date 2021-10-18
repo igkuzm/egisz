@@ -114,6 +114,12 @@ char *msg =
 	printf("PORT: %d\n", request->port);
 	printf("METHOD: %d\n", request->method);
 	printf("METHOD: %d\n", request->protocol);
+	HTTPHeaderItemList *list = request->headerItemList;
+	while (list->prev != NULL) {
+		HTTPHeaderItem *item = list->headerItem;
+		printf("HEADER ITEM: %d: %s\n", item->key, item->value);
+		list = list->prev;
+	}
 
 	URLConnectAnswer *answer = url_connect_answer_new();
 	
