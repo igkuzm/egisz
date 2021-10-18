@@ -2,7 +2,7 @@
  * File              : egisz.c
  * Author            : Igor V. Sementsov <ig.kuzm@gmail.com>
  * Date              : 11.10.2021
- * Last Modified Date: 17.10.2021
+ * Last Modified Date: 18.10.2021
  * Last Modified By  : Igor V. Sementsov <ig.kuzm@gmail.com>
  */
 
@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
 	//cJSON *json = egisz_rest_depart_get("1.2.643.5.1.13.13.12.2.51.4977.0.2787.2107");		
 	//cJSON *json = egisz_mo("1.2.643.5.1.13.13.12.1.42.202");		
 	//cJSON *json = egisz_rest_lic_get(1);		
-	print_json(json);
+	//print_json(json);
 	//printf("ITEM: %s\n", cJSON_Print(json));	
 	
 	//URLRequest *request = url_request_new_with_string("https://nsi.rosminzdrav.ru/wsdl/SOAP-server.v2.php");
