@@ -39,7 +39,7 @@ ezxml_t xml_from_url_connection_send_request(URLRequest *request){
 
 	url_connect_answer_free(answer);
 	url_request_free(request);
-	return json;
+	return ezxml;
 }
 
 
