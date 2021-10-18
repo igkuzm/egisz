@@ -30,6 +30,9 @@
  * then run url_connection_send_request - with data NULL and callback NULL - you will get answer in stdout
  * to handle with answer - you should url_connect_answer_new and set it as data in url_connection_send_request and set callback to url_connect_answer_callback
  */
+#ifdef __cplusplus
+extern "C"{
+#endif 
 #include <stdio.h>
 
 typedef enum { //errors
@@ -117,4 +120,8 @@ URLConnectAnswer *url_connect_answer_new(); //create answer
 void url_connect_answer_free(URLConnectAnswer *answer); //free memory
 
 int url_connect_answer_callback(char *str, int len, int *count, void *_answer); //calback for url_connection_send_request to fill answer struct
+
+#ifdef __cplusplus
+}
+#endif
 
