@@ -6,6 +6,7 @@
  * Last Modified By  : Igor V. Sementsov <ig.kuzm@gmail.com>
  */
 #include "nsi.h"
+#include <string.h>
 #include "url_connector.h"
 
 #define HOST "nsi.rosminzdrav.ru"
@@ -24,6 +25,22 @@ URLRequest *url_request_prepare(){
 	return request;
 }
 
+ezxml_t xml_from_url_connection_send_request(URLRequest *request){
+	URLConnectAnswer *answer = url_connect_answer_new();
+	if (url_connection_send_request(request, answer, url_connect_answer_callback)){
+		fprintf(stderr, "Error in function url_connection_send_request\n");
+		return NULL;
+	}
+	
+	printf("HEADER: %s\n", answer->header);
+	printf("BODY: %s\n", answer->body);
+	
+	ezxml_t ezxml = ezxml_parse_str(answer->body, strlen(answer->body));	
+
+	url_connect_answer_free(answer);
+	url_request_free(request);
+	return json;
+}
 
 
 ezxml_t egisz_nsi_get_server_time(){
