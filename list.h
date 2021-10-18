@@ -23,4 +23,3 @@ typedef struct Dictionary_t Dictionary;
 
 Dictionary *dictionary_new();
 void dictionary_print_data(Dictionary *dictionary);
-dictionary_add_key()
