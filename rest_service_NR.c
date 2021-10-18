@@ -203,7 +203,7 @@ int egisz_rest_refs_part_all(struct egisz_rest_refs_part_struct **_array, int id
 		}
 		int k;
 		for (k=0; k < count; k++) {
-			/*all_array[all_count] = array[k];*/
+			all_array[all_count] = array[k];
 			all_count++;
 		}
 		free(array);
