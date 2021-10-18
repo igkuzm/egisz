@@ -50,14 +50,15 @@ typedef struct httpHeaderItemList{ //struct list to handle header items
 	struct httpHeaderItemList *prev;
 } HTTPHeaderItemList;
 
+//URL Request
 typedef struct {
-	URL_CONNECTION_PROTOCOL protocol;
-	HTTP_METHOD method;
-	char hostname[256];
-	int port;
-	char requestString[BUFSIZ];
-	char *httpBody;
-	HTTPHeaderItemList *headerItemList;
+	URL_CONNECTION_PROTOCOL protocol; //connection protocol - eg: HTTP, HTTPS - to set use url_request_set_url_connection_protocol
+	HTTP_METHOD method; //HTTP method - eg.: GET, POST - to set use url_request_set_http_method
+	char hostname[256]; //hostname - to set use url_request_set_hostname
+	int port; //port to connect - eg. 80, 443 - to set use url_request_set_port
+	char requestString[BUFSIZ]; //request string - to set use url_request_set_request_string
+	char *httpBody; //pointer to httpBody - to set body use url_request_set_http_body_from_string, or url_request_set_http_body_from_file
+	HTTPHeaderItemList *headerItemList; //list of header Items - to add item use: url_request_add_header_item
 } URLRequest;
 
 URLRequest *url_request_new();
