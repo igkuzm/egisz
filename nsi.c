@@ -60,6 +60,17 @@ ezxml_t egisz_nsi_get_server_time(){
 
 	ezxml_t envelop = nsi_xml_from_url_connection_send_request(request); 
 	ezxml_t child = envelop->child;
+	ezxml_t body;
+	while (child != NULL) {
+		char *name = child->name;
+		if (strcmp(name, "soap:Body") == 0) {
+			body = child;
+		}
+		child = child->child;
+	}
+	ezxml_t getServerTimeResponse = body->child;
+	ezxml_t getServerTimeReturn = getServerTimeResponse->child;
+	char *time_str = getServerTimeReturn->txt;
 }
 
 ezxml_t egisz_nsi_get_refbook_list(){
