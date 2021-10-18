@@ -115,7 +115,7 @@ char *msg = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n"
     "xmlns:ns1=\"urn:service\">\r\n"
  "<SOAP-ENV:Body>\r\n"
   "<ns1:getRefbookList>\r\n"
-   "<userKey></userKey>\r\n"
+   "<userKey1></userKey1>\r\n"
   "</ns1:getRefbookList>\r\n"
  "</SOAP-ENV:Body>\r\n"
 "</SOAP-ENV:Envelope>\r\n";
