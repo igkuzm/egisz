@@ -23,4 +23,4 @@ typedef struct Dictionary_t Dictionary;
 
 Dictionary *dictionary_new();
 void dictionary_print_data(Dictionary *dictionary);
-void dictionary_new_value_for_key(Dictionary *dictionary, char *value, char *key);
+void dictionary_new_value_for_key(Dictionary *dictionary, char *value, const char *key);
