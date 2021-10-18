@@ -36,6 +36,20 @@
 #define PORT 443
 
 
+URLRequest *url_request_prepare(){
+	URLRequest *request = url_request_new();
+	url_request_set_url_connection_protocol(request, URL_CONNECTION_PROTOCOL_HTTPS);
+	url_request_set_http_method(request, HTTP_METHOD_GET);
+	url_request_set_hostname(request, HOST);
+	url_request_set_port(request, PORT);
+
+	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Connection, "close");
+	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Accept, "application/json");
+	url_request_add_header_item(request, HTTP_HEADER_ITEM_KEY_Host, HOST);
+
+	return request;
+}
+
 
 cJSON *json_from_url_connection_send_request(URLRequest *request){
 	RestServiceAnswer *answer = rest_service_answer_new();
