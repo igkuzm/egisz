@@ -13,3 +13,5 @@ struct Dictionary_t {
 	struct Dictionary_t *next;
 };
 typedef struct Dictionary_t Dictionary;
+
+Dictionary *dictionary_new(Dictionary *prev);
