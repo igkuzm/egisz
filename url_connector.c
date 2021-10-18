@@ -95,7 +95,15 @@ void url_request_add_header_item(URLRequest *request, HTTP_HEADER_ITEM_KEY key, 
 }
 
 void url_request_remove_header_item(URLRequest *request, HTTP_HEADER_ITEM_KEY key){
-
+	HTTPHeaderItem *item;
+	HTTPHeaderItemList *headerItemList = request->headerItemList;	
+	//find if theis already item with key
+	while (headerItemList->prev != NULL) {
+		HTTPHeaderItem *_item = headerItemList->headerItem;
+		if (_item->key == key) {
+		}
+		headerItemList = headerItemList->prev;
+	}
 }
 
 URLRequest *url_request_new(){
