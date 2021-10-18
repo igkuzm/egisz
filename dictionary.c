@@ -24,11 +24,13 @@ void dictionary_print_data(Dictionary *dictionary) {
    printf(" }");
 }
 
-Dictionary *dictionary_add_value_for_key(Dictionary *head, void *value, const char key){
+Dictionary *dictionary_add_value_for_key(Dictionary *head, void *value, const char *key){
    Dictionary *ptr = head;
    if (ptr == NULL) { //create new head
 	   ptr = malloc(sizeof(Dictionary));
 	   ptr->next = NULL;
+	   strncpy(ptr->key, key, 127);
+	   key[127] = 0;
    }
    else {
 	   while(ptr->next != NULL) { //find last dict
