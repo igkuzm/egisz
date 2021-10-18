@@ -11,7 +11,6 @@ struct Dictionary_t {
    char key[128];
    char *value;
    struct Dictionary_t *next;
-   struct Dictionary_t *prev;
 };
 typedef struct Dictionary_t Dictionary;
 
