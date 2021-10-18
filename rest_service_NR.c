@@ -183,12 +183,20 @@ int egisz_rest_refs_part(struct egisz_rest_refs_part_struct **_array, int id, in
 
 int egisz_rest_refs_part_all(struct egisz_rest_refs_part_struct **_array, int id){
 	int part_count = egisz_rest_refs_parts(id); 
-	int i, all_count;
+	struct egisz_rest_refs_part_struct *all_array = malloc(part_count * sizeof(struct egisz_rest_refs_part_struct));
+	if (all_array == NULL) {
+		fprintf(stderr, "Error allocate memory for egisz_rest_refs_part_struct\n");
+		return -1;
+	}	
+
+	int i, all_count=0;
 	for (i = 1; i < part_count + 1; ++i) {
 		struct egisz_rest_refs_part_struct *array;
 		int count = egisz_rest_refs_part(&array, id, i);
-		
+		all_count += count;	
 	}
+
+	return all_count;
 }
 
 ///////////////////
