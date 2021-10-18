@@ -27,6 +27,7 @@ URLRequest *url_request_prepare(){
 
 
 ezxml_t egisz_nsi_get_server_time(){
+	URLRequest *request = url_request_prepare(); 
 	char *msg = 
 	"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n"
 	"<SOAP-ENV:Envelope\r\n"
