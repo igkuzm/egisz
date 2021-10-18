@@ -13,11 +13,10 @@ struct DictionaryData_t {
 	char *value;
 	struct DictionaryData_t *next;
 };
-typedef struct DictionaryData_t DictionaryData;
 
 struct Dictionary_t {
 	uuid_t id;
-	DictionaryData *data;
+	struct DictionaryData_t *data;
 };
 typedef struct Dictionary_t Dictionary;
 
