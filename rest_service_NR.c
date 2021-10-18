@@ -75,6 +75,10 @@ int egisz_rest_refs_list(struct egisz_rest_refs_list_struct *array){
 	if (!json) {
 		return -1;
 	}
+	if (!cJSON_IsArray(json)){
+		return -1;
+	}
+	int count = cJSON_GetArraySize(json);
 
 	
 }
