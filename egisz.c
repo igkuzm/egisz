@@ -88,8 +88,7 @@ int main(int argc, char *argv[])
 
 	
 
-	ezxml_t ezxml = 
-		ezxml_parse_str(answer->body, strlen(answer->body));
+	ezxml_t ezxml = egisz_nsi_get_server_time(); 
 	printf("EZXML NAME: %s\n", ezxml->name);
 
 	printf("Press any key to close application\n");
