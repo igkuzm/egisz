@@ -112,6 +112,8 @@ char *msg =
 
 	printf("HOST: %s\n", request->hostname);
 	printf("PORT: %d\n", request->port);
+	printf("METHOD: %d\n", request->method);
+	printf("METHOD: %d\n", request->protocol);
 
 	URLConnectAnswer *answer = url_connect_answer_new();
 	
