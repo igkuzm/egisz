@@ -568,7 +568,7 @@ int url_connect_answer_callback(char *str, int len, int *count, void *_answer){
 			}
 			else {
 				for (i = 0; i < 8; ++i) {
-					memmove(&str[start_of_chunked],&str[start_of_chunked + 1],len - start_of_chunked);
+					memmove(&str[start_of_chunked],&str[start_of_chunked + 1],len - start_of_chunked); //remove chunked_size
 				}
 			}
 		}
