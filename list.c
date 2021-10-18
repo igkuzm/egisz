@@ -8,6 +8,7 @@
 #include "list.h"
 #include <stdlib.h>
 #include <errno.h>
+#include <uuid/uuid.h>
 
 void dictionary_print_data(Dictionary *dictionary) {
    struct dictionary_data_t *ptr = dictionary->data;
@@ -30,6 +31,7 @@ Dictionary *dictionary_new(){
 	}
 
 	dictionary->data = NULL;
+	uuid_generate(&dictionary->id);
 	
 
 	return dictionary;
