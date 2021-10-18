@@ -10,3 +10,4 @@
 
 
 ezxml_t egisz_nsi_get_server_time();
+ezxml_t egisz_nsi_get_refbook_list();
