@@ -194,8 +194,9 @@ void url_request_free(URLRequest *request){
 	while (headerItemList->prev != NULL) {
 		HTTPHeaderItem *item = headerItemList->headerItem;
 		free(item);
+		HTTPHeaderItemList *headerItemListToFree = headerItemList;
 		headerItemList = headerItemList->prev;
-		free(headerItemList->next);
+		free(headerItemListToFree);
 	}
 	free(headerItemList);
 	free(request);
