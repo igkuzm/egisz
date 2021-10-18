@@ -113,7 +113,7 @@ int egisz_rest_refs_list(struct egisz_rest_refs_list_struct **_array){
 	return count;
 }
 
-cJSON *egisz_rest_refs_parts(int id){
+int egisz_rest_refs_parts(int id){
 	URLRequest *request = url_request_prepare();
 	char requestString[BUFSIZ];	
 	sprintf(requestString, "rest/refs/parts?id=%d", id);
