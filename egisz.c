@@ -93,20 +93,32 @@ int main(int argc, char *argv[])
 	url_request_set_http_method(request, HTTP_METHOD_POST);
 	
 
-char *msg = 
-"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n"
-"<SOAP-ENV:Envelope\r\n"
-"    xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n"
-"    xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\"\r\n"
-"    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n"
-"    xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\r\n"
-"    xmlns:ns1=\"urn:service\">\r\n"
-" <SOAP-ENV:Body>\r\n"
-"  <ns1:getRefbookList>\r\n"
-"   <userKey></userKey>\r\n"
-"  </ns1:getRefbookList>\r\n"
-" </SOAP-ENV:Body>\r\n"
-"</SOAP-ENV:Envelope>\r\n";
+char *msg = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+"<SOAP-ENV:Envelope"
+    "xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\""
+    "xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\""
+    "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\""
+    "xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\""
+    "xmlns:ns1=\"urn:service\">"
+  "<SOAP-ENV:Body>"
+  "<ns1:getServerTime>"
+  "</ns1:getServerTime>"
+ "</SOAP-ENV:Body>"
+"</SOAP-ENV:Envelope>";
+	
+/*"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n"*/
+/*"<SOAP-ENV:Envelope\r\n"*/
+/*"    xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n"*/
+/*"    xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\"\r\n"*/
+/*"    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n"*/
+/*"    xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\r\n"*/
+/*"    xmlns:ns1=\"urn:service\">\r\n"*/
+/*" <SOAP-ENV:Body>\r\n"*/
+/*"  <ns1:getRefbookList>\r\n"*/
+/*"   <userKey></userKey>\r\n"*/
+/*"  </ns1:getRefbookList>\r\n"*/
+/*" </SOAP-ENV:Body>\r\n"*/
+/*"</SOAP-ENV:Envelope>\r\n";*/
 
 	url_request_set_http_body_from_string(request, "text/xml;charset=UTF-8", msg);	
 
