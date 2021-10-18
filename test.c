@@ -75,7 +75,7 @@ char *readString(){
 
 int main(int argc, char *argv[])
 {
-	cJSON *json = egisz_rest_refs_list();
+	int c = egisz_rest_refs_list(NULL);
 	//cJSON *json = egisz_rest_refs_parts(15);
 	//cJSON *json = egisz_rest_depart_part(1, 10);
 	//cJSON *json = egisz_rest_org_part(2, 1);
@@ -83,7 +83,7 @@ int main(int argc, char *argv[])
 	//cJSON *json = egisz_rest_depart_get("1.2.643.5.1.13.13.12.2.51.4977.0.2787.2107");		
 	//cJSON *json = egisz_mo("1.2.643.5.1.13.13.12.1.42.202");		
 	//cJSON *json = egisz_rest_lic_get(1);		
-	print_json(json);
+	//print_json(json);
 
 	
 
