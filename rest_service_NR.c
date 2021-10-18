@@ -165,7 +165,7 @@ int egisz_rest_refs_part(struct egisz_rest_refs_part_struct **_array, int id, in
 		dict.territoryCode = cJSON_GetNumberValue(territoryCode);
 
 		cJSON *isFederalCity = cJSON_GetObjectItem(item, "isFederalCity");
-		dict.isFederalCity = cJSON_GetNumberValue(isFederalCity);		
+		dict.isFederalCity = cJSON_GetBoolValue(isFederalCity);		
 		
 		array[i] = dict;
 		
