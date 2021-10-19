@@ -24,6 +24,11 @@ void dictionary_print_data(Dictionary *dictionary) {
    printf(" }");
 }
 
+Dictionary *dictionary_new(){
+
+
+}
+
 void dictionary_add_value_for_key(Dictionary *dictionary, void *value, const char *key){
 	Dictionary *ptr = dictionary;
 	if (ptr == NULL) {
@@ -38,7 +43,8 @@ void dictionary_add_value_for_key(Dictionary *dictionary, void *value, const cha
 Dictionary *dictionary_new_with_value_for_key(void *value, const char *key){
    Dictionary *dictionary = malloc(sizeof(Dictionary));
    if (dictionary == NULL) { //check memory allocation
-		
+		fprintf(stderr, "ERROR to allocate memory for dictionary\n");
+		return NULL;
    }
    dictionary->next = NULL;
    strncpy(dictionary->key, key, 127);
