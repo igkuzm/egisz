@@ -56,7 +56,7 @@ void set_value_for_key(Dictionary *dictionary, void *value, DICTIONARY_DATA_TYPE
 	dictionary->data_type = data_type;
 }
 
-Dictionary *search_dictionary_with_key(Dictionary *dictionary, const char *key){
+Dictionary *search_dictionary_with_key(Dictionary *dictionary, const char *key, Dictionary *prev){
 	Dictionary *ptr = dictionary;
 	if (ptr == NULL) {
 		fprintf(stderr, "ERROR - dictionary is NULL\n");
@@ -109,5 +109,12 @@ void dictionary_set_value_for_key(Dictionary *dictionary, void *value, DICTIONAR
 	if (ptr != NULL) {
 		set_value_for_key(ptr, value, data_type, key);
 	}	
+}
+
+void dictionary_remove_with_key(Dictionary *dictionary, const char *key){
+	Dictionary *ptr = search_dictionary_with_key(dictionary, key);
+	if (ptr != NULL) {
+		Dictionary *next = ptr->next;
+	}
 }
 
