@@ -89,7 +89,7 @@ void dictionary_set_value_for_key(Dictionary *dictionary, void *value, const cha
 
 	while(ptr != NULL) { //find dictionary with key
 		if (strncmp(ptr->key, key, 127) == 0) {
-			set_value_for_key(dictionary, value, key);
+			set_value_for_key(ptr, value, key);
 		}
 		ptr = ptr->next;
 	}	
