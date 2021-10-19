@@ -81,21 +81,10 @@ void dictionary_add_value_for_key(Dictionary *dictionary, void *value, const cha
 }
 
 void *dictionary_get_value_for_key(Dictionary *dictionary, const char *key){
-	Dictionary *ptr = dictionary;
-	if (ptr == NULL) {
-		fprintf(stderr, "ERROR - dictionary is NULL\n");
-		return NULL;
+	Dictionary *ptr = search_dictionary_with_key(dictionary, key);
+	if (ptr != NULL) {
+		return ptr->value;
 	}	
-
-	while(ptr != NULL) { //find dictionary with key
-		if (strncmp(ptr->key, key, 127) == 0) {
-			return ptr->value;
-		}
-		ptr = ptr->next;
-	}	
-
-	printf("Dictionary has no key: %s\n", key);
-	return NULL;
 }
 
 void dictionary_set_value_for_key(Dictionary *dictionary, void *value, const char *key){
