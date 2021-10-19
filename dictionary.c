@@ -25,16 +25,16 @@ void dictionary_print_data(Dictionary *dictionary) {
 }
 
 Dictionary *dictionary_new(){
-   Dictionary *dictionary = malloc(sizeof(Dictionary));
-   if (dictionary == NULL) { //check memory allocation
+	Dictionary *dictionary = malloc(sizeof(Dictionary));
+	if (dictionary == NULL) { //check memory allocation
 		fprintf(stderr, "ERROR to allocate memory for dictionary\n");
 		exit(ENOMEM);
-   }
-   return dictionary;
+	}
+	dictionary->next = NULL;
+	return dictionary;
 }
 
 void dictionary_set_value_for_key(Dictionary *dictionary, void *value, const char *key){
-	dictionary->next = NULL;
 	strncpy(dictionary->key, key, 127);
 	dictionary->key[127] = 0;
 	dictionary->value = value;
