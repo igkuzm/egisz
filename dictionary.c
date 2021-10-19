@@ -58,5 +58,6 @@ void dictionary_add_value_for_key(Dictionary *dictionary, void *value, const cha
 	}
 	Dictionary *new = dictionary_new();
 	dictionary_set_value_for_key(new, value, key);
+	ptr->next = new;
 }
 
