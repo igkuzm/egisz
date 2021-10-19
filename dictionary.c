@@ -61,3 +61,11 @@ void dictionary_add_value_for_key(Dictionary *dictionary, void *value, const cha
 	ptr->next = new;
 }
 
+void *dictionary_get_value_for_key(Dictionary *dictionary, const char *key){
+	Dictionary *ptr = dictionary;
+	if (ptr == NULL) {
+		return NULL;
+	}	
+
+}
+
