@@ -34,7 +34,7 @@ Dictionary *dictionary_new(){
 	return dictionary;
 }
 
-void dictionary_set_value_for_key(Dictionary *dictionary, void *value, const char *key){
+void set_value_for_key(Dictionary *dictionary, void *value, const char *key){
 	strncpy(dictionary->key, key, 127);
 	dictionary->key[127] = 0;
 	dictionary->value = value;
@@ -42,7 +42,7 @@ void dictionary_set_value_for_key(Dictionary *dictionary, void *value, const cha
 
 Dictionary *dictionary_new_with_value_for_key(void *value, const char *key){
 	Dictionary *dictionary = dictionary_new();
-	dictionary_set_value_for_key(dictionary, value, key);
+	set_value_for_key(dictionary, value, key);
 	return dictionary;
 }
 
@@ -58,7 +58,7 @@ void dictionary_add_value_for_key(Dictionary *dictionary, void *value, const cha
 	}
 
 	Dictionary *new = dictionary_new();
-	dictionary_set_value_for_key(new, value, key);
+	set_value_for_key(new, value, key);
 	ptr->next = new;
 }
 
@@ -78,5 +78,8 @@ void *dictionary_get_value_for_key(Dictionary *dictionary, const char *key){
 
 	printf("No value for key: %s\n", key);
 	return NULL;
+}
+
+void dictionary_set_value_for_key(Dictionary *dictionary, void *value, const char *key){
 }
 
