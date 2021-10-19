@@ -38,10 +38,11 @@ Dictionary *dictionary_new(){
 	return dictionary;
 }
 
-void set_value_for_key(Dictionary *dictionary, void *value, const char *key){
+void set_value_for_key(Dictionary *dictionary, DICTIONARY_DATA_TYPE data_type, void *value, const char *key){
 	strncpy(dictionary->key, key, 127);
 	dictionary->key[127] = 0;
 	dictionary->value = value;
+	dictionary->data_type = data_type;
 }
 
 Dictionary *search_dictionary_with_key(Dictionary *dictionary, const char *key){
