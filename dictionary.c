@@ -67,6 +67,7 @@ Dictionary *search_dictionary_with_key(Dictionary *dictionary, const char *key, 
 		if (strncmp(ptr->key, key, 127) == 0) {
 			return ptr;
 		}
+		prev = ptr;
 		ptr = ptr->next;
 	}	
 
