@@ -32,6 +32,7 @@ Dictionary *dictionary_new_with_value_for_key(void *value, const char *key){
    dictionary->next = NULL;
    strncpy(dictionary->key, key, 127);
    dictionary->key[127] = 0;
+   dictionary->value = value;
    return dictionary;
 }
 
