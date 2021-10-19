@@ -24,6 +24,17 @@ void dictionary_print_data(Dictionary *dictionary) {
    printf(" }");
 }
 
+void dictionary_add_value_for_key(Dictionary *dictionary, void *value, const char *key){
+	Dictionary *ptr = dictionary;
+	if (ptr == NULL) {
+		return;
+	}
+	else {
+		while(ptr->next != NULL) { //find last dict
+			ptr = ptr->next;
+		}
+	}
+}
 Dictionary *dictionary_new_with_value_for_key(void *value, const char *key){
    Dictionary *dictionary = malloc(sizeof(Dictionary));
    if (dictionary == NULL) { //check memory allocation
@@ -36,21 +47,3 @@ Dictionary *dictionary_new_with_value_for_key(void *value, const char *key){
    return dictionary;
 }
 
-Dictionary *dictionary_add_value_for_key(Dictionary *head, void *value, const char *key){
-   Dictionary *ptr = head;
-   if (ptr == NULL) { //create new head
-	   ptr = malloc(sizeof(Dictionary));
-	   if (ptr == NULL) { //check memory allocation
-			
-	   }
-	   ptr->next = NULL;
-	   strncpy(ptr->key, key, 127);
-	   ptr->key[127] = 0;
-	   return ptr;
-   }
-   else {
-	   while(ptr->next != NULL) { //find last dict
-		  ptr = ptr->next;
-	   }
-   }
-}
