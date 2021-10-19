@@ -44,7 +44,7 @@ Dictionary *dictionary_new_with_value_for_key(void *value, const char *key){
    Dictionary *dictionary = malloc(sizeof(Dictionary));
    if (dictionary == NULL) { //check memory allocation
 		fprintf(stderr, "ERROR to allocate memory for dictionary\n");
-		return NULL;
+		exit(ENOMEM);
    }
    dictionary->next = NULL;
    strncpy(dictionary->key, key, 127);
