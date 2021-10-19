@@ -24,6 +24,11 @@ void dictionary_print(Dictionary *dictionary) {
 			                             char *value = ptr->value; 
 										 printf("\"%s\": \"%c\"\n",ptr->key,value[0]); break;
 									   } 
+	   	case DICTIONARY_DATA_TYPE_NUMBER:{
+			                             int *value = ptr->value; 
+										 printf("\"%s\": \"%d\"\n",ptr->key,value[0]); break;
+									   } 
+											  
 		default: break;
 	   }
       ptr = ptr->next;
