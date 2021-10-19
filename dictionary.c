@@ -46,10 +46,10 @@ void dictionary_add_value_for_key(Dictionary *dictionary, void *value, const cha
 }
 Dictionary *dictionary_new_with_value_for_key(void *value, const char *key){
 	Dictionary *dictionary = dictionary_new();
-   dictionary->next = NULL;
-   strncpy(dictionary->key, key, 127);
-   dictionary->key[127] = 0;
-   dictionary->value = value;
-   return dictionary;
+	dictionary->next = NULL;
+	strncpy(dictionary->key, key, 127);
+	dictionary->key[127] = 0;
+	dictionary->value = value;
+	return dictionary;
 }
 
