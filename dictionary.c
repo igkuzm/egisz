@@ -26,13 +26,13 @@ void dictionary_print_data(Dictionary *dictionary) {
 
 Dictionary *dictionary_new_with_value_for_key(void *value, const char *key){
    Dictionary *dictionary = malloc(sizeof(Dictionary));
-   if (ptr == NULL) { //check memory allocation
+   if (dictionary == NULL) { //check memory allocation
 		
    }
-   ptr->next = NULL;
-   strncpy(ptr->key, key, 127);
-   ptr->key[127] = 0;
-   return ptr;
+   dictionary->next = NULL;
+   strncpy(dictionary->key, key, 127);
+   dictionary->key[127] = 0;
+   return dictionary;
 }
 
 Dictionary *dictionary_add_value_for_key(Dictionary *head, void *value, const char *key){
