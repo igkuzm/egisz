@@ -22,12 +22,14 @@ void dictionary_print(Dictionary *dictionary) {
 	   	case DICTIONARY_DATA_TYPE_DICTIONARY: dictionary_print(ptr); break;
 	   	case DICTIONARY_DATA_TYPE_CHAR:{
 			                             char *value = ptr->value; 
-										 printf("\"%s\": \"%c\"\n",ptr->key,value[0]); break;
+										 printf("\"%s\": %c\n",ptr->key,value[0]); break;
 									   } 
 	   	case DICTIONARY_DATA_TYPE_NUMBER:{
 			                             int *value = ptr->value; 
-										 printf("\"%s\": \"%d\"\n",ptr->key,value[0]); break;
+										 printf("\"%s\": %d\n",ptr->key,value[0]); break;
 									   } 
+	   	case DICTIONARY_DATA_TYPE_DATA: printf("\"%s\": data\n",ptr->key); break;
+									   									 
 											  
 		default: break;
 	   }
