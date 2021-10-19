@@ -58,13 +58,13 @@ Dictionary *search_dictionary_with_key(Dictionary *dictionary, const char *key){
 	return NULL;
 }
 
-Dictionary *dictionary_new_with_value_for_key(void *value, const char *key){
+Dictionary *dictionary_new_with_value_for_key(void *value, DICTIONARY_DATA_TYPE data_type, const char *key){
 	Dictionary *dictionary = dictionary_new();
 	set_value_for_key(dictionary, value, key);
 	return dictionary;
 }
 
-void dictionary_add_value_for_key(Dictionary *dictionary, void *value, const char *key){
+void dictionary_add_value_for_key(Dictionary *dictionary, void *value, DICTIONARY_DATA_TYPE data_type, const char *key){
 	Dictionary *ptr = dictionary;
 	if (ptr == NULL) {
 		fprintf(stderr, "ERROR - dictionary is NULL\n");
@@ -88,7 +88,7 @@ void *dictionary_get_value_for_key(Dictionary *dictionary, const char *key){
 	return NULL;
 }
 
-void dictionary_set_value_for_key(Dictionary *dictionary, void *value, const char *key){
+void dictionary_set_value_for_key(Dictionary *dictionary, void *value, DICTIONARY_DATA_TYPE data_type, const char *key){
 	Dictionary *ptr = search_dictionary_with_key(dictionary, key);
 	if (ptr != NULL) {
 		set_value_for_key(ptr, value, key);
