@@ -17,7 +17,7 @@ void dictionary_print_data(Dictionary *dictionary) {
 	
    //start from the beginning
    while(ptr != NULL) {
-      printf("(%s: %s)\n",ptr->key,ptr->value);
+      printf("(%s: %s)\n",ptr->key,(char *)ptr->value);
       ptr = ptr->next;
    }
 	
