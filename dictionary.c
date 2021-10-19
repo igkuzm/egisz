@@ -112,7 +112,7 @@ void dictionary_set_value_for_key(Dictionary *dictionary, void *value, DICTIONAR
 }
 
 void dictionary_remove_with_key(Dictionary *dictionary, const char *key){
-	Dictionary *ptr = search_dictionary_with_key(dictionary, key);
+	Dictionary *ptr = search_dictionary_with_key(dictionary, key, NULL);
 	if (ptr != NULL) {
 		Dictionary *next = ptr->next;
 	}
