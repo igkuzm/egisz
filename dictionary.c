@@ -18,7 +18,7 @@ void dictionary_print(Dictionary *dictionary) {
    //start from the beginning
    while(ptr != NULL) {
 	   switch (ptr->data_type) {
-	   	case DICTIONARY_DATA_TYPE_STRING: printf("(%s: %s)\n",ptr->key,(char *)ptr->value); break;
+	   	case DICTIONARY_DATA_TYPE_STRING: printf("%s: %s\n",ptr->key,(char *)ptr->value); break;
 	   	case DICTIONARY_DATA_TYPE_DICTIONARY: dictionary_print(ptr); break;
 		default: break;
 	   }
