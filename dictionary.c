@@ -117,6 +117,9 @@ void dictionary_remove_with_key(Dictionary *dictionary, const char *key){
 	Dictionary *ptr = search_dictionary_with_key(dictionary, key, prev);
 	if (ptr != NULL) {
 		Dictionary *next = ptr->next;
+		if (ptr->next == NULL) {
+			dictionary = ptr->next
+		}
 		if (prev != NULL) {
 			prev->next = next;
 		}
