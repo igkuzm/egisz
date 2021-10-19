@@ -7,6 +7,14 @@
  */
 #include <stdio.h>
 
+/*! \enum DICTIONARY_DATA_TYPE
+ *
+ *  type of date, used in dictionary value
+ */
+enum DICTIONARY_DATA_TYPE {	
+
+};
+
 struct Dictionary_t {
 	char key[128];
 	void *value;
