@@ -97,7 +97,7 @@ void dictionary_add_value_for_key(Dictionary *dictionary, void *value, DICTIONAR
 }
 
 void *dictionary_get_value_for_key(Dictionary *dictionary, const char *key){
-	Dictionary *ptr = search_dictionary_with_key(dictionary, key);
+	Dictionary *ptr = search_dictionary_with_key(dictionary, key, NULL);
 	if (ptr != NULL) {
 		return ptr->value;
 	}	
@@ -105,7 +105,7 @@ void *dictionary_get_value_for_key(Dictionary *dictionary, const char *key){
 }
 
 void dictionary_set_value_for_key(Dictionary *dictionary, void *value, DICTIONARY_DATA_TYPE data_type, const char *key){
-	Dictionary *ptr = search_dictionary_with_key(dictionary, key);
+	Dictionary *ptr = search_dictionary_with_key(dictionary, key, NULL);
 	if (ptr != NULL) {
 		set_value_for_key(ptr, value, data_type, key);
 	}	
