@@ -23,6 +23,7 @@ enum DICTIONARY_DATA_TYPE {
 struct Dictionary_t {
 	char key[128];
 	void *value;
+	DICTIONARY_DATA_TYPE data_type;
 	struct Dictionary_t *next;
 };
 typedef struct Dictionary_t Dictionary;
