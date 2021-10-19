@@ -38,7 +38,7 @@ Dictionary *dictionary_new(){
 	return dictionary;
 }
 
-void set_value_for_key(Dictionary *dictionary, DICTIONARY_DATA_TYPE data_type, void *value, const char *key){
+void set_value_for_key(Dictionary *dictionary, void *value, DICTIONARY_DATA_TYPE data_type,  const char *key){
 	strncpy(dictionary->key, key, 127);
 	dictionary->key[127] = 0;
 	dictionary->value = value;
@@ -65,7 +65,7 @@ Dictionary *search_dictionary_with_key(Dictionary *dictionary, const char *key){
 
 Dictionary *dictionary_new_with_value_for_key(void *value, DICTIONARY_DATA_TYPE data_type, const char *key){
 	Dictionary *dictionary = dictionary_new();
-	set_value_for_key(dictionary, value, key);
+	set_value_for_key(dictionary, value, data_type, key);
 	return dictionary;
 }
 
