@@ -12,7 +12,10 @@
  *  type of date, used in dictionary value
  */
 enum DICTIONARY_DATA_TYPE {	
-
+	DICTIONARY_DATA_TYPE_STRING,
+	DICTIONARY_DATA_TYPE_CHAR,
+	DICTIONARY_DATA_TYPE_NUMBER,
+	DICTIONARY_DATA_TYPE_DICTIONARY,
 };
 
 struct Dictionary_t {
