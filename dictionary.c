@@ -71,10 +71,12 @@ void *dictionary_get_value_for_key(Dictionary *dictionary, const char *key){
 
 	while(ptr != NULL) { //find dictionary with key
 		if (strncmp(ptr->key, key, 127) == 0) {
-			
+			return ptr->value;
 		}
 		ptr = ptr->next;
 	}	
 
+	printf("No value for key: %s\n", key);
+	return NULL;
 }
 
