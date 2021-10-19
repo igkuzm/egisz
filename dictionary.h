@@ -28,8 +28,8 @@ struct Dictionary_t {
 };
 typedef struct Dictionary_t Dictionary;
 
-Dictionary *dictionary_new_with_value_for_key(void *value, const char *key);
+Dictionary *dictionary_new_with_value_for_key(void *value, DICTIONARY_DATA_TYPE data_type, const char *key);
 void dictionary_print(Dictionary *dictionary);
-void dictionary_add_value_for_key(Dictionary *dictionary, void *value, const char *key);
-void dictionary_set_value_for_key(Dictionary *dictionary, void *value, const char *key);
+void dictionary_add_value_for_key(Dictionary *dictionary, void *value, DICTIONARY_DATA_TYPE data_type, const char *key);
+void dictionary_set_value_for_key(Dictionary *dictionary, void *value, DICTIONARY_DATA_TYPE data_type, const char *key);
 void *dictionary_get_value_for_key(Dictionary *dictionary, const char *key);
