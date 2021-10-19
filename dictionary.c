@@ -76,7 +76,7 @@ void *dictionary_get_value_for_key(Dictionary *dictionary, const char *key){
 		ptr = ptr->next;
 	}	
 
-	printf("No value for key: %s\n", key);
+	printf("Dictionary has no key: %s\n", key);
 	return NULL;
 }
 
@@ -94,7 +94,7 @@ void dictionary_set_value_for_key(Dictionary *dictionary, void *value, const cha
 		ptr = ptr->next;
 	}	
 
-	printf("No value for key: %s\n", key);
+	printf("Dictionary has no key: %s\n", key);
 	return;	
 }
 
