@@ -123,6 +123,7 @@ void dictionary_remove_with_key(Dictionary *dictionary, const char *key){
 		else {
 			dictionary = next;
 		}
+		free(ptr);
 	}
 }
 
