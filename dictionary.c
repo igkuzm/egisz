@@ -20,7 +20,10 @@ void dictionary_print(Dictionary *dictionary) {
 	   switch (ptr->data_type) {
 	   	case DICTIONARY_DATA_TYPE_STRING: printf("\"%s\": \"%s\"\n",ptr->key,(char *)ptr->value); break;
 	   	case DICTIONARY_DATA_TYPE_DICTIONARY: dictionary_print(ptr); break;
-	   	case DICTIONARY_DATA_TYPE_CHAR: printf("\"%s\": \"%c\"\n",ptr->key,(char *)ptr->value[0]); break;
+	   	case DICTIONARY_DATA_TYPE_CHAR:{
+			                             char *value = ptr->value; 
+										 printf("\"%s\": \"%c\"\n",ptr->key,value[0]); break;
+									   } 
 		default: break;
 	   }
       ptr = ptr->next;
