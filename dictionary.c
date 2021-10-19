@@ -52,11 +52,11 @@ void dictionary_add_value_for_key(Dictionary *dictionary, void *value, const cha
 		fprintf(stderr, "ERROR - dictionary is NULL\n");
 		return;
 	}
-	else {
-		while(ptr->next != NULL) { //find last dict
-			ptr = ptr->next;
-		}
+
+	while(ptr->next != NULL) { //find last dict
+		ptr = ptr->next;
 	}
+
 	Dictionary *new = dictionary_new();
 	dictionary_set_value_for_key(new, value, key);
 	ptr->next = new;
