@@ -49,6 +49,7 @@ Dictionary *dictionary_new_with_value_for_key(void *value, const char *key){
 void dictionary_add_value_for_key(Dictionary *dictionary, void *value, const char *key){
 	Dictionary *ptr = dictionary;
 	if (ptr == NULL) {
+		fprintf(stderr, "ERROR - dictionary is NULL\n");
 		return;
 	}
 	else {
