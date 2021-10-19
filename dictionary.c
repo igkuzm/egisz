@@ -40,6 +40,10 @@ void set_value_for_key(Dictionary *dictionary, void *value, const char *key){
 	dictionary->value = value;
 }
 
+Dictionary *search_dictionary_with_key(Dictionary *dictionary, const char *key){
+
+}
+
 Dictionary *dictionary_new_with_value_for_key(void *value, const char *key){
 	Dictionary *dictionary = dictionary_new();
 	set_value_for_key(dictionary, value, key);
