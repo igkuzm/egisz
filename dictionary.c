@@ -23,7 +23,7 @@ void dictionary_print(Dictionary *dictionary) {
 	   }
       ptr = ptr->next;
    }
-	
+
    printf(" }");
 }
 
