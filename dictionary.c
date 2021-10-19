@@ -120,6 +120,9 @@ void dictionary_remove_with_key(Dictionary *dictionary, const char *key){
 		if (prev != NULL) {
 			prev->next = next;
 		}
+		else {
+			dictionary = next;
+		}
 	}
 }
 
