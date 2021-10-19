@@ -11,7 +11,7 @@
 #include <string.h>
 #include <uuid/uuid.h>
 
-void dictionary_print_data(Dictionary *dictionary) {
+void dictionary_print(Dictionary *dictionary) {
    Dictionary *ptr = dictionary;
    printf("\n{ ");
 	
