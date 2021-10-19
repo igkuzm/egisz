@@ -33,6 +33,17 @@ Dictionary *dictionary_new(){
    return dictionary;
 }
 
+void dictionary_set_value_for_key(Dictionary *dictionary, void *value, const char *key){
+	dictionary->next = NULL;
+	strncpy(dictionary->key, key, 127);
+	dictionary->key[127] = 0;
+	dictionary->value = value;
+}
+
+Dictionary *dictionary_new_with_value_for_key(void *value, const char *key){
+	Dictionary *dictionary = dictionary_new();
+	return dictionary;
+}
 void dictionary_add_value_for_key(Dictionary *dictionary, void *value, const char *key){
 	Dictionary *ptr = dictionary;
 	if (ptr == NULL) {
@@ -43,13 +54,5 @@ void dictionary_add_value_for_key(Dictionary *dictionary, void *value, const cha
 			ptr = ptr->next;
 		}
 	}
-}
-Dictionary *dictionary_new_with_value_for_key(void *value, const char *key){
-	Dictionary *dictionary = dictionary_new();
-	dictionary->next = NULL;
-	strncpy(dictionary->key, key, 127);
-	dictionary->key[127] = 0;
-	dictionary->value = value;
-	return dictionary;
 }
 
