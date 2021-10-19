@@ -45,6 +45,7 @@ Dictionary *dictionary_new_with_value_for_key(void *value, const char *key){
 	dictionary_set_value_for_key(dictionary, value, key);
 	return dictionary;
 }
+
 void dictionary_add_value_for_key(Dictionary *dictionary, void *value, const char *key){
 	Dictionary *ptr = dictionary;
 	if (ptr == NULL) {
