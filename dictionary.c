@@ -85,6 +85,7 @@ void *dictionary_get_value_for_key(Dictionary *dictionary, const char *key){
 	if (ptr != NULL) {
 		return ptr->value;
 	}	
+	return NULL;
 }
 
 void dictionary_set_value_for_key(Dictionary *dictionary, void *value, const char *key){
