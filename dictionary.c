@@ -65,6 +65,7 @@ void dictionary_add_value_for_key(Dictionary *dictionary, void *value, const cha
 void *dictionary_get_value_for_key(Dictionary *dictionary, const char *key){
 	Dictionary *ptr = dictionary;
 	if (ptr == NULL) {
+		fprintf(stderr, "ERROR - dictionary is NULL\n");
 		return NULL;
 	}	
 
