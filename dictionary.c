@@ -145,7 +145,12 @@ void array_add_item(Array *array, void *item){
 	array->data[array->count] = item;
 	array->count++;
 }
-void array_insert_item_at_index(Array *array, void *item, int index);
+void array_insert_item_at_index(Array *array, void *item, int index){
+	int	i;
+	for (i = 0; i < array->count; ++i) {
+		
+	}
+}
 void *array_item_at_index(Array *array, int index);
 void array_remove_item_at_index(Array *array, int index);
 
