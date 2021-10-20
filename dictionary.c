@@ -48,7 +48,7 @@ Dictionary *dictionary_new(){
 	return dictionary;
 }
 
-Dictionary *dictionary_free(Dictionary *dictionary){
+void dictionary_free(Dictionary *dictionary){
 }
 
 void set_value_for_key(Dictionary *dictionary, void *value, DICTIONARY_DATA_TYPE data_type,  const char *key){
