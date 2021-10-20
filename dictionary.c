@@ -9,7 +9,6 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <string.h>
-#include <uuid/uuid.h>
 
 void dictionary_print(Dictionary *dictionary) {
    Dictionary *ptr = dictionary;
