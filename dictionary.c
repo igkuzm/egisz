@@ -165,10 +165,18 @@ void *array_item_at_index(Array *array, int index){
 	for (i = 0; i < array->count; ++i) {
 		void *item = array->data[i];
 		if (index == i) {
-			return array->data[i];
+			return item;
 		}	
 	}
 	return NULL;
 }
-void array_remove_item_at_index(Array *array, int index);
+void array_remove_item_at_index(Array *array, int index){
+	int	i;
+	for (i = 0; i < array->count; ++i) {
+		void *item = array->data[i];
+		if (index == i) {
+
+		}	
+	}
+}
 
