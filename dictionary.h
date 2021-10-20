@@ -34,7 +34,7 @@ void dictionary_print(Dictionary *dictionary);
 void dictionary_add_value_for_key(Dictionary *dictionary, void *value, DICTIONARY_DATA_TYPE data_type, const char *key);
 void dictionary_set_value_for_key(Dictionary *dictionary, void *value, DICTIONARY_DATA_TYPE data_type, const char *key);
 void *dictionary_get_value_for_key(Dictionary *dictionary, const char *key);
-void dictionary_remove_with_key(Dictionary *dictionary, const char *key);
+void dictionary_remove_value_for_key(Dictionary *dictionary, const char *key);
 
 struct Array_t {
 	void *data;
