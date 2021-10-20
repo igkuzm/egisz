@@ -40,3 +40,7 @@ struct Array_t {
 	int count;
 };
 typedef struct Array_t Array;
+
+Array *array_new();
+void *array_add_item(Array *array, void *item);
+void *array_insert_item(Array *array, int i, void *item);
