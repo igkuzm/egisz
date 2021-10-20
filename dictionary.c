@@ -178,5 +178,6 @@ void array_remove_item_at_index(Array *array, int index){
 
 		}	
 	}
+	array->count--;
 }
 
