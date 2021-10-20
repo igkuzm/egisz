@@ -53,7 +53,9 @@ void dictionary_free(Dictionary *dictionary){
 	while(ptr->next != NULL) { //find dictionary with key
 		Dictionary *dict_to_free = ptr;
 		ptr = ptr->next;
+		free(dict_to_free);
 	}
+	free(ptr);
 }
 
 void set_value_for_key(Dictionary *dictionary, void *value, DICTIONARY_DATA_TYPE data_type,  const char *key){
