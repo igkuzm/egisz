@@ -131,10 +131,15 @@ Array *array_new(){
 	Array *array = malloc(sizeof(Array));
 	array->data = malloc(8); //size of poin is 8
 	array->count = 0;
-
 	return array;
 }
-void array_free();
+void array_free(Array *array){
+	int i;
+	for (i = 0; i < array->count; ++i) {
+		free(array->data[i]);	
+	}
+	free(array);
+}
 void array_add_item(Array *array, void *item);
 void array_insert_item_at_index(Array *array, void *item, int index);
 void *array_item_at_index(Array *array, int index);
