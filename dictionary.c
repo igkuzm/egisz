@@ -175,8 +175,8 @@ void array_remove_item_at_index(Array *array, int index){
 	int	i;
 	for (i = 0; i < array->count; ++i) {
 		void *item = array->data[i];
-		if (index == i) {
-
+		if (index != i) {
+			array_add_item(new_array, item);
 		}
 	}
 	array_free(array);
