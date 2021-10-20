@@ -148,7 +148,7 @@ void array_add_item(Array *array, void *item){
 }
 void array_insert_item_at_index(Array *array, void *new_item, int index){
 	array->data = realloc(array->data, (array->count + 1) * 8);
-	int	i;
+	int	i, k;
 	for (i = 0; i < array->count; ++i) {
 		void *item = array->data[i];
 		if (index == i) {
