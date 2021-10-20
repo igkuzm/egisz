@@ -158,6 +158,7 @@ void array_insert_item_at_index(Array *array, void *new_item, int index){
 		array->data[k] = item;
 		k++;
 	}
+	array->count++;
 }
 void *array_item_at_index(Array *array, int index);
 void array_remove_item_at_index(Array *array, int index);
