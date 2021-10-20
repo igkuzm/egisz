@@ -50,11 +50,7 @@ Dictionary *dictionary_new(){
 
 void dictionary_free(Dictionary *dictionary){
 	Dictionary *ptr = dictionary;
-	while(ptr != NULL) { //find dictionary with key
-		if (strncmp(ptr->key, key, 127) == 0) {
-			return ptr;
-		}
-		prev = ptr;
+	while(ptr->next != NULL) { //find dictionary with key
 		ptr = ptr->next;
 	}
 }
