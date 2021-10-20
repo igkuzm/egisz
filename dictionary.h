@@ -38,5 +38,5 @@ void dictionary_remove_with_key(Dictionary *dictionary, const char *key);
 struct Array_t {
 	void *data;
 	int count;
-}
+};
 typedef struct Array_t Array;
