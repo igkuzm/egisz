@@ -2,7 +2,7 @@
  * File              : dictionary.c
  * Author            : Igor V. Sementsov <ig.kuzm@gmail.com>
  * Date              : 18.10.2021
- * Last Modified Date: 19.10.2021
+ * Last Modified Date: 20.10.2021
  * Last Modified By  : Igor V. Sementsov <ig.kuzm@gmail.com>
  */
 #include "dictionary.h"
@@ -112,7 +112,7 @@ void dictionary_set_value_for_key(Dictionary *dictionary, void *value, DICTIONAR
 	}	
 }
 
-void dictionary_remove_with_key(Dictionary *dictionary, const char *key){
+void dictionary_remove_value_for_key(Dictionary *dictionary, const char *key){
 	Dictionary *prev;
 	Dictionary *ptr = search_dictionary_with_key(dictionary, key, prev);
 	if (ptr != NULL) {
