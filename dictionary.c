@@ -154,6 +154,8 @@ void array_insert_item_at_index(Array *array, void *new_item, int index){
 		if (index == i) {
 			
 		}	
+		array->data[k] = item;
+		k++;
 	}
 }
 void *array_item_at_index(Array *array, int index);
