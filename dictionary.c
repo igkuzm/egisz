@@ -49,6 +49,14 @@ Dictionary *dictionary_new(){
 }
 
 void dictionary_free(Dictionary *dictionary){
+	Dictionary *ptr = dictionary;
+	while(ptr != NULL) { //find dictionary with key
+		if (strncmp(ptr->key, key, 127) == 0) {
+			return ptr;
+		}
+		prev = ptr;
+		ptr = ptr->next;
+	}
 }
 
 void set_value_for_key(Dictionary *dictionary, void *value, DICTIONARY_DATA_TYPE data_type,  const char *key){
