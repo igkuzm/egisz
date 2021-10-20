@@ -42,5 +42,6 @@ struct Array_t {
 typedef struct Array_t Array;
 
 Array *array_new();
-void *array_add_item(Array *array, void *item);
-void *array_insert_item(Array *array, int i, void *item);
+void array_add_item(Array *array, void *item);
+void array_insert_item(Array *array, int index, void *item);
+void *array_item_at_index(Array *array, int index);
