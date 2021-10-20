@@ -51,6 +51,7 @@ Dictionary *dictionary_new(){
 void dictionary_free(Dictionary *dictionary){
 	Dictionary *ptr = dictionary;
 	while(ptr->next != NULL) { //find dictionary with key
+		Dictionary *dict_to_free = ptr;
 		ptr = ptr->next;
 	}
 }
