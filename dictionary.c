@@ -142,6 +142,7 @@ void array_free(Array *array){
 	free(array);
 }
 void array_add_item(Array *array, void *item){
+	array->data = realloc(array->data, (array->count + 1) * 8);
 	array->data[array->count] = item;
 	array->count++;
 }
