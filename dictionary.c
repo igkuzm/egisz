@@ -136,7 +136,7 @@ Array *array_new(){
 void array_free(Array *array){
 	int i;
 	for (i = 0; i < array->count; ++i) {
-		void *element = array->data[i];
+		void *item = array->data[i];
 		free(element);	
 	}
 	free(array);
