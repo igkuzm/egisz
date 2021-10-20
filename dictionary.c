@@ -129,6 +129,8 @@ void dictionary_remove_value_for_key(Dictionary *dictionary, const char *key){
 
 Array *array_new(){
 	Array *array = malloc(sizeof(Array));
+	array->data = malloc(8); //size of poin is 8
+	array->count = 0;
 
 	return array;
 }
