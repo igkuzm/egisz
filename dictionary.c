@@ -171,12 +171,13 @@ void *array_item_at_index(Array *array, int index){
 	return NULL;
 }
 void array_remove_item_at_index(Array *array, int index){
+	Array *new_array = array_new();
 	int	i, k=0;
 	for (i = 0; i < array->count; ++i) {
 		void *item = array->data[i];
 		if (index == i) {
 
-		}	
+		}
 	}
 	array->count--;
 }
