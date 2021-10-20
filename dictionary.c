@@ -141,7 +141,9 @@ void array_free(Array *array){
 	}
 	free(array);
 }
-void array_add_item(Array *array, void *item);
+void array_add_item(Array *array, void *item){
+	array->data[array->count] = item;
+}
 void array_insert_item_at_index(Array *array, void *item, int index);
 void *array_item_at_index(Array *array, int index);
 void array_remove_item_at_index(Array *array, int index);
