@@ -33,8 +33,8 @@ void dictionary_free(Dictionary *dictionary);
 void dictionary_print(Dictionary *dictionary);
 void dictionary_add_value_for_key(Dictionary *dictionary, void *value, DICTIONARY_DATA_TYPE data_type, const char *key);
 void dictionary_set_value_for_key(Dictionary *dictionary, void *value, DICTIONARY_DATA_TYPE data_type, const char *key);
-void *dictionary_get_value_for_key(Dictionary *dictionary, const char *key);
 void dictionary_remove_value_for_key(Dictionary *dictionary, const char *key);
+void *dictionary_get_value_for_key(Dictionary *dictionary, const char *key);
 
 struct Array_t {
 	void **data;
@@ -46,5 +46,5 @@ Array *array_new();
 void array_free(Array *array);
 void array_add_item(Array *array, void *item);
 void array_insert_item_at_index(Array *array, void *item, int index);
-void *array_item_at_index(Array *array, int index);
 void array_remove_item_at_index(Array *array, int index);
+void *array_item_at_index(Array *array, int index);
