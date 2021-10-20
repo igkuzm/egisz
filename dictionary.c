@@ -148,7 +148,7 @@ void array_add_item(Array *array, void *item){
 }
 void array_insert_item_at_index(Array *array, void *new_item, int index){
 	array->data = realloc(array->data, (array->count + 1) * 8);
-	int	i, k;
+	int	i, k=0;
 	for (i = 0; i < array->count; ++i) {
 		void *item = array->data[i];
 		if (index == i) {
@@ -171,7 +171,7 @@ void *array_item_at_index(Array *array, int index){
 	return NULL;
 }
 void array_remove_item_at_index(Array *array, int index){
-	int	i, k;
+	int	i, k=0;
 	for (i = 0; i < array->count; ++i) {
 		void *item = array->data[i];
 		if (index == i) {
