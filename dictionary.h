@@ -37,13 +37,13 @@ void *dictionary_get_value_for_key(Dictionary *dictionary, const char *key);
 void dictionary_remove_value_for_key(Dictionary *dictionary, const char *key);
 
 struct Array_t {
-	void *data;
+	void **data;
 	int count;
 };
 typedef struct Array_t Array;
 
 Array *array_new();
-void array_free();
+void array_free(Array *array);
 void array_add_item(Array *array, void *item);
 void array_insert_item_at_index(Array *array, void *item, int index);
 void *array_item_at_index(Array *array, int index);
