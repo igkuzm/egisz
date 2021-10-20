@@ -137,7 +137,7 @@ void array_free(Array *array){
 	int i;
 	for (i = 0; i < array->count; ++i) {
 		void *item = array->data[i];
-		free(element);	
+		free(item);	
 	}
 	free(array);
 }
