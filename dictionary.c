@@ -153,7 +153,7 @@ void array_insert_item_at_index(Array *array, void *new_item, int index){
 		void *item = array->data[i];
 		if (index == i) {
 			array->data[k] = new_item;
-			
+			k++;
 		}	
 		array->data[k] = item;
 		k++;
