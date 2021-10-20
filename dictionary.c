@@ -172,7 +172,7 @@ void *array_item_at_index(Array *array, int index){
 }
 void array_remove_item_at_index(Array *array, int index){
 	Array *new_array = array_new();
-	int	i, k=0;
+	int	i;
 	for (i = 0; i < array->count; ++i) {
 		void *item = array->data[i];
 		if (index == i) {
